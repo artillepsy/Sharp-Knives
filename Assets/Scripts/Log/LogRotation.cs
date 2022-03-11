@@ -34,7 +34,6 @@ namespace Log
         private void Update()
         {
             UpdateRotationSpeed();
-            //Debug.Log(_currentRotationSpeed);
             if (ReadyToStartNewRotation()) StartNewRotation();
         }
 

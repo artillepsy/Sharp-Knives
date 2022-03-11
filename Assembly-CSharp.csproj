@@ -44,8 +44,17 @@
      <Compile Include="Assets\Scripts\Core\MeshData.cs" />
      <Compile Include="Assets\Scripts\Core\MeshDisplay.cs" />
      <Compile Include="Assets\Scripts\Log\LogRotation.cs" />
+     <Compile Include="Assets\Scripts\Knife\KnifeMovement.cs" />
      <Compile Include="Assets\Vibration\Example\VibrationExample.cs" />
      <Compile Include="Assets\Vibration\Vibration.cs" />
+     <Compile Include="Assets\Scripts\Core\TouchInput.cs" />
+     <Compile Include="Assets\Scripts\Log\LogStickness.cs" />
+     <Compile Include="Assets\Scripts\Knife\MovementState.cs" />
+     <Compile Include="Assets\Scripts\Management\KnifeManager.cs" />
+     <Compile Include="Assets\Scripts\Management\LevelManager.cs" />
+     <Compile Include="Assets\Scripts\Core\SpriteData.cs" />
+     <Compile Include="Assets\Scripts\Core\SpriteDisplay.cs" />
+     <Compile Include="Assets\Scripts\Knife\KnifeStateController.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:/Program Files/unity/2021.2.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -741,6 +750,9 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Sprite.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
