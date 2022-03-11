@@ -25,6 +25,7 @@
             <e p="LogStickness.cs" t="Include" />
           </e>
           <e p="Management" t="Include">
+            <e p="HUDManager.cs" t="Include" />
             <e p="KnifeManager.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
           </e>

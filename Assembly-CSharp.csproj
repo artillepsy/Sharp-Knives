@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Management\LevelManager.cs" />
      <Compile Include="Assets\Scripts\Log\LogStickness.cs" />
      <Compile Include="Assets\Vibration\Vibration.cs" />
+     <Compile Include="Assets\Scripts\Management\HUDManager.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:/Program Files/unity/2021.2.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>

@@ -1,10 +1,12 @@
 ﻿using Knife;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Log
 {
     public class LogStickness : MonoBehaviour
     {
+        public static readonly UnityEvent OnKnifeStick = new UnityEvent();
         private void OnTriggerEnter(Collider other)
         {
             var comp = other.GetComponentInParent<KnifeStateController>();
@@ -14,6 +16,7 @@ namespace Log
             
             comp.transform.SetParent(transform);
             comp.SetState(KnifeState.Sticked);
+            OnKnifeStick?.Invoke();
         }
 
         private void OnCollisionEnter(Collision other)
