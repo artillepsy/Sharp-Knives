@@ -7,20 +7,20 @@ namespace Log
     {
         private void OnTriggerEnter(Collider other)
         {
-            var comp = other.GetComponentInParent<KnifeMovement>();
+            var comp = other.GetComponentInParent<KnifeStateController>();
             
             if (comp == null) return;
-            if (comp.State == MovementState.Stopped) return;
+            if (comp.State == KnifeState.Stopped) return;
             
             comp.transform.SetParent(transform);
-            comp.State = MovementState.Sticked;
+            comp.SetState(KnifeState.Sticked);
         }
 
         private void OnCollisionEnter(Collision other)
         {
-            var comp = other.collider.GetComponentInParent<KnifeMovement>();
+            var comp = other.collider.GetComponentInParent<KnifeStateController>();
             if (comp == null) return;
-            comp.State = MovementState.Stopped;
+            comp.SetState(KnifeState.Stopped);
         }
     }
 }

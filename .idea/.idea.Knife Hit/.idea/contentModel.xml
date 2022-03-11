@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Core" t="Include">
+            <e p="IOnKnifeStateChange.cs" t="Include" />
             <e p="MeshData.cs" t="Include" />
             <e p="MeshDisplay.cs" t="Include" />
             <e p="SpriteData.cs" t="Include" />
@@ -16,8 +17,8 @@
           </e>
           <e p="Knife" t="Include">
             <e p="KnifeMovement.cs" t="Include" />
+            <e p="KnifeState.cs" t="Include" />
             <e p="KnifeStateController.cs" t="Include" />
-            <e p="MovementState.cs" t="Include" />
           </e>
           <e p="Log" t="Include">
             <e p="LogRotation.cs" t="Include" />

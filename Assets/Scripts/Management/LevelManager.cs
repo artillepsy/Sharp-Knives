@@ -8,7 +8,7 @@ namespace Management
     {
         private void OnEnable()
         {
-            KnifeMovement.OnLevelEnd.AddListener(EndLevel);
+            KnifeStateController.OnDrop?.AddListener(EndLevel);
         }
 
         private void EndLevel()
