@@ -1,14 +1,18 @@
-﻿using Core;
-using Knife;
+﻿using Knife;
 using Log;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace Management
 {
     public class LevelManager : MonoBehaviour
     {
+        [SerializeField] private string levelName = "Game";
+        [SerializeField] private float newSceneLoadTIme = 3f;
+        
         private int _knifeCount;
+        public static readonly UnityEvent OnWinGame = new UnityEvent();
         public void SetKnifeCount(int count)
         {
             _knifeCount = count;
@@ -16,19 +20,32 @@ namespace Management
 
         private void OnEnable()
         {
-            KnifeStateController.OnDrop.AddListener(EndLevel);
+            KnifeStateController.OnDrop.AddListener(OnGameOver);
             LogStickness.OnKnifeStick.AddListener(ReduceKnifeCount);
         }
 
         private void ReduceKnifeCount()
         {
             _knifeCount--;
-            if(_knifeCount == 0) EndLevel();
+            if(_knifeCount == 0) OnWin();
         }
 
-        private void EndLevel()
+        private void OnGameOver()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(levelName);
+            Vibration.Vibrate(2000);
+        }
+        private void OnWin()
+        {
+            Invoke(nameof(LoadScene), newSceneLoadTIme);
+            OnWinGame?.Invoke();
+            Vibration.Vibrate(2000);
+        }
+
+
+        private void LoadScene()
+        {
+            SceneManager.LoadScene(levelName);
         }
     }
 }

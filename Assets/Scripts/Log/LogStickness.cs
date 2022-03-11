@@ -7,6 +7,13 @@ namespace Log
     public class LogStickness : MonoBehaviour
     {
         public static readonly UnityEvent OnKnifeStick = new UnityEvent();
+        public static float LogRadius;
+
+        private void Awake()
+        {
+            LogRadius = GetComponent<CapsuleCollider>().radius;
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             var comp = other.GetComponentInParent<KnifeStateController>();
@@ -17,6 +24,7 @@ namespace Log
             comp.transform.SetParent(transform);
             comp.SetState(KnifeState.Sticked);
             OnKnifeStick?.Invoke();
+            Vibration.Vibrate();
         }
 
         private void OnCollisionEnter(Collision other)

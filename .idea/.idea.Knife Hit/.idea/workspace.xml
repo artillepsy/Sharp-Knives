@@ -20,13 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23757215-a1a0-4088-aa38-fefc001038b8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Management/LogManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Management/LogManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Knife/Knife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Knife/Knife.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Log/Log.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Log/Log.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Log/Material.001.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Log/Material.001.mat.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/TouchInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/TouchInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Log/LogStickness.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Log/LogStickness.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Management/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Management/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,14 +63,17 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Core/SpriteDisplay.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Core/IOnKnifeStateChange.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/CanvasManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogStickness.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/HUDManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Management/KnifeManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Management/LevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Core/TouchInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Management/KnifeImage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Management/HudManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogStickness.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Management/LevelManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Management/KnifeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Management/LogManager.cs" />
       </list>
     </option>
   </component>
@@ -110,7 +121,7 @@
       <workItem from="1646984522621" duration="17199000" />
       <workItem from="1647007266484" duration="1922000" />
       <workItem from="1647009565777" duration="648000" />
-      <workItem from="1647013606607" duration="5253000" />
+      <workItem from="1647013606607" duration="13385000" />
     </task>
     <servers />
   </component>

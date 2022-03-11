@@ -28,6 +28,7 @@
             <e p="HUDManager.cs" t="Include" />
             <e p="KnifeManager.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
+            <e p="LogManager.cs" t="Include" />
           </e>
         </e>
         <e p="Vibration" t="Include">

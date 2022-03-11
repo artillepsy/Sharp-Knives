@@ -16,6 +16,7 @@ namespace Core
         private void Awake()
         {
             _currentTime = reloadTimeInSeconds;
+            Vibration.Init();
         }
 
         private void Update()
@@ -26,6 +27,7 @@ namespace Core
 
         private void Throw()
         {
+            Vibration.Vibrate();
             OnTouch?.Invoke();
             _currentTime = reloadTimeInSeconds;
         }
