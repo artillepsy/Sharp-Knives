@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Log
+    uniqueID: 2722690095
+    locked: 0
+  - name: Knifes
+    uniqueID: 3984263561
+    locked: 0

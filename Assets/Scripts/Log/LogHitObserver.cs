@@ -1,12 +1,11 @@
-﻿using Knife;
+﻿using Core;
+using Knife;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Log
 {
-    public class LogStickness : MonoBehaviour
+    public class LogHitObserver : MonoBehaviour
     {
-        public static readonly UnityEvent OnKnifeStick = new UnityEvent();
         public static float LogRadius;
 
         private void Awake()
@@ -22,9 +21,9 @@ namespace Log
             if (comp.State == KnifeState.Stopped) return;
             
             comp.transform.SetParent(transform);
-            comp.SetState(KnifeState.Sticked);
-            OnKnifeStick?.Invoke();
-            Vibration.Vibrate();
+            comp.SetState(KnifeState.Hitted);
+            Events.OnKnifeHit?.Invoke();
+            Vibration.VibratePop();
         }
 
         private void OnCollisionEnter(Collision other)

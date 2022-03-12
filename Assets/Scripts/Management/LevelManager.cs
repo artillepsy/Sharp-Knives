@@ -1,7 +1,5 @@
-﻿using Knife;
-using Log;
+﻿using Core;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace Management
@@ -12,7 +10,7 @@ namespace Management
         [SerializeField] private float newSceneLoadTIme = 3f;
         
         private int _knifeCount;
-        public static readonly UnityEvent OnWinGame = new UnityEvent();
+        
         public void SetKnifeCount(int count)
         {
             _knifeCount = count;
@@ -20,8 +18,8 @@ namespace Management
 
         private void OnEnable()
         {
-            KnifeStateController.OnDrop.AddListener(OnGameOver);
-            LogStickness.OnKnifeStick.AddListener(ReduceKnifeCount);
+            Events.OnKnifeDrop.AddListener(OnGameOver);
+            Events.OnKnifeHit.AddListener(ReduceKnifeCount);
         }
 
         private void ReduceKnifeCount()
@@ -32,16 +30,15 @@ namespace Management
 
         private void OnGameOver()
         {
-            SceneManager.LoadScene(levelName);
-            Vibration.Vibrate(2000);
+            Invoke(nameof(LoadScene), newSceneLoadTIme);
+            Vibration.VibratePeek();
         }
         private void OnWin()
         {
             Invoke(nameof(LoadScene), newSceneLoadTIme);
-            OnWinGame?.Invoke();
-            Vibration.Vibrate(2000);
+            Events.OnWinGame?.Invoke();
+            Vibration.VibrateNope();
         }
-
 
         private void LoadScene()
         {

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Core;
-using Log;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Knife
 {
@@ -13,7 +10,6 @@ namespace Knife
         private KnifeState _state;
         public KnifeState State => _state;
         private List<IOnKnifeStateChange> _subscribers;
-        public static UnityEvent OnDrop = new UnityEvent();
 
         public void SetState(KnifeState newState)
         {
@@ -23,22 +19,24 @@ namespace Knife
 
         private void Awake()
         {
-            AddSubscribers();
+            Vibration.Init();
+            SubscribeComponents();
             _state = KnifeState.Ready;
         }
 
         private void OnEnable()
         {
-            TouchInput.OnTouch.AddListener(OnTouch);
+            Events.OnTap.AddListener(OnTap);
         }
 
-        private void OnTouch()
+        private void OnTap()
         {
+            if (_state != KnifeState.Ready) return;
             _state = KnifeState.Moving;
             NotifyAll(_state);
         }
 
-        private void AddSubscribers()
+        private void SubscribeComponents()
         {
             _subscribers = GetComponents<IOnKnifeStateChange>().ToList();
         }
@@ -54,12 +52,16 @@ namespace Knife
         private void OnCollisionEnter(Collision other)
         {
             if (_state != KnifeState.Moving) return;
+            
             var comp = other.gameObject.GetComponent<KnifeStateController>();
             if (comp == null) return;
-            if (comp.State != KnifeState.Moving) return;
-            OnDrop?.Invoke();
+            if (comp.State != KnifeState.Stopped) return;
+            Debug.Log("dropped: "+ _state );
             _state = KnifeState.Dropped;
+           
             NotifyAll(_state);
+            Vibration.VibratePop();
+            Events.OnKnifeDrop?.Invoke();
         }
     }
 }

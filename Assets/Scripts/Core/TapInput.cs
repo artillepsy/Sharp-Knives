@@ -1,34 +1,35 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Core
 {
-    public class TouchInput : MonoBehaviour
+    public class TapInput : MonoBehaviour
     {
         [SerializeField] private float reloadTimeInSeconds = 1f;
-        [SerializeField] private float startReloadTimeInSeconds = 2f;
-        
         public float ReloadTimeInSeconds => reloadTimeInSeconds;
         private float _currentTime = 0;
-        public static UnityEvent OnTouch = new UnityEvent();
+        private bool _inputEnabled = true;
 
         private void Awake()
         {
             _currentTime = reloadTimeInSeconds;
-            Vibration.Init();
+        }
+
+        private void OnEnable()
+        {
+            Events.OnKnifeDrop.AddListener(() => _inputEnabled = false);
         }
 
         private void Update()
         {
+            if (!_inputEnabled) return;
             if (!ReadyToThrow()) return;
             if (Input.touchCount > 0) Throw();
         }
 
         private void Throw()
         {
-            Vibration.Vibrate();
-            OnTouch?.Invoke();
+            Events.OnTap?.Invoke();
             _currentTime = reloadTimeInSeconds;
         }
         private bool ReadyToThrow()

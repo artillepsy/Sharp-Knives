@@ -43,7 +43,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Knife\KnifeState.cs" />
      <Compile Include="Assets\Scripts\Core\IOnKnifeStateChange.cs" />
-     <Compile Include="Assets\Scripts\Core\TouchInput.cs" />
+     <Compile Include="Assets\Scripts\Core\TapInput.cs" />
      <Compile Include="Assets\Scripts\Core\SpriteData.cs" />
      <Compile Include="Assets\Scripts\Core\MeshData.cs" />
      <Compile Include="Assets\Scripts\Management\KnifeManager.cs" />
@@ -54,10 +54,14 @@
      <Compile Include="Assets\Scripts\Core\SpriteDisplay.cs" />
      <Compile Include="Assets\Vibration\Example\VibrationExample.cs" />
      <Compile Include="Assets\Scripts\Management\LevelManager.cs" />
-     <Compile Include="Assets\Scripts\Log\LogStickness.cs" />
+     <Compile Include="Assets\Scripts\Log\LogHitObserver.cs" />
      <Compile Include="Assets\Vibration\Vibration.cs" />
      <Compile Include="Assets\Scripts\Management\HudManager.cs" />
-     <Compile Include="Assets\Scripts\Management\LogManager.cs" />
+     <Compile Include="Assets\Scripts\Core\Events.cs" />
+     <Compile Include="Assets\Scripts\ItemThrow\ItemThrower.cs" />
+     <Compile Include="Assets\Scripts\ItemThrow\LogPartThrower.cs" />
+     <Compile Include="Assets\Scripts\ItemThrow\KnifeThrower.cs" />
+     <Compile Include="Assets\Scripts\ItemThrow\KnifeDropper.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:/Program Files/unity/2021.2.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
