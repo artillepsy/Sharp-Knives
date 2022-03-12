@@ -10,8 +10,6 @@
           <e p="Core" t="Include">
             <e p="Events.cs" t="Include" />
             <e p="IOnKnifeStateChange.cs" t="Include" />
-            <e p="MeshDisplay.cs" t="Include" />
-            <e p="SpriteDisplay.cs" t="Include" />
             <e p="TapInput.cs" t="Include" />
           </e>
           <e p="ItemThrow" t="Include">
@@ -21,25 +19,27 @@
             <e p="LogPartThrower.cs" t="Include" />
           </e>
           <e p="Knife" t="Include">
+            <e p="KnifeGraphics.cs" t="Include" />
             <e p="KnifeMovement.cs" t="Include" />
             <e p="KnifeState.cs" t="Include" />
             <e p="KnifeStateController.cs" t="Include" />
           </e>
+          <e p="Level" t="Include">
+            <e p="IOnLevelLoad.cs" t="Include" />
+            <e p="LevelData.cs" t="Include" />
+            <e p="LevelSettings.cs" t="Include" />
+          </e>
           <e p="Log" t="Include">
-            <e p="LogHitObserver.cs" t="Include" />
+            <e p="LogGraphics.cs" t="Include" />
+            <e p="LogPartGraphics.cs" t="Include" />
             <e p="LogRotation.cs" t="Include" />
             <e p="LogShake.cs" t="Include" />
           </e>
           <e p="Management" t="Include">
+            <e p="GameManager.cs" t="Include" />
             <e p="HUDManager.cs" t="Include" />
             <e p="KnifeManager.cs" t="Include" />
-            <e p="LevelManager.cs" t="Include" />
           </e>
-          <e p="Scriptable" t="Include">
-            <e p="MeshData.cs" t="Include" />
-            <e p="SpriteData.cs" t="Include" />
-          </e>
-          <e p="Spawners" t="Include" />
         </e>
         <e p="Vibration" t="Include">
           <e p="Example" t="Include">

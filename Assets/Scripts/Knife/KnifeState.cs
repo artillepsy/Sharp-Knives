@@ -4,7 +4,6 @@
     {
         Ready,
         Moving,
-        Hitted,
         Stopped,
         Dropped
     }

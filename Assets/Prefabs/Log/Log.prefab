@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4716802911827781371}
   - component: {fileID: 1604995893012526522}
-  - component: {fileID: 3910718317116392469}
   - component: {fileID: 5637208922420145330}
   - component: {fileID: 8931971039345426571}
-  - component: {fileID: 6685872644799660293}
   - component: {fileID: 7883208323270654436}
+  - component: {fileID: 8536919044675729461}
   m_Layer: 0
   m_Name: Log
   m_TagString: Untagged
@@ -54,20 +53,6 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!136 &3910718317116392469
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5412678793479350886}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.88
-  m_Height: 2.71
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &5637208922420145330
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -95,11 +80,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationUp: {x: 0, y: 0, z: 1}
-  minRotationSpeed: 100
-  maxRotationSpeed: 300
-  minRotationTime: 10
-  maxRotationTime: 25
-  alwaysSwapDirection: 1
   speedChangeAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -124,18 +104,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6685872644799660293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5412678793479350886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09791d66b1564895a2a9ac73a00fb1ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7883208323270654436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e54a04823a4254af34312ea04b52e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 0}
   _animationCurve:
     serializedVersion: 2
     m_Curve:
@@ -175,6 +142,18 @@ MonoBehaviour:
     m_RotationOrder: 4
   maxIntensity: 1
   duration: 0.1
+--- !u!114 &8536919044675729461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5412678793479350886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce00e16080a40dc8962fdcad214d2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3704950725027003401
 PrefabInstance:
   m_ObjectHideFlags: 0

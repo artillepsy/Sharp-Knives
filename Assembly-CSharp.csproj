@@ -41,28 +41,29 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Level\LevelData.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeState.cs" />
+     <Compile Include="Assets\Scripts\ItemThrow\ItemThrower.cs" />
+     <Compile Include="Assets\Scripts\Log\LogGraphics.cs" />
+     <Compile Include="Assets\Scripts\Level\LevelSettings.cs" />
+     <Compile Include="Assets\Scripts\Log\LogShake.cs" />
      <Compile Include="Assets\Scripts\Core\IOnKnifeStateChange.cs" />
+     <Compile Include="Assets\Scripts\ItemThrow\KnifeDropper.cs" />
+     <Compile Include="Assets\Scripts\Level\IOnLevelLoad.cs" />
      <Compile Include="Assets\Scripts\Core\TapInput.cs" />
-     <Compile Include="Assets\Scripts\Scriptable\SpriteData.cs" />
-     <Compile Include="Assets\Scripts\Scriptable\MeshData.cs" />
      <Compile Include="Assets\Scripts\Management\KnifeManager.cs" />
-     <Compile Include="Assets\Scripts\Core\MeshDisplay.cs" />
+     <Compile Include="Assets\Scripts\Management\HudManager.cs" />
      <Compile Include="Assets\Scripts\Log\LogRotation.cs" />
+     <Compile Include="Assets\Scripts\Core\Events.cs" />
+     <Compile Include="Assets\Scripts\Log\LogPartGraphics.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeMovement.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeStateController.cs" />
-     <Compile Include="Assets\Scripts\Core\SpriteDisplay.cs" />
      <Compile Include="Assets\Vibration\Example\VibrationExample.cs" />
-     <Compile Include="Assets\Scripts\Management\LevelManager.cs" />
-     <Compile Include="Assets\Scripts\Log\LogHitObserver.cs" />
-     <Compile Include="Assets\Vibration\Vibration.cs" />
-     <Compile Include="Assets\Scripts\Management\HudManager.cs" />
-     <Compile Include="Assets\Scripts\Core\Events.cs" />
-     <Compile Include="Assets\Scripts\ItemThrow\ItemThrower.cs" />
-     <Compile Include="Assets\Scripts\ItemThrow\LogPartThrower.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\KnifeThrower.cs" />
-     <Compile Include="Assets\Scripts\ItemThrow\KnifeDropper.cs" />
-     <Compile Include="Assets\Scripts\Log\LogShake.cs" />
+     <Compile Include="Assets\Scripts\Management\GameManager.cs" />
+     <Compile Include="Assets\Vibration\Vibration.cs" />
+     <Compile Include="Assets\Scripts\ItemThrow\LogPartThrower.cs" />
+     <Compile Include="Assets\Scripts\Knife\KnifeGraphics.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:/Program Files/unity/2021.2.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -297,15 +298,6 @@
      <Reference Include="UnityEditor.UnityConnectModule">
      <HintPath>C:/Program Files/unity/2021.2.7f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="ReportGeneratorMerged">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
-     </Reference>
-     <Reference Include="Newtonsoft.Json">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Burst.Unsafe">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
@@ -320,6 +312,15 @@
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Rocks">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.visualscripting@1.7.6/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="ReportGeneratorMerged">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
+     </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>C:/Program Files/unity/2021.2.7f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll</HintPath>
@@ -699,6 +700,15 @@
      <Reference Include="Unity.VSCode.Editor">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="PPv2URPConverters">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
@@ -723,14 +733,17 @@
      <Reference Include="Unity.VisualScripting.State.Editor">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <Reference Include="Unity.Burst.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Searcher.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Sprite.Editor">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.ProBuilder.AddOns.Editor">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ProBuilder">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
@@ -750,8 +763,14 @@
      <Reference Include="Unity.Rider.Editor">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEngine.UI">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.Runtime">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
@@ -762,65 +781,47 @@
      <Reference Include="Unity.EditorCoroutines.Editor">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.Mathematics">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.ShaderGraph.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Timeline.Editor">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.State">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Searcher.Editor">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Core.Editor">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.ShaderGraph.Editor">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-     </Reference>
-     <Reference Include="PPv2URPConverters">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+     <Reference Include="Unity.ProBuilder.AddOns.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Mathematics">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+     <Reference Include="Unity.Timeline.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Burst">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     <Reference Include="Unity.Mathematics.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Burst.Editor">
-     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.State">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

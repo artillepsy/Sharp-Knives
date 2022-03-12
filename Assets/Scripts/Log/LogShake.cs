@@ -41,7 +41,6 @@ namespace Log
         {
             var value = _animationCurve.Evaluate(_totalTime / duration);
             value *= maxIntensity;
-            Debug.Log(_material.GetFloat(_amount));
             _material.SetFloat(_amount, value);
         }
 

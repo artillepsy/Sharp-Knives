@@ -42,6 +42,8 @@ namespace ItemThrow
 
         private void DropKnife(Rigidbody rb)
         {
+            rb.GetComponentInChildren<Collider>().enabled = false;
+            
             rb.mass = base.itemMass;
             rb.useGravity = true;
             rb.velocity = Vector3.zero;

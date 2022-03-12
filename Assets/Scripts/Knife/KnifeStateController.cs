@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core;
+using Log;
 using UnityEngine;
 
 namespace Knife
@@ -10,29 +11,38 @@ namespace Knife
         private KnifeState _state;
         public KnifeState State => _state;
         private List<IOnKnifeStateChange> _subscribers;
-
-        public void SetState(KnifeState newState)
-        {
-            _state = newState;
-            NotifyAll(_state);
-        }
-
-        private void Awake()
-        {
-            Vibration.Init();
-            SubscribeComponents();
-            _state = KnifeState.Ready;
-        }
+        private float _logRadius;
+        private Vector3 _logPosition;
+        private bool _needCheck = true;
 
         private void OnEnable()
         {
             Events.OnTap.AddListener(OnTap);
         }
 
+        private void Start()
+        {
+            var comp = FindObjectOfType<LogRotation>();
+            _logRadius = comp.GetComponent<CapsuleCollider>().radius;
+            _logPosition = comp.transform.position;
+            Vibration.Init();
+            SubscribeComponents();
+            _state = KnifeState.Ready;
+        }
+
         private void OnTap()
         {
             if (_state != KnifeState.Ready) return;
             _state = KnifeState.Moving;
+            NotifyAll(_state);
+        }
+
+        private void FixedUpdate()
+        {
+            if (_state != KnifeState.Moving) return;
+            var direction = transform.position - _logPosition;
+            if (direction.magnitude > _logRadius) return;
+            _state = KnifeState.Stopped;
             NotifyAll(_state);
         }
 
@@ -48,20 +58,23 @@ namespace Knife
                 subscriber.OnStateChange(newState);
             }
         }
-
-        private void OnCollisionEnter(Collision other)
+        
+        private void OnTriggerEnter(Collider other)
         {
-            if (_state != KnifeState.Moving) return;
-            
-            var comp = other.gameObject.GetComponent<KnifeStateController>();
-            if (comp == null) return;
-            if (comp.State != KnifeState.Stopped) return;
-            Debug.Log("dropped: "+ _state );
-            _state = KnifeState.Dropped;
-           
-            NotifyAll(_state);
+            if (!_needCheck) return;
+            if (other.GetComponent<LogRotation>())
+            {
+                _needCheck = false;
+                transform.SetParent(other.transform);
+                Events.OnKnifeHit?.Invoke();
+                Vibration.VibratePop();
+                return;
+            }
+            if (!other.GetComponentInParent<KnifeMovement>()) return;
+            _needCheck = false;
             Vibration.VibratePop();
             Events.OnKnifeDrop?.Invoke();
+            
         }
     }
 }

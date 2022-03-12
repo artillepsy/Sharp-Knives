@@ -1,20 +1,13 @@
+using Level;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Log
 {
-    public class LogRotation : MonoBehaviour
+    public class LogRotation : MonoBehaviour, IOnLevelLoad
     {
         [Header("Rotation")] 
         [SerializeField] private Vector3 rotationUp = Vector3.right;
-        [SerializeField] private float minRotationSpeed = 3f;
-        [SerializeField] private float maxRotationSpeed = 6f;
-        [Space] 
-        [SerializeField] private float minRotationTime = 5f;
-        [SerializeField] private float maxRotationTime = 8f;
-        [Space] 
-        [SerializeField] private bool alwaysSwapDirection = true;
-        [Space] 
         [SerializeField] private AnimationCurve speedChangeAnimationCurve;
 
         private int _direction;
@@ -22,9 +15,25 @@ namespace Log
         private float _currentRotationSpeed;
         private float _currentRotationTime;
         private float _currentMaxRotationSpeed;
-        private float RandomRotationTime => Random.Range(minRotationTime, maxRotationTime);
-        private float RandomRotationSpeed => Random.Range(minRotationSpeed, maxRotationSpeed);
+        
+        private float _minRotationTime;
+        private float _maxRotationTime;
+        private float _minRotationSpeed;
+        private float _maxRotationSpeed;
 
+        private bool _alwaysSwapDirection;
+        private float RandomRotationTime => Random.Range(_minRotationTime, _maxRotationTime);
+        private float RandomRotationSpeed => Random.Range(_minRotationSpeed, _maxRotationSpeed);
+        
+        public void OnLevelLoad(LevelData levelData)
+        {
+            _minRotationTime = levelData.MinRotationTime;
+            _maxRotationTime = levelData.MaxRotationTime;
+            _minRotationSpeed = levelData.MinRotationSpeed;
+            _maxRotationSpeed = levelData.MaxRotationSpeed;
+            _alwaysSwapDirection = levelData.AlwaysSwapDirection;
+        }
+        
         private void Start()
         {
             _direction = Random.value > 0.5f ? 1 : -1;
@@ -42,7 +51,7 @@ namespace Log
             _currentMaxRotationSpeed = RandomRotationSpeed;
             _currentRotationTime = RandomRotationTime;
             _currentTime = _currentRotationTime;
-            if (alwaysSwapDirection) _direction = -_direction;
+            if (_alwaysSwapDirection) _direction = -_direction;
             else _direction = Random.value > 0.5f ? 1 : -1;
             _currentMaxRotationSpeed *= _direction;
         }
@@ -60,5 +69,7 @@ namespace Log
             _currentTime -= Time.deltaTime;
             return false;
         }
+
+        
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace Management
 {
-    public class LevelManager : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
         [SerializeField] private string levelName = "Game";
         [SerializeField] private float newSceneLoadTIme = 3f;
@@ -42,7 +42,7 @@ namespace Management
 
         private void LoadScene()
         {
-            SceneManager.LoadScene(levelName);
+            SceneManager.LoadSceneAsync(levelName);
         }
     }
 }
