@@ -46,7 +46,8 @@ namespace ItemThrow
             rb.useGravity = true;
             rb.velocity = Vector3.zero;
             rb.freezeRotation = false;
-                
+            rb.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+            
             var direction = _randomRotation * Vector3.down;
             rb.AddForce(direction * base._impulse, ForceMode.Impulse);
 

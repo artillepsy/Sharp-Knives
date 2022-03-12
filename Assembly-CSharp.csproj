@@ -44,8 +44,8 @@
      <Compile Include="Assets\Scripts\Knife\KnifeState.cs" />
      <Compile Include="Assets\Scripts\Core\IOnKnifeStateChange.cs" />
      <Compile Include="Assets\Scripts\Core\TapInput.cs" />
-     <Compile Include="Assets\Scripts\Core\SpriteData.cs" />
-     <Compile Include="Assets\Scripts\Core\MeshData.cs" />
+     <Compile Include="Assets\Scripts\Scriptable\SpriteData.cs" />
+     <Compile Include="Assets\Scripts\Scriptable\MeshData.cs" />
      <Compile Include="Assets\Scripts\Management\KnifeManager.cs" />
      <Compile Include="Assets\Scripts\Core\MeshDisplay.cs" />
      <Compile Include="Assets\Scripts\Log\LogRotation.cs" />
@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\ItemThrow\LogPartThrower.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\KnifeThrower.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\KnifeDropper.cs" />
+     <Compile Include="Assets\Scripts\Log\LogShake.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:/Program Files/unity/2021.2.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -304,6 +305,21 @@
      </Reference>
      <Reference Include="Newtonsoft.Json">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Unsafe">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.Unsafe.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Cecil.Mdb">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Cecil.Pdb">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Cecil">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Cecil.Rocks">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>C:/Program Files/unity/2021.2.7f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll</HintPath>
@@ -760,6 +776,51 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.Runtime">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Searcher.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.ShaderGraph.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+     </Reference>
+     <Reference Include="PPv2URPConverters">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Mathematics.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Mathematics">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Editor">
+     <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

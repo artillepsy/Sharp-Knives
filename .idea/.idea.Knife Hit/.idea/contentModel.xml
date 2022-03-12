@@ -10,9 +10,7 @@
           <e p="Core" t="Include">
             <e p="Events.cs" t="Include" />
             <e p="IOnKnifeStateChange.cs" t="Include" />
-            <e p="MeshData.cs" t="Include" />
             <e p="MeshDisplay.cs" t="Include" />
-            <e p="SpriteData.cs" t="Include" />
             <e p="SpriteDisplay.cs" t="Include" />
             <e p="TapInput.cs" t="Include" />
           </e>
@@ -30,12 +28,18 @@
           <e p="Log" t="Include">
             <e p="LogHitObserver.cs" t="Include" />
             <e p="LogRotation.cs" t="Include" />
+            <e p="LogShake.cs" t="Include" />
           </e>
           <e p="Management" t="Include">
             <e p="HUDManager.cs" t="Include" />
             <e p="KnifeManager.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
           </e>
+          <e p="Scriptable" t="Include">
+            <e p="MeshData.cs" t="Include" />
+            <e p="SpriteData.cs" t="Include" />
+          </e>
+          <e p="Spawners" t="Include" />
         </e>
         <e p="Vibration" t="Include">
           <e p="Example" t="Include">

@@ -37,7 +37,7 @@ namespace Management
         {
             Invoke(nameof(LoadScene), newSceneLoadTIme);
             Events.OnWinGame?.Invoke();
-            Vibration.VibrateNope();
+            Vibration.VibratePeek();
         }
 
         private void LoadScene()

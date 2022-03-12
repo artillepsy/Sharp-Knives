@@ -34,6 +34,8 @@ namespace ItemThrow
         protected override void Throw()
         {
             brokenLog.transform.rotation = log.transform.rotation;
+            brokenLog.transform.position = log.transform.position;
+            
             log.SetActive(false);
             brokenLog.SetActive(true);
             
