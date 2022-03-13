@@ -14,6 +14,7 @@
           </e>
           <e p="ItemThrow" t="Include">
             <e p="AbstractThrower.cs" t="Include" />
+            <e p="AppleThrower.cs" t="Include" />
             <e p="ItemThrower.cs" t="Include" />
             <e p="KnifeThrower.cs" t="Include" />
             <e p="LogPartThrower.cs" t="Include" />
@@ -30,6 +31,7 @@
             <e p="LevelSettings.cs" t="Include" />
           </e>
           <e p="Log" t="Include">
+            <e p="ItemSpawner.cs" t="Include" />
             <e p="LogGraphics.cs" t="Include" />
             <e p="LogPartGraphics.cs" t="Include" />
             <e p="LogRotation.cs" t="Include" />

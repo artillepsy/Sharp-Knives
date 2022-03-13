@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core;
+using ItemThrow;
 using Log;
 using UnityEngine;
 
@@ -72,12 +73,16 @@ namespace Knife
                 Vibration.VibratePop();
                 return;
             }
-            if (!other.GetComponentInParent<KnifeMovement>()) return;
-            _needCheck = false;
-            _state = KnifeState.Dropped;
-            NotifyAll(_state);
-            Vibration.VibratePop();
-            Events.OnKnifeDrop?.Invoke();
+            if (other.GetComponentInParent<KnifeThrower>())
+            {
+                _needCheck = false;
+                _state = KnifeState.Dropped;
+                NotifyAll(_state);
+                Vibration.VibratePop();
+                Events.OnKnifeDrop?.Invoke();
+                return;
+            }
+            other.GetComponentInParent<AppleThrower>()?.HitApple();
         }
     }
 }

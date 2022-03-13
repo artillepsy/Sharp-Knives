@@ -11,15 +11,20 @@ namespace ItemThrow
         private float _randomTorqueImpulse => Random.Range(minTorqueImpulse, maxTorqueImpulse);
         protected Vector3 _direction = Vector3.up;
         
-        private void OnEnable()
+        protected void OnEnable()
         {
             Events.OnWinGame.AddListener(Throw);
         }
 
         protected override void Throw()
         {
-            transform.SetParent(null);
             var rb = GetComponent<Rigidbody>();
+            ThrowSingleRigidbody(rb);
+        }
+
+        protected void ThrowSingleRigidbody(Rigidbody rb)
+        {
+            rb.transform.SetParent(null);
             rb.mass = base.itemMass;
             rb.useGravity = true;
             rb.velocity = Vector3.zero;

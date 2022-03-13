@@ -14,13 +14,14 @@ namespace Level
 
 
         [Header("Item spawn settings")] 
-        public float minApplePlacementAngle = 10f;
-        public float maxApplePlacementAngle = 10f;
+        public Transform ApplePrefab;
+        public Transform KnifePrefab;
+        [Space]
+        public int MinItemSpawnDistance = 1;
+        [Space]
         public int MinSpawnedAppleCount = 1;
         public int MaxSpawnedAppleCount = 2;
         [Space]
-        public float minKnifePlacementAngle = 10f;
-        public float maxKnifePlacementAngle = 10f;
         public int MinSpawnedKnifeCount = 1;
         public int MaxSpawnedKnifeCount = 2;
         
