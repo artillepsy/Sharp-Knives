@@ -23,7 +23,10 @@ namespace Core
         {
             if (!_inputEnabled) return;
             if (!ReadyToThrow()) return;
-            if (Input.touchCount > 0) Throw();
+            if (Input.touchCount == 0) return;
+            var touch = Input.touches[0];
+            if (touch.phase != TouchPhase.Began) return;
+            Throw();
         }
 
         private void Throw()

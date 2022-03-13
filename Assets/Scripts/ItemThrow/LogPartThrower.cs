@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Core;
+using Log;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace ItemThrow
 {
-    public class LogPartThrower : ItemThrower
+    public class LogPartThrower : AbstractThrower
     {
-        [SerializeField] private GameObject log;
-        [SerializeField] private GameObject brokenLog;
+        private GameObject _log;
         private List<Rigidbody> _logPartsRbList;
 
         private void OnEnable()
@@ -20,8 +19,13 @@ namespace ItemThrow
 
         private void Start()
         {
-            brokenLog.SetActive(false);
-            _logPartsRbList = brokenLog.GetComponentsInChildren<Rigidbody>().ToList();
+            _log = FindObjectOfType<LogRotation>().gameObject;
+            _logPartsRbList = GetComponentsInChildren<Rigidbody>().ToList();
+
+            foreach (var rb in _logPartsRbList)
+            {
+                rb.gameObject.SetActive(false);
+            }
         }
 
         private Quaternion RandomRotation()
@@ -33,19 +37,20 @@ namespace ItemThrow
         
         protected override void Throw()
         {
-            brokenLog.transform.rotation = log.transform.rotation;
-            brokenLog.transform.position = log.transform.position;
+            transform.rotation = _log.transform.rotation;
             
-            log.SetActive(false);
-            brokenLog.SetActive(true);
+            _log.SetActive(false);
+            
             
             foreach (var rb in _logPartsRbList)
             {
-                var direction = (rb.transform.position - brokenLog.transform.position).normalized;
+                rb.gameObject.SetActive(true);
+                var direction = (rb.transform.position -transform.position).normalized;
                 direction = RandomRotation() * direction;
                 rb.useGravity = true;
                 rb.mass = base.itemMass;
-                rb.AddForceAtPosition(direction * base._impulse, brokenLog.transform.position, ForceMode.Impulse);
+                rb.constraints = RigidbodyConstraints.FreezePositionZ;
+                rb.AddForceAtPosition(direction * base._impulse, transform.position, ForceMode.Impulse);
             }
         }
     }

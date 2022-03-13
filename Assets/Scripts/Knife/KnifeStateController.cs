@@ -9,7 +9,6 @@ namespace Knife
     public class KnifeStateController : MonoBehaviour
     {
         private KnifeState _state;
-        public KnifeState State => _state;
         private List<IOnKnifeStateChange> _subscribers;
         private float _logRadius;
         private Vector3 _logPosition;
@@ -30,19 +29,22 @@ namespace Knife
             _state = KnifeState.Ready;
         }
 
-        private void OnTap()
-        {
-            if (_state != KnifeState.Ready) return;
-            _state = KnifeState.Moving;
-            NotifyAll(_state);
-        }
-
         private void FixedUpdate()
         {
             if (_state != KnifeState.Moving) return;
             var direction = transform.position - _logPosition;
             if (direction.magnitude > _logRadius) return;
+            
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            transform.position = _logPosition + direction.normalized * _logRadius;
             _state = KnifeState.Stopped;
+            NotifyAll(_state);
+        }
+
+        private void OnTap()
+        {
+            if (_state != KnifeState.Ready) return;
+            _state = KnifeState.Moving;
             NotifyAll(_state);
         }
 
@@ -72,9 +74,10 @@ namespace Knife
             }
             if (!other.GetComponentInParent<KnifeMovement>()) return;
             _needCheck = false;
+            _state = KnifeState.Dropped;
+            NotifyAll(_state);
             Vibration.VibratePop();
             Events.OnKnifeDrop?.Invoke();
-            
         }
     }
 }

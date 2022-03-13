@@ -13,8 +13,8 @@
             <e p="TapInput.cs" t="Include" />
           </e>
           <e p="ItemThrow" t="Include">
+            <e p="AbstractThrower.cs" t="Include" />
             <e p="ItemThrower.cs" t="Include" />
-            <e p="KnifeDropper.cs" t="Include" />
             <e p="KnifeThrower.cs" t="Include" />
             <e p="LogPartThrower.cs" t="Include" />
           </e>
