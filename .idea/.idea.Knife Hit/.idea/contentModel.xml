@@ -25,22 +25,25 @@
             <e p="KnifeState.cs" t="Include" />
             <e p="KnifeStateController.cs" t="Include" />
           </e>
-          <e p="Level" t="Include">
-            <e p="IOnLevelLoad.cs" t="Include" />
-            <e p="LevelData.cs" t="Include" />
-            <e p="LevelSettings.cs" t="Include" />
-          </e>
           <e p="Log" t="Include">
             <e p="ItemSpawner.cs" t="Include" />
+            <e p="LogAnimationController.cs" t="Include" />
             <e p="LogGraphics.cs" t="Include" />
             <e p="LogPartGraphics.cs" t="Include" />
             <e p="LogRotation.cs" t="Include" />
-            <e p="LogShake.cs" t="Include" />
           </e>
           <e p="Management" t="Include">
             <e p="GameManager.cs" t="Include" />
             <e p="HUDManager.cs" t="Include" />
             <e p="KnifeManager.cs" t="Include" />
+          </e>
+          <e p="Scriptable" t="Include">
+            <e p="BossGraphics.cs" t="Include" />
+            <e p="DefaultGraphics.cs" t="Include" />
+            <e p="Graphics.cs" t="Include" />
+            <e p="IOnLevelLoad.cs" t="Include" />
+            <e p="Level.cs" t="Include" />
+            <e p="LevelSettings.cs" t="Include" />
           </e>
         </e>
         <e p="Vibration" t="Include">

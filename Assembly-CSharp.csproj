@@ -41,15 +41,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Level\LevelData.cs" />
+     <Compile Include="Assets\Scripts\Scriptable\Level.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeState.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\AbstractThrower.cs" />
      <Compile Include="Assets\Scripts\Log\LogGraphics.cs" />
-     <Compile Include="Assets\Scripts\Level\LevelSettings.cs" />
-     <Compile Include="Assets\Scripts\Log\LogShake.cs" />
+     <Compile Include="Assets\Scripts\Scriptable\LevelSettings.cs" />
+     <Compile Include="Assets\Scripts\Log\LogAnimationController.cs" />
+     <Compile Include="Assets\Scripts\ItemThrow\AppleThrower.cs" />
      <Compile Include="Assets\Scripts\Core\IOnKnifeStateChange.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\KnifeThrower.cs" />
-     <Compile Include="Assets\Scripts\Level\IOnLevelLoad.cs" />
+     <Compile Include="Assets\Scripts\Scriptable\IOnLevelLoad.cs" />
      <Compile Include="Assets\Scripts\Core\TapInput.cs" />
      <Compile Include="Assets\Scripts\Log\ItemSpawner.cs" />
      <Compile Include="Assets\Scripts\Management\KnifeManager.cs" />
@@ -65,7 +66,9 @@
      <Compile Include="Assets\Vibration\Vibration.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\LogPartThrower.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeGraphics.cs" />
-     <Compile Include="Assets\Scripts\ItemThrow\AppleThrower.cs" />
+     <Compile Include="Assets\Scripts\Scriptable\DefaultGraphics.cs" />
+     <Compile Include="Assets\Scripts\Scriptable\Graphics.cs" />
+     <Compile Include="Assets\Scripts\Scriptable\BossGraphics.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:/Program Files/unity/2021.2.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>

@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 
-namespace Level
+namespace Scriptable
 {
     [CreateAssetMenu(fileName = "Level Data")]
-    public class LevelData : ScriptableObject
+    public class Level : ScriptableObject
     {
         [Header("Level settings")] 
-        public bool IsBoss = false;
         [Range(0, 1)]
         public float AppleSpawnChance = 0.25f;
         [Range(0, 1)]
@@ -24,15 +23,10 @@ namespace Level
         [Space]
         public int MinSpawnedKnifeCount = 1;
         public int MaxSpawnedKnifeCount = 2;
-        
-        
-        [Header("Graphics settings")]
-        public Texture2D LogTexture;
+
+        [Header("Graphics settings")] 
+        public Graphics LogGraphics; 
         public Sprite KnifeSprite;
-        [Space]
-        public Color InsideLogPartsColor;
-        public Color BossParticleColor;
-        public Color KnifeHitColor;
         
         
         [Header("Log rotation settings")]

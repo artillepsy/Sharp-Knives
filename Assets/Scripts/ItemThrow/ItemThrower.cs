@@ -1,5 +1,4 @@
-﻿using Core;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ItemThrow
 {
@@ -10,12 +9,6 @@ namespace ItemThrow
         private Quaternion _randomRotation => Quaternion.Euler(0, 0, Random.Range(minDeviationAngle, maxDeviationAngle));
         private float _randomTorqueImpulse => Random.Range(minTorqueImpulse, maxTorqueImpulse);
         protected Vector3 _direction = Vector3.up;
-        
-        protected void OnEnable()
-        {
-            Events.OnWinGame.AddListener(Throw);
-        }
-
         protected override void Throw()
         {
             var rb = GetComponent<Rigidbody>();
@@ -28,7 +21,7 @@ namespace ItemThrow
             rb.mass = base.itemMass;
             rb.useGravity = true;
             rb.velocity = Vector3.zero;
-            rb.freezeRotation = false;
+            rb.constraints = RigidbodyConstraints.None;
             rb.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
 
             var direction = _randomRotation * _direction;

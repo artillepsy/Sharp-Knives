@@ -19,6 +19,7 @@ namespace ItemThrow
 
             Throw();
             Events.OnAppleHit?.Invoke();
+            Events.OnWinGame.RemoveListener(Throw);
         }
         
         private void Awake()
@@ -26,6 +27,7 @@ namespace ItemThrow
             _children = GetComponentsInChildren<Rigidbody>().ToList();
             foreach (var rb in _children)
             {
+                rb.constraints = RigidbodyConstraints.FreezeAll;
                 if(!rb.GetComponent<Collider>()) rb.gameObject.SetActive(false);
             }
         }
@@ -35,6 +37,10 @@ namespace ItemThrow
             foreach (var rb in _children)
             {
                 if(!rb.gameObject.activeSelf) continue;
+                
+                var coll = rb.GetComponent<Collider>();
+                if (coll) coll.enabled = false;
+                
                 ThrowSingleRigidbody(rb);
             }
         }

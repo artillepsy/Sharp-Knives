@@ -1,4 +1,5 @@
-using Level;
+using LevelSettings;
+using Scriptable;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,13 +26,13 @@ namespace Log
         private float RandomRotationTime => Random.Range(_minRotationTime, _maxRotationTime);
         private float RandomRotationSpeed => Random.Range(_minRotationSpeed, _maxRotationSpeed);
         
-        public void OnLevelLoad(LevelData levelData)
+        public void OnLevelLoad(Level level)
         {
-            _minRotationTime = levelData.MinRotationTime;
-            _maxRotationTime = levelData.MaxRotationTime;
-            _minRotationSpeed = levelData.MinRotationSpeed;
-            _maxRotationSpeed = levelData.MaxRotationSpeed;
-            _alwaysSwapDirection = levelData.AlwaysSwapDirection;
+            _minRotationTime = level.MinRotationTime;
+            _maxRotationTime = level.MaxRotationTime;
+            _minRotationSpeed = level.MinRotationSpeed;
+            _maxRotationSpeed = level.MaxRotationSpeed;
+            _alwaysSwapDirection = level.AlwaysSwapDirection;
         }
         
         private void Start()

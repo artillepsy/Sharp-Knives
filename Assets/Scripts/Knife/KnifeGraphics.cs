@@ -1,4 +1,5 @@
-﻿using Level;
+﻿using LevelSettings;
+using Scriptable;
 using UnityEngine;
 
 namespace Knife
@@ -7,14 +8,14 @@ namespace Knife
     {
         private Sprite _sprite;
         
-        public void OnLevelLoad(LevelData levelData)
+        public void OnLevelLoad(Level level)
         {
-            _sprite = levelData.KnifeSprite;
+            _sprite = level.KnifeSprite;
         }
 
         private void Awake()
         {
-            _sprite = GetComponentInChildren<SpriteRenderer>().sprite;
+            _sprite = GetComponent<SpriteRenderer>().sprite;
         }
     }
 }

@@ -1,18 +1,19 @@
 ﻿using System.Linq;
+using LevelSettings;
 using UnityEngine;
 
-namespace Level
+namespace Scriptable
 {
     public class LevelSettings : MonoBehaviour
     {
-        [SerializeField] private LevelData levelData;
+        [SerializeField] private Level level;
 
         private void Start()
         {
             var subscribers = FindObjectsOfType<MonoBehaviour>().OfType<IOnLevelLoad>();
             foreach (var subscriber in subscribers)
             {
-                subscriber.OnLevelLoad(levelData);
+                subscriber.OnLevelLoad(level);
             }
         }
     }

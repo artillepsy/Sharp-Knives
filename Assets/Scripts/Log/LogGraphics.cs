@@ -1,4 +1,5 @@
-﻿using Level;
+﻿using LevelSettings;
+using Scriptable;
 using UnityEngine;
 
 namespace Log
@@ -7,14 +8,14 @@ namespace Log
     {
         private Material _material;
 
-        public void OnLevelLoad(LevelData levelData)
+        public void OnLevelLoad(Level level)
         {
-            _material.mainTexture = levelData.LogTexture;
+            _material.mainTexture = level.LogGraphics.LogTexture;
         }
         
         private void Awake()
         {
-            _material = GetComponentInChildren<MeshRenderer>().sharedMaterial;
+            _material = GetComponent<MeshRenderer>().sharedMaterial;
         }
 
        

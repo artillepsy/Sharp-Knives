@@ -1,35 +1,36 @@
 ﻿using System.Collections.Generic;
-using Level;
+using LevelSettings;
+using Scriptable;
 using UnityEngine;
 
 namespace Log
 {
     public class ItemSpawner : MonoBehaviour, IOnLevelLoad
     {
-        public void OnLevelLoad(LevelData levelData)
+        public void OnLevelLoad(Level level)
         {
-            var shouldSpawnApples = Random.value < levelData.AppleSpawnChance;
-            var shouldSpawnKnifes = Random.value < levelData.KnifeSpawnChance;
+            var shouldSpawnApples = Random.value < level.AppleSpawnChance;
+            var shouldSpawnKnifes = Random.value < level.KnifeSpawnChance;
 
             if (!shouldSpawnApples && !shouldSpawnKnifes) return;
             
-            var spawnPoints = InitSpawnPoints(levelData.MinItemSpawnDistance);
+            var spawnPoints = InitSpawnPoints(level.MinItemSpawnDistance);
             if (shouldSpawnApples)
             {
-                var appleCount = Random.Range(levelData.MinSpawnedAppleCount, levelData.MaxSpawnedAppleCount + 1);
-                SpawnItems(levelData.ApplePrefab, appleCount, spawnPoints);
+                var appleCount = Random.Range(level.MinSpawnedAppleCount, level.MaxSpawnedAppleCount + 1);
+                SpawnItems(level.ApplePrefab, appleCount, spawnPoints);
             }
             if (shouldSpawnKnifes)
             {
-                var knifeCount = Random.Range(levelData.MinSpawnedKnifeCount, levelData.MaxSpawnedKnifeCount + 1);
-                SpawnItems(levelData.KnifePrefab, knifeCount, spawnPoints);
+                var knifeCount = Random.Range(level.MinSpawnedKnifeCount, level.MaxSpawnedKnifeCount + 1);
+                SpawnItems(level.KnifePrefab, knifeCount, spawnPoints);
             }
         }
 
         private List<Vector3> InitSpawnPoints(float minSpawnDistance)
         {
             var points = new List<Vector3>();
-            var logRadius = GetComponent<CapsuleCollider>().radius;
+            var logRadius = GetComponentInParent<CapsuleCollider>().radius;
             var center = transform.position;
             var direction = Vector3.up * logRadius;
             var angleStep = Mathf.Rad2Deg * minSpawnDistance / (2 * logRadius);
@@ -52,7 +53,8 @@ namespace Log
                 var point = points[Random.Range(0, points.Count)];
                 points.Remove(point);
 
-                var instance = Instantiate(prefab, transform);
+                var instance = Instantiate(prefab);
+                instance.transform.SetParent(transform);
                 instance.position = point;
                 instance.up = point - transform.position;
             }

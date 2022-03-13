@@ -3,6 +3,7 @@ using System.Linq;
 using Core;
 using ItemThrow;
 using Log;
+using Management;
 using UnityEngine;
 
 namespace Knife
@@ -23,7 +24,7 @@ namespace Knife
         private void Start()
         {
             var comp = FindObjectOfType<LogRotation>();
-            _logRadius = comp.GetComponent<CapsuleCollider>().radius;
+            _logRadius = comp.GetComponentInParent<CapsuleCollider>().radius;
             _logPosition = comp.transform.position;
             Vibration.Init();
             SubscribeComponents();
@@ -38,6 +39,10 @@ namespace Knife
             
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
             transform.position = _logPosition + direction.normalized * _logRadius;
+            transform.up = -direction;
+            
+            Instantiate(KnifeManager.HitParticleSystem, transform.position, transform.rotation);
+            
             _state = KnifeState.Stopped;
             NotifyAll(_state);
         }
@@ -45,6 +50,7 @@ namespace Knife
         private void OnTap()
         {
             if (_state != KnifeState.Ready) return;
+            
             _state = KnifeState.Moving;
             NotifyAll(_state);
         }
@@ -65,12 +71,14 @@ namespace Knife
         private void OnTriggerEnter(Collider other)
         {
             if (!_needCheck) return;
-            if (other.GetComponent<LogRotation>())
+            var comp = other.GetComponentInChildren<LogRotation>();
+            if (comp)
             {
                 _needCheck = false;
-                transform.SetParent(other.transform);
+                transform.SetParent(comp.transform);
                 Events.OnKnifeHit?.Invoke();
                 Vibration.VibratePop();
+                
                 return;
             }
             if (other.GetComponentInParent<KnifeThrower>())
@@ -84,5 +92,7 @@ namespace Knife
             }
             other.GetComponentInParent<AppleThrower>()?.HitApple();
         }
+
+        
     }
 }

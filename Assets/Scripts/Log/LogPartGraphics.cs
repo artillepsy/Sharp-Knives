@@ -1,21 +1,17 @@
-﻿using Level;
+﻿using LevelSettings;
+using Scriptable;
 using UnityEngine;
 
 namespace Log
 {
     public class LogPartGraphics : MonoBehaviour, IOnLevelLoad
     {
-        private Material[] _materials;
-
-        public void OnLevelLoad(LevelData levelData)
+        public void OnLevelLoad(Level level)
         {
-            _materials[0].mainTexture = levelData.LogTexture;
-            _materials[1].color = levelData.InsideLogPartsColor;
-        }
-        
-        private void Awake()
-        {
-            _materials = GetComponent<MeshRenderer>().sharedMaterials;
+            DefaultGraphics graphics = level.LogGraphics as DefaultGraphics;
+            var materials = GetComponent<MeshRenderer>().sharedMaterials;
+            materials[0].mainTexture = level.LogGraphics.LogTexture;
+            materials[1].color = graphics.PartsInsideColor;
         }
     }
 }
