@@ -6,18 +6,12 @@ namespace Log
 {
     public class LogGraphics : MonoBehaviour, IOnLevelLoad
     {
-        private Material _material;
-
         public void OnLevelLoad(Level level)
         {
-            _material.mainTexture = level.LogGraphics.LogTexture;
+            Debug.Log(level);
+            Debug.Log(level.GraphicsData.LogTexture);
+            var material = GetComponent<MeshRenderer>().sharedMaterial;
+            material.mainTexture = level.GraphicsData.LogTexture;
         }
-        
-        private void Awake()
-        {
-            _material = GetComponent<MeshRenderer>().sharedMaterial;
-        }
-
-       
     }
 }

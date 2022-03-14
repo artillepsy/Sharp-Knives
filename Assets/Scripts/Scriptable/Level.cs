@@ -25,7 +25,7 @@ namespace Scriptable
         public int MaxSpawnedKnifeCount = 2;
 
         [Header("Graphics settings")] 
-        public Graphics LogGraphics; 
+        public Graphics GraphicsData; 
         public Sprite KnifeSprite;
         
         

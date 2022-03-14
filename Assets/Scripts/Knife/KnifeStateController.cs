@@ -24,7 +24,7 @@ namespace Knife
         private void Start()
         {
             var comp = FindObjectOfType<LogRotation>();
-            _logRadius = comp.GetComponentInParent<CapsuleCollider>().radius;
+            _logRadius = comp.GetComponent<CapsuleCollider>().radius;
             _logPosition = comp.transform.position;
             Vibration.Init();
             SubscribeComponents();
@@ -50,7 +50,6 @@ namespace Knife
         private void OnTap()
         {
             if (_state != KnifeState.Ready) return;
-            
             _state = KnifeState.Moving;
             NotifyAll(_state);
         }
@@ -71,14 +70,14 @@ namespace Knife
         private void OnTriggerEnter(Collider other)
         {
             if (!_needCheck) return;
-            var comp = other.GetComponentInChildren<LogRotation>();
+            var comp = other.GetComponent<LogRotation>();
             if (comp)
             {
                 _needCheck = false;
                 transform.SetParent(comp.transform);
                 Events.OnKnifeHit?.Invoke();
                 Vibration.VibratePop();
-                
+                _logRadius = comp.GetComponent<CapsuleCollider>().radius;
                 return;
             }
             if (other.GetComponentInParent<KnifeThrower>())

@@ -27,7 +27,7 @@ namespace ItemThrow
             _children = GetComponentsInChildren<Rigidbody>().ToList();
             foreach (var rb in _children)
             {
-                rb.constraints = RigidbodyConstraints.FreezeAll;
+                //rb.constraints = RigidbodyConstraints.FreezeAll;
                 if(!rb.GetComponent<Collider>()) rb.gameObject.SetActive(false);
             }
         }

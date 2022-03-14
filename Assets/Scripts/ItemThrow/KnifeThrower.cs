@@ -12,10 +12,5 @@ namespace ItemThrow
             _direction = Vector3.down;
             Throw();
         }
-        
-        private void Awake()
-        {
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        }
     }
 }

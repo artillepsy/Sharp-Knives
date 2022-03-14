@@ -9,7 +9,6 @@ namespace ItemThrow
         [SerializeField] protected float itemMass = 2f;
         [SerializeField] private float minImpulse = 15;
         [SerializeField] private float maxImpulse = 25f; 
-        
         [SerializeField] protected float minDeviationAngle = -45f;
         [SerializeField] protected float maxDeviationAngle = 45f;
         protected float _impulse => Random.Range(minImpulse,maxImpulse);

@@ -20,40 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23757215-a1a0-4088-aa38-fefc001038b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/BossGraphics.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/BossGraphics.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/DefaultGraphics.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/DefaultGraphics.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/Graphics.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/Graphics.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/IOnLevelLoad.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/IThrowable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/IThrowable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/ThrowablePart.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/ThrowablePart.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Log/ItemPlacement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Log/ItemPlacement.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Knife/Knife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Knife/Knife.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Log/Log.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Log/Log.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/TapInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/TapInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/AbstractThrower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/AbstractThrower.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/AppleThrower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/AppleThrower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/ItemThrower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/ItemThrower.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/KnifeThrower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/KnifeThrower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/LogPartThrower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ItemThrow/LogPartThrower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeGraphics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeGraphics.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/IOnLevelLoad.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/IOnLevelLoad.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/IOnLevelLoad.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/Level.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/Level.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/LevelSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/LevelSettings.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/LevelSettings.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Log/ItemSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Log/ItemSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Log/LogAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Log/LogAnimationController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Log/LogGraphics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Log/LogGraphics.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Log/LogPartGraphics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Log/LogPartGraphics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Log/LogRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Log/LogRotation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Log/LogShake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Log/LogAnimationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Log/LogShake.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Log/LogAnimationController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptable/Level.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/Level.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,10 +57,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Management/LogManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Core/TouchInput.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogStickness.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Core/ItemThrower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ItemTrhow/ItemThrower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/LogBreaker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/HudManager.cs" />
@@ -90,17 +74,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogHitObserver.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/KnifeDropper.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Core/TapInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeGraphics.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Level/LogData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogGraphics.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogAppearance.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogShake.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogAnimationController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/AppleThrower.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/KnifeThrower.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Log/ItemSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Level/LevelData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Level/Level.cs" />
@@ -114,12 +91,23 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/LevelSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/KnifeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Core/Events.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/Level.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/DefaultGraphics.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogPartGraphics.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/AbstractThrower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/LogPartThrower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/ItemThrower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/Level.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogGraphics.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Log/Item.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Log/ItemSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogAnimationController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Log/ItemPlacement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/AppleThrower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/KnifeThrower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Core/TapInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/AbstractThrower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/IThrowable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/ThrowablePart.cs" />
       </list>
     </option>
   </component>
@@ -175,6 +163,8 @@
       <workItem from="1647108149944" duration="10873000" />
       <workItem from="1647157191351" duration="14627000" />
       <workItem from="1647177025605" duration="12073000" />
+      <workItem from="1647250005902" duration="4227000" />
+      <workItem from="1647271467257" duration="2193000" />
     </task>
     <servers />
   </component>

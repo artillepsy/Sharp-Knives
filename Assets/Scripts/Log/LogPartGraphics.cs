@@ -8,9 +8,9 @@ namespace Log
     {
         public void OnLevelLoad(Level level)
         {
-            DefaultGraphics graphics = level.LogGraphics as DefaultGraphics;
+            DefaultGraphics graphics = level.GraphicsData as DefaultGraphics;
             var materials = GetComponent<MeshRenderer>().sharedMaterials;
-            materials[0].mainTexture = level.LogGraphics.LogTexture;
+            materials[0].mainTexture = level.GraphicsData.LogTexture;
             materials[1].color = graphics.PartsInsideColor;
         }
     }

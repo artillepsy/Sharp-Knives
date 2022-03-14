@@ -16,7 +16,6 @@ namespace Log
         private readonly string _shakeAnim = "LogShake";
         private readonly string _appearAnim = "LogAppear";
         private float _totalTime;
-        
 
         private void Awake()
         {
@@ -43,14 +42,12 @@ namespace Log
         {
             if(ShouldShake()) ChangeColor();
         }
-
         private void ChangeColor()
         {
             var value = _animationCurve.Evaluate(_totalTime / duration);
             value *= maxIntensity;
             _material.SetFloat(_amount, value);
         }
-
         private bool ShouldShake()
         {
             if (_totalTime >= duration) return false;

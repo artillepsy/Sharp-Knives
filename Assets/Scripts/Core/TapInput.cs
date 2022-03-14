@@ -5,30 +5,22 @@ namespace Core
     public class TapInput : MonoBehaviour
     {
         [SerializeField] private float reloadTimeInSeconds = 1f;
-        public float ReloadTimeInSeconds => reloadTimeInSeconds;
         private float _currentTime = 0;
         private bool _inputEnabled = true;
-
-        private void Awake()
-        {
-            _currentTime = reloadTimeInSeconds;
-        }
-
+        public float ReloadTimeInSeconds => reloadTimeInSeconds;
         private void OnEnable()
         {
+            _currentTime = reloadTimeInSeconds;
             Events.OnKnifeDrop.AddListener(() => _inputEnabled = false);
         }
-
         private void Update()
         {
             if (!_inputEnabled) return;
             if (!ReadyToThrow()) return;
             if (Input.touchCount == 0) return;
-            var touch = Input.touches[0];
-            if (touch.phase != TouchPhase.Began) return;
+            if (Input.touches[0].phase != TouchPhase.Began) return;
             Throw();
         }
-
         private void Throw()
         {
             Events.OnTap?.Invoke();

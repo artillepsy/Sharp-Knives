@@ -30,7 +30,7 @@ namespace Log
         private List<Vector3> InitSpawnPoints(float minSpawnDistance)
         {
             var points = new List<Vector3>();
-            var logRadius = GetComponentInParent<CapsuleCollider>().radius;
+            var logRadius = GetComponent<CapsuleCollider>().radius;
             var center = transform.position;
             var direction = Vector3.up * logRadius;
             var angleStep = Mathf.Rad2Deg * minSpawnDistance / (2 * logRadius);

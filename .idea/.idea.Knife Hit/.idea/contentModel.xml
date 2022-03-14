@@ -16,8 +16,10 @@
             <e p="AbstractThrower.cs" t="Include" />
             <e p="AppleThrower.cs" t="Include" />
             <e p="ItemThrower.cs" t="Include" />
+            <e p="IThrowable.cs" t="Include" />
             <e p="KnifeThrower.cs" t="Include" />
             <e p="LogPartThrower.cs" t="Include" />
+            <e p="ThrowablePart.cs" t="Include" />
           </e>
           <e p="Knife" t="Include">
             <e p="KnifeGraphics.cs" t="Include" />
@@ -26,6 +28,7 @@
             <e p="KnifeStateController.cs" t="Include" />
           </e>
           <e p="Log" t="Include">
+            <e p="ItemPlacement.cs" t="Include" />
             <e p="ItemSpawner.cs" t="Include" />
             <e p="LogAnimationController.cs" t="Include" />
             <e p="LogGraphics.cs" t="Include" />
