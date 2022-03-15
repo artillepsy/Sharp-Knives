@@ -4,13 +4,20 @@ using UnityEngine;
 
 namespace ItemThrow
 {
-    public class KnifeThrower : ItemThrower, IOnKnifeStateChange
+    public class KnifeThrower : MonoBehaviour, IOnKnifeStateChange
     {
+        private ThrowablePart _part;
+        private void OnEnable()
+        {
+            _part = GetComponent<ThrowablePart>();
+            Events.OnWinGame.AddListener(() => _part.Throw(Vector3.up));
+        }
+
         public void OnStateChange(KnifeState newState)
         {
             if (newState != KnifeState.Dropped) return;
-            _direction = Vector3.down;
-            Throw();
+            
+            _part.Throw(Vector3.down);
         }
     }
 }

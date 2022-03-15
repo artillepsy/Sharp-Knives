@@ -20,8 +20,8 @@ namespace Log
         private void Awake()
         {
             _totalTime = duration;
-            _material = GetComponent<MeshRenderer>().sharedMaterial;
-            _animation = GetComponentInParent<Animation>();
+            _material = GetComponentInChildren<MeshRenderer>().sharedMaterial;
+            _animation = GetComponent<Animation>();
         }
 
         private void OnEnable()
@@ -35,7 +35,7 @@ namespace Log
 
         private void Start()
         {
-            _animation.Play(_appearAnim);
+           // _animation.Play(_appearAnim);
         }
 
         private void Update()

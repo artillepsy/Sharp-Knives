@@ -11,6 +11,7 @@ namespace Log
         [SerializeField] private Vector3 rotationUp = Vector3.right;
         [SerializeField] private AnimationCurve speedChangeAnimationCurve;
 
+        private Transform _child;
         private int _direction;
         private float _currentTime;
         private float _currentRotationSpeed;
@@ -34,9 +35,10 @@ namespace Log
             _maxRotationSpeed = level.MaxRotationSpeed;
             _alwaysSwapDirection = level.AlwaysSwapDirection;
         }
-        
+
         private void Start()
         {
+            _child = transform.GetChild(0);
             _direction = Random.value > 0.5f ? 1 : -1;
             StartNewRotation();
         }
@@ -61,7 +63,7 @@ namespace Log
         {
             _currentRotationSpeed = speedChangeAnimationCurve.Evaluate(_currentTime / _currentRotationTime) 
                                     * _currentMaxRotationSpeed;
-            transform.Rotate(rotationUp, _currentRotationSpeed*Time.deltaTime);
+            _child.Rotate(rotationUp, _currentRotationSpeed*Time.deltaTime);
         }
         
         private bool ReadyToStartNewRotation()
@@ -70,7 +72,5 @@ namespace Log
             _currentTime -= Time.deltaTime;
             return false;
         }
-
-        
     }
 }

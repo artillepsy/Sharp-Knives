@@ -2,7 +2,7 @@
 
 namespace ItemThrow
 {
-    public class ThrowablePart : MonoBehaviour, IThrowable
+    public class ThrowablePart : MonoBehaviour
     {
         [SerializeField] protected float itemMass = 2f;
         [SerializeField] private bool threeDimensions;
@@ -49,7 +49,7 @@ namespace ItemThrow
             rb.useGravity = true;
             rb.velocity = Vector3.zero;
             rb.constraints = GetConstraints();
-            direction = _rotation * direction;
+            direction = _rotation * direction.normalized;
             rb.AddForce(direction * _impulse, ForceMode.Impulse);
             rb.AddTorque(GetAxis() * _torque, ForceMode.Impulse);
         }

@@ -13,25 +13,25 @@ namespace Log
             var shouldSpawnKnifes = Random.value < level.KnifeSpawnChance;
 
             if (!shouldSpawnApples && !shouldSpawnKnifes) return;
-            
-            var spawnPoints = InitSpawnPoints(level.MinItemSpawnDistance);
+            var coll = GetComponentInChildren<CapsuleCollider>();
+            var spawnPoints = InitSpawnPoints(level.MinItemSpawnDistance, coll);
             if (shouldSpawnApples)
             {
                 var appleCount = Random.Range(level.MinSpawnedAppleCount, level.MaxSpawnedAppleCount + 1);
-                SpawnItems(level.ApplePrefab, appleCount, spawnPoints);
+                SpawnItems(level.ApplePrefab, appleCount, spawnPoints, coll.transform);
             }
             if (shouldSpawnKnifes)
             {
                 var knifeCount = Random.Range(level.MinSpawnedKnifeCount, level.MaxSpawnedKnifeCount + 1);
-                SpawnItems(level.KnifePrefab, knifeCount, spawnPoints);
+                SpawnItems(level.KnifePrefab, knifeCount, spawnPoints, coll.transform);
             }
         }
 
-        private List<Vector3> InitSpawnPoints(float minSpawnDistance)
+        private List<Vector3> InitSpawnPoints(float minSpawnDistance, CapsuleCollider coll)
         {
             var points = new List<Vector3>();
-            var logRadius = GetComponent<CapsuleCollider>().radius;
-            var center = transform.position;
+            var logRadius = coll.radius;
+            var center = coll.transform.position;
             var direction = Vector3.up * logRadius;
             var angleStep = Mathf.Rad2Deg * minSpawnDistance / (2 * logRadius);
             var pointCount = (int) (360 / angleStep);
@@ -45,7 +45,7 @@ namespace Log
             return points;
         }
 
-        private void SpawnItems(Transform prefab, int count, List<Vector3> points)
+        private void SpawnItems(Transform prefab, int count, List<Vector3> points, Transform parent)
         {
             for (var i = 0; i < count; i++)
             {
@@ -54,7 +54,7 @@ namespace Log
                 points.Remove(point);
 
                 var instance = Instantiate(prefab);
-                instance.transform.SetParent(transform);
+                instance.transform.SetParent(parent);
                 instance.position = point;
                 instance.up = point - transform.position;
             }

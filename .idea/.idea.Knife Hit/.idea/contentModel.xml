@@ -7,16 +7,16 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="Camera" t="Include">
+            <e p="CameraStartAnim.cs" t="Include" />
+          </e>
           <e p="Core" t="Include">
             <e p="Events.cs" t="Include" />
             <e p="IOnKnifeStateChange.cs" t="Include" />
             <e p="TapInput.cs" t="Include" />
           </e>
           <e p="ItemThrow" t="Include">
-            <e p="AbstractThrower.cs" t="Include" />
             <e p="AppleThrower.cs" t="Include" />
-            <e p="ItemThrower.cs" t="Include" />
-            <e p="IThrowable.cs" t="Include" />
             <e p="KnifeThrower.cs" t="Include" />
             <e p="LogPartThrower.cs" t="Include" />
             <e p="ThrowablePart.cs" t="Include" />

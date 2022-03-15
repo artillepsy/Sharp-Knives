@@ -1,38 +1,28 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Core;
 using Log;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace ItemThrow
 {
-    public class LogPartThrower : AbstractThrower
+    public class LogPartThrower : MonoBehaviour
     {
         private GameObject _log;
-        private List<Rigidbody> _logPartsRbs;
-        private void Start()
+        private List<ThrowablePart> _parts;
+        private void OnEnable()
         {
+            _parts = GetComponentsInChildren<ThrowablePart>().ToList();
+            _parts.ForEach(part => part.gameObject.SetActive(false));
             _log = FindObjectOfType<LogRotation>().gameObject;
-            _logPartsRbs = GetComponentsInChildren<Rigidbody>().ToList();
-            foreach (var rb in _logPartsRbs)
-            {
-                rb.gameObject.SetActive(false);
-            }
+            Events.OnWinGame.AddListener(ThrowParts);
         }
-        protected override void Throw()
+        private void ThrowParts()
         {
             transform.rotation = _log.transform.rotation;
             _log.SetActive(false);
-            foreach (var rb in _logPartsRbs)
-            {
-                rb.gameObject.SetActive(true);
-                var direction = (rb.transform.position -transform.position).normalized;
-                direction = Random.rotation * direction;
-                rb.useGravity = true;
-                rb.mass = base.itemMass;
-                rb.constraints = RigidbodyConstraints.FreezePositionZ;
-                rb.AddForceAtPosition(direction * base._impulse, transform.position, ForceMode.Impulse);
-            }
+            _parts.ForEach(part => part.gameObject.SetActive(true));
+            _parts.ForEach(part => part.Throw(part.transform.position - _log.transform.position));
         }
     }
 }

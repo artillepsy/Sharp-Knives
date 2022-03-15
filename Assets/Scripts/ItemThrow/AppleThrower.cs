@@ -5,45 +5,26 @@ using UnityEngine;
 
 namespace ItemThrow
 {
-    public class AppleThrower : ItemThrower
+    public class AppleThrower : MonoBehaviour
     {
-        private List<Rigidbody> _children;
+        [SerializeField] private GameObject fullApple;
+        [SerializeField] private List<GameObject> appleParts;
+        private List<ThrowablePart> _parts;
 
-        public void HitApple()
+        public void Hit()
         {
-            foreach (var rb in _children)
-            {
-                var activeStatus = !rb.GetComponent<Collider>();
-                rb.gameObject.SetActive(activeStatus);
-            }
-
-            Throw();
+            transform.SetParent(null);
+            fullApple.SetActive(false);
+            appleParts.ForEach(part => part.SetActive(true));
+            _parts.ForEach(comp => comp.Throw(Vector3.up));
             Events.OnAppleHit?.Invoke();
-            Events.OnWinGame.RemoveListener(Throw);
+            Events.OnWinGame.RemoveListener(ThrowParts);
         }
-        
-        private void Awake()
+        private void OnEnable()
         {
-            _children = GetComponentsInChildren<Rigidbody>().ToList();
-            foreach (var rb in _children)
-            {
-                //rb.constraints = RigidbodyConstraints.FreezeAll;
-                if(!rb.GetComponent<Collider>()) rb.gameObject.SetActive(false);
-            }
+            _parts = GetComponentsInChildren<ThrowablePart>(true).ToList();
+            Events.OnWinGame.AddListener(ThrowParts);
         }
-
-        protected override void Throw()
-        {
-            foreach (var rb in _children)
-            {
-                if(!rb.gameObject.activeSelf) continue;
-                
-                var coll = rb.GetComponent<Collider>();
-                if (coll) coll.enabled = false;
-                
-                ThrowSingleRigidbody(rb);
-            }
-        }
-        
+        private void ThrowParts() => _parts.ForEach(comp => comp.Throw(Vector3.up));
     }
 }
