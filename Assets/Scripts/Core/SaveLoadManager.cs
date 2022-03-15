@@ -5,10 +5,13 @@ namespace Core
     public class SaveLoadManager : MonoBehaviour
     {
         private UserData _userData;
-        public int AppleCount => _userData.AppleCount;
         private int _currentScore = 0;
+        public int AppleCount => _userData.AppleCount;
         public int CurrentScore => _currentScore;
+        public int HighScore => _userData.HighScore;
 
+        public void SaveProgress() => SaveLoadSystem.Save(_userData);
+        public void LoadProgress() => _userData = SaveLoadSystem.Load();
         private void OnEnable()
         {
             Events.OnAppleHit.AddListener(() =>_userData.AppleCount++);
@@ -17,7 +20,7 @@ namespace Core
             Events.OnKnifeDrop.AddListener(OnKnifeDrop);
         }
 
-        private void Start()
+        private void Awake()
         {
             _userData = SaveLoadSystem.Load();
             if (_userData != null) return;
@@ -35,28 +38,5 @@ namespace Core
             _currentScore = 0;
             SaveLoadSystem.Save(_userData);
         }
-
-        /*
-        public void OnClickSave()
-        {
-            SaveLoadSystem.Save(_userData);
-        }
-
-        public void OnClickLoad()
-        {
-            _userData = SaveLoadSystem.Load();
-        }
-
-        public void OnClickChangeValues()
-        {
-            _userData.AppleCount++;
-            _userData.HighScore++;
-        }
-
-        public void OnClickCheck()
-        {
-            Debug.Log(_userData.AppleCount);
-            Debug.Log(_userData.HighScore);
-        }*/
     }
 }

@@ -39,12 +39,11 @@
             <e p="LogRotation.cs" t="Include" />
           </e>
           <e p="Management" t="Include">
+            <e p="CanvasStateController.cs" t="Include" />
+            <e p="CanvasType.cs" t="Include" />
+            <e p="GameCanvasManager.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="KnifeManager.cs" t="Include" />
-          </e>
-          <e p="Menu" t="Include">
-            <e p="MainMenu.cs" t="Include" />
-            <e p="Shop.cs" t="Include" />
           </e>
           <e p="Scriptable" t="Include">
             <e p="BossGraphics.cs" t="Include" />
@@ -56,9 +55,13 @@
             <e p="LevelSettings.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="AbstractCanvasManager.cs" t="Include" />
+            <e p="GameScoreDisplay.cs" t="Include" />
+            <e p="IOnCanvasChange.cs" t="Include" />
             <e p="KnifeDisplay.cs" t="Include" />
-            <e p="MenuApplesDisplay.cs" t="Include" />
-            <e p="ScoreDisplay.cs" t="Include" />
+            <e p="MenuCanvasManager.cs" t="Include" />
+            <e p="MenuScoreDisplay.cs" t="Include" />
+            <e p="Shop.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">

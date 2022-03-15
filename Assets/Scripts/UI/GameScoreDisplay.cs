@@ -4,11 +4,17 @@ using UnityEngine;
 
 namespace UI
 {
-    public class ScoreDisplay : MonoBehaviour
+    public class GameScoreDisplay : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI appleScore;
         [SerializeField] private TextMeshProUGUI hitScore;
-        
+        [Space] 
+        [SerializeField] private string currentScoreText = "Score:";
+        [SerializeField] private string highScoreText = "High:";
+        [SerializeField] private TextMeshProUGUI failCanvasCurrentScore;
+        [SerializeField] private TextMeshProUGUI failCanvasHighScore;
+
+        private SaveLoadManager _manager;
         private int _appleCount = 0;
         private int _hitScore = 0;
 
@@ -16,14 +22,15 @@ namespace UI
         {
             Events.OnAppleHit.AddListener(IncrementApples);
             Events.OnKnifeHit.AddListener(IncrementScore);
+            Events.OnKnifeDrop.AddListener(DisplayFailScore);
         }
 
         private void Start()
         {
-            var manager = FindObjectOfType<SaveLoadManager>();
-            _appleCount = manager.AppleCount;
+            _manager = FindObjectOfType<SaveLoadManager>();
+            _appleCount = _manager.AppleCount;
             appleScore.text = _appleCount.ToString();
-            _hitScore = manager.CurrentScore;
+            _hitScore = _manager.CurrentScore;
             hitScore.text = _hitScore.ToString();
         }
 
@@ -37,6 +44,12 @@ namespace UI
         {
             _hitScore++;
             hitScore.text = _hitScore.ToString();
+        }
+
+        private void DisplayFailScore()
+        {
+            failCanvasCurrentScore.text = currentScoreText + " " + _hitScore;
+            failCanvasHighScore.text = highScoreText + " " + _manager.HighScore;
         }
     }
 }

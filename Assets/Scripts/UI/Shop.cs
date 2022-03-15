@@ -2,11 +2,11 @@
 using Scriptable;
 using UnityEngine;
 
-namespace Menu
+namespace UI
 {
     public class Shop : MonoBehaviour
     {
-        [SerializeField] private List<KnifeShopItem> knifes;
+        [SerializeField] private List<KnifeShopItem> knives;
         
     }
 }

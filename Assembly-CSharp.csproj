@@ -41,11 +41,14 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Core\SaveLoadSystem.cs" />
      <Compile Include="Assets\Scripts\Log\ItemPlacement.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
      <Compile Include="Assets\Scripts\Scriptable\Level.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeState.cs" />
+     <Compile Include="Assets\Scripts\Core\UserData.cs" />
+     <Compile Include="Assets\Scripts\Core\SaveLoadManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
@@ -65,6 +68,7 @@
      <Compile Include="Assets\Scripts\Scriptable\DefaultGraphics.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\KnifeThrower.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\Scriptable\KnifeShopItem.cs" />
      <Compile Include="Assets\Scripts\Scriptable\IOnLevelLoad.cs" />
      <Compile Include="Assets\Scripts\Core\TapInput.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -75,6 +79,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
+     <Compile Include="Assets\Scripts\UI\Shop.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -84,10 +89,12 @@
      <Compile Include="Assets\Scripts\UI\KnifeDisplay.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Scripts\Scriptable\BossGraphics.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuCanvasManager.cs" />
      <Compile Include="Assets\Scripts\Log\LogRotation.cs" />
      <Compile Include="Assets\Scripts\Core\Events.cs" />
-     <Compile Include="Assets\Scripts\UI\ScoreDisplay.cs" />
+     <Compile Include="Assets\Scripts\UI\GameScoreDisplay.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuScoreDisplay.cs" />
      <Compile Include="Assets\Scripts\Log\LogPartGraphics.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeMovement.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
@@ -105,13 +112,11 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeGraphics.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\Scripts\Scriptable\KnifeShopItem.cs" />
-     <Compile Include="Assets\Scripts\Menu\Shop.cs" />
-     <Compile Include="Assets\Scripts\Core\SaveLoadSystem.cs" />
-     <Compile Include="Assets\Scripts\Core\UserData.cs" />
-     <Compile Include="Assets\Scripts\Core\SaveLoadManager.cs" />
-     <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
-     <Compile Include="Assets\Scripts\UI\MenuApplesDisplay.cs" />
+     <Compile Include="Assets\Scripts\Management\GameCanvasManager.cs" />
+     <Compile Include="Assets\Scripts\UI\IOnCanvasChange.cs" />
+     <Compile Include="Assets\Scripts\Management\CanvasType.cs" />
+     <Compile Include="Assets\Scripts\Management\CanvasStateController.cs" />
+     <Compile Include="Assets\Scripts\UI\AbstractCanvasManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

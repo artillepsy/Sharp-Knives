@@ -30,16 +30,17 @@ namespace Management
 
         private void OnGameOver()
         {
-            Invoke(nameof(LoadScene), newSceneLoadTIme);
-            Vibration.VibratePeek();
+           Invoke(nameof(LoadGameOverScreen), newSceneLoadTIme);
+           Vibration.Vibrate(400);
         }
         private void OnWin()
         {
             Invoke(nameof(LoadScene), newSceneLoadTIme);
             Events.OnWinGame?.Invoke();
-            Vibration.VibratePeek();
+            Vibration.Vibrate(400);
         }
 
+        private void LoadGameOverScreen() => Events.OnFailGame?.Invoke();
         private void LoadScene()
         {
             SceneManager.LoadSceneAsync(levelName);

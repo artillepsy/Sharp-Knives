@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Management;
+using UnityEngine;
 
 namespace Core
 {
-    public class TapInput : MonoBehaviour
+    public class TapInput : MonoBehaviour, IOnCanvasChange
     {
         [SerializeField] private float reloadTimeInSeconds = 1f;
         private Collider _tapZoneCollider;
@@ -10,6 +11,10 @@ namespace Core
         private bool _inputEnabled = true;
         private Camera _camera;
         public float ReloadTimeInSeconds => reloadTimeInSeconds;
+        public void OnCanvasChange(CanvasType newType)
+        {
+            _inputEnabled = newType == CanvasType.Game;
+        }
         private void OnEnable()
         {
             _tapZoneCollider = GetComponentInChildren<Collider>();
