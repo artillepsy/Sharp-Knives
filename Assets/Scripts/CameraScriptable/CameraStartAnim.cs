@@ -1,18 +1,18 @@
 ﻿
 using UnityEngine;
 
-namespace Camera
+namespace CameraScriptable
 {
     public class CameraStartAnim : MonoBehaviour
     {
         [SerializeField] private AnimationCurve animationCurve;
         [SerializeField] private float animTime = 1f;
-        private UnityEngine.Camera _camera;
+        private Camera _camera;
         private float _currentTime = 0f;
 
         private void Start()
         {
-            _camera = GetComponent<UnityEngine.Camera>();
+            _camera = GetComponent<Camera>();
             _currentTime = 0f;
         }
 
