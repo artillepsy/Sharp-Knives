@@ -10,5 +10,7 @@ namespace Core
         public static readonly UnityEvent OnAppleHit = new UnityEvent();
         public static readonly UnityEvent OnWinGame = new UnityEvent();
         public static readonly UnityEvent OnFailGame = new UnityEvent();
+        public static readonly UnityEvent<int> OnBuy = new UnityEvent<int>();
+        public static readonly UnityEvent<int> OnEquip = new UnityEvent<int>();
     }
 }

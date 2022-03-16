@@ -6,6 +6,7 @@
         Pause,
         Fail,
         MainMenu,
-        Shop
+        Shop,
+        BuyAcceptMsgBox,
     }
 }

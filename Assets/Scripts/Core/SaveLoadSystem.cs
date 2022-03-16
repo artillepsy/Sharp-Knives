@@ -28,7 +28,6 @@ namespace Core
             }
             Debug.Log("file doesn't exist");
             return null;
-            
         }
     }
 }
