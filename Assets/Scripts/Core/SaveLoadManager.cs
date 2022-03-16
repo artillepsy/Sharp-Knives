@@ -7,6 +7,8 @@ namespace Core
     {
         private UserData _userData;
         private int _currentScore = 0;
+        private int _winCount = 0;
+        public int WinCount => _winCount;
         public int AppleCount => _userData.AppleCount;
         public int CurrentScore => _currentScore;
         public int HighScore => _userData.HighScore;
@@ -57,6 +59,8 @@ namespace Core
                 _userData.HighScore = _currentScore;
                 Debug.Log("high score: "+ _userData.HighScore);
             }
+
+            _winCount = 0;
             _currentScore = 0;
             SaveLoadSystem.Save(_userData);
         }

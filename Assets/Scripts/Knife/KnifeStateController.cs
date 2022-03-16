@@ -47,9 +47,9 @@ namespace Knife
 
         private void Stop(Vector3 direction)
         {
-            _collider.size = new Vector3(1, 0.6f, 1);
+            _collider.size = new Vector3(_collider.size.x, 0.6f, _collider.size.z);
             _collider.center = new Vector3(0, -0.20f, 0);
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
             transform.position = _logPosition + direction.normalized * _logCollider.radius;
             transform.up = -direction;
             Instantiate(KnifeManager.HitParticleSystem, transform.position, transform.rotation);
