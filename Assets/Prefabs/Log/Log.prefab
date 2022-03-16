@@ -64,14 +64,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e54a04823a4254af34312ea04b52e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationCurve:
+  animationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 3.9995217
-      outSlope: 3.9995217
+      inSlope: 3.6547356
+      outSlope: 3.6547356
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -79,11 +79,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -3.9650486
-      outSlope: -3.9650486
+      inSlope: -4.2890024
+      outSlope: -4.2890024
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.024602354
+      inWeight: 0.037027836
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -139,6 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e3e356eacc40c0a3792b399c79887d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  applePrefab: {fileID: 0}
+  knifePrefab: {fileID: 0}
 --- !u!1001 &3704950725027003401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,3 +226,16 @@ CapsuleCollider:
   m_Height: 2.3691318
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8288503137407373116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587981509394317656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce00e16080a40dc8962fdcad214d2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossParticleSystem: {fileID: 0}

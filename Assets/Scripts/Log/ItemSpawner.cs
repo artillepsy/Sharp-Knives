@@ -7,6 +7,9 @@ namespace Log
 {
     public class ItemSpawner : MonoBehaviour, IOnLevelLoad
     {
+        [SerializeField] private Transform applePrefab;
+        [SerializeField] private Transform knifePrefab;
+        
         public void OnLevelLoad(Level level)
         {
             var shouldSpawnApples = Random.value < level.AppleSpawnChance;
@@ -18,12 +21,12 @@ namespace Log
             if (shouldSpawnApples)
             {
                 var appleCount = Random.Range(level.MinSpawnedAppleCount, level.MaxSpawnedAppleCount + 1);
-                SpawnItems(level.ApplePrefab, appleCount, spawnPoints, coll.transform);
+                SpawnItems(applePrefab, appleCount, spawnPoints, coll.transform);
             }
             if (shouldSpawnKnifes)
             {
                 var knifeCount = Random.Range(level.MinSpawnedKnifeCount, level.MaxSpawnedKnifeCount + 1);
-                SpawnItems(level.KnifePrefab, knifeCount, spawnPoints, coll.transform);
+                SpawnItems(knifePrefab, knifeCount, spawnPoints, coll.transform);
             }
         }
 

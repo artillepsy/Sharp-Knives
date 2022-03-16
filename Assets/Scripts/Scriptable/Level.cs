@@ -13,9 +13,6 @@ namespace Scriptable
 
 
         [Header("Item spawn settings")] 
-        public Transform ApplePrefab;
-        public Transform KnifePrefab;
-        [Space]
         public int MinItemSpawnDistance = 1;
         [Space]
         public int MinSpawnedAppleCount = 1;
@@ -26,8 +23,6 @@ namespace Scriptable
 
         [Header("Graphics settings")] 
         public Graphics GraphicsData; 
-        public Sprite KnifeSprite;
-        
         
         [Header("Log rotation settings")]
         public float MinRotationSpeed = 100f;

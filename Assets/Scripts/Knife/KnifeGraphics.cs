@@ -1,21 +1,13 @@
-﻿using LevelSettings;
-using Scriptable;
+﻿using Core;
 using UnityEngine;
 
 namespace Knife
 {
-    public class KnifeGraphics : MonoBehaviour, IOnLevelLoad
+    public class KnifeGraphics : MonoBehaviour
     {
-        private Sprite _sprite;
-        
-        public void OnLevelLoad(Level level)
+        private void Start()
         {
-            _sprite = level.KnifeSprite;
-        }
-
-        private void Awake()
-        {
-            _sprite = GetComponent<SpriteRenderer>().sprite;
+            GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SaveLoadManager>().CurrentKnifeSprite;
         }
     }
 }

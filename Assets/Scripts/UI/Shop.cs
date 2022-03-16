@@ -12,6 +12,7 @@ namespace UI
         [SerializeField] private BuyButton buyButtonPrefab;
         private List<BuyButton> _buyButtons;
         private SaveLoadManager _saveLoadManager;
+        public List<KnifeShopItem> KnifeItems => knifeItems;
 
         public void Unlock(KnifeShopItem item)
         {
@@ -21,7 +22,7 @@ namespace UI
 
         public void Equip(KnifeShopItem item)
         {
-            _saveLoadManager.Equip(item.Id);
+            _saveLoadManager.Equip(item);
             Events.OnEquip?.Invoke(item.Id);
         }
         
@@ -32,7 +33,7 @@ namespace UI
             foreach (var knife in knifeItems)
             {
                 var instance = Instantiate(buyButtonPrefab, content);
-                instance.SetValues(knife, IsUnlocked(knife), _saveLoadManager.AppleCount);
+                instance.SetValues(knife, IsUnlocked(knife), _saveLoadManager.AppleCount, _saveLoadManager.EquippedKnifeId);
                 _buyButtons.Add(instance);
             }
             // add items player bought

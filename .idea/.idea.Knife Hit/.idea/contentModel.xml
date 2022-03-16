@@ -46,8 +46,6 @@
             <e p="KnifeManager.cs" t="Include" />
           </e>
           <e p="Scriptable" t="Include">
-            <e p="BossGraphics.cs" t="Include" />
-            <e p="DefaultGraphics.cs" t="Include" />
             <e p="Graphics.cs" t="Include" />
             <e p="IOnLevelLoad.cs" t="Include" />
             <e p="KnifeShopItem.cs" t="Include" />

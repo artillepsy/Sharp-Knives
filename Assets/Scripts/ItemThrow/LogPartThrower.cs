@@ -1,15 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core;
+using LevelSettings;
 using Log;
+using Scriptable;
 using UnityEngine;
 
 namespace ItemThrow
 {
-    public class LogPartThrower : MonoBehaviour
+    public class LogPartThrower : MonoBehaviour, IOnLevelLoad
     {
         private GameObject _log;
         private List<ThrowablePart> _parts;
+        public void OnLevelLoad(Level level)
+        {
+            if (!level.GraphicsData.IsBoss) return;
+            Events.OnWinGame.RemoveListener(ThrowParts);
+            Events.OnWinGame.AddListener(() => _log.SetActive(false));
+            gameObject.SetActive(false);
+        }
+
         private void OnEnable()
         {
             _parts = GetComponentsInChildren<ThrowablePart>().ToList();

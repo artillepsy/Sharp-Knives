@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Scriptable;
+using UI;
 using UnityEngine;
 
 namespace Core
@@ -8,6 +10,9 @@ namespace Core
         private UserData _userData;
         private int _currentScore = 0;
         private int _winCount = 0;
+        private Sprite _currentKnifeSprite;
+        public Sprite CurrentKnifeSprite => _currentKnifeSprite;
+        public int EquippedKnifeId => _userData.CurrentKnifeId;
         public int WinCount => _winCount;
         public int AppleCount => _userData.AppleCount;
         public int CurrentScore => _currentScore;
@@ -16,6 +21,7 @@ namespace Core
 
         public void SaveProgress() => SaveLoadSystem.Save(_userData);
         public void LoadProgress() => _userData = SaveLoadSystem.Load();
+        
         public void Unlock(int id, int cost)
         {
             _userData.AppleCount -= cost;
@@ -23,11 +29,13 @@ namespace Core
             SaveProgress();
         }
 
-        public void Equip(int id)
+        public void Equip(KnifeShopItem item)
         {
-            _userData.CurrentKnifeId = id;
+            _userData.CurrentKnifeId = item.Id;
+            _currentKnifeSprite = item.KnifeSprite;
             SaveProgress();
         }
+        
 
         private void OnEnable()
         {
@@ -39,10 +47,19 @@ namespace Core
 
         private void Awake()
         {
-            Test_ClearProgress();
+           // Test_ClearProgress();
             _userData = SaveLoadSystem.Load();
             if (_userData != null) return;
             _userData = new UserData(0, 0, 1, new List<int>(){1});
+        }
+
+        private void Start()
+        {
+            foreach (var knifeItem in FindObjectOfType<Shop>(true).KnifeItems)
+            {
+                if (knifeItem.Id != _userData.CurrentKnifeId) continue;
+                _currentKnifeSprite = knifeItem.KnifeSprite;
+            }
         }
 
         private void Test_ClearProgress()

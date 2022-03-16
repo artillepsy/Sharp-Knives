@@ -8,6 +8,7 @@ namespace Scriptable
         public int Id;
         public Sprite KnifeSprite;
         public bool IsBossDrop;
+        [Header("If not drop")]
         public int Cost = 500;
     }
 }

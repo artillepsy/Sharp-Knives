@@ -69,7 +69,6 @@
      <Compile Include="Assets\Scripts\ItemThrow\AppleThrower.cs" />
      <Compile Include="Assets\Scripts\Management\CanvasType.cs" />
      <Compile Include="Assets\Scripts\Core\IOnKnifeStateChange.cs" />
-     <Compile Include="Assets\Scripts\Scriptable\DefaultGraphics.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\KnifeThrower.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Scriptable\KnifeShopItem.cs" />
@@ -94,7 +93,6 @@
      <Compile Include="Assets\Scripts\UI\KnifeDisplay.cs" />
      <Compile Include="Assets\Scripts\UI\IOnCanvasChange.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-     <Compile Include="Assets\Scripts\Scriptable\BossGraphics.cs" />
      <Compile Include="Assets\Scripts\UI\MenuCanvasManager.cs" />
      <Compile Include="Assets\Scripts\Log\LogRotation.cs" />
      <Compile Include="Assets\Scripts\Core\Events.cs" />

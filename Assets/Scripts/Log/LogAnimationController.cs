@@ -6,7 +6,7 @@ namespace Log
     public class LogAnimationController : MonoBehaviour
     {
         [Header("Material settings")] 
-        [SerializeField] private AnimationCurve _animationCurve;
+        [SerializeField] private AnimationCurve animationCurve;
         [Range(0, 1)]
         [SerializeField] private float maxIntensity = 1f;
         [SerializeField] private float duration = 0.1f;
@@ -14,7 +14,6 @@ namespace Log
         private Material _material;
         private readonly string _amount = "_Amount";
         private readonly string _shakeAnim = "LogShake";
-        private readonly string _appearAnim = "LogAppear";
         private float _totalTime;
 
         private void Awake()
@@ -33,18 +32,13 @@ namespace Log
             });
         }
 
-        private void Start()
-        {
-           // _animation.Play(_appearAnim);
-        }
-
         private void Update()
         {
             if(ShouldShake()) ChangeColor();
         }
         private void ChangeColor()
         {
-            var value = _animationCurve.Evaluate(_totalTime / duration);
+            var value = animationCurve.Evaluate(_totalTime / duration);
             value *= maxIntensity;
             _material.SetFloat(_amount, value);
         }
