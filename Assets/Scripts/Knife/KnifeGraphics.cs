@@ -7,7 +7,7 @@ namespace Knife
     {
         private void Start()
         {
-            GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SaveManager>().CurrentKnifeSprite;
+            GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SaveManager>().Knife.CurrentSprite;
         }
     }
 }

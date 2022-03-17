@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Core;
-using Scriptable;
 using UI;
 using UnityEngine;
 
@@ -9,86 +8,69 @@ namespace SaveSystem
     public class SaveManager : MonoBehaviour
     {
         private UserData _userData;
-        private int _currentScore = 0;
-        private int _winCount = 0;
+        public KnifeData Knife;
+        public ShopData Shop;
+        public SoundData Sound;
+        public ScoreData Score;
+        /*
         private Sprite _currentKnifeSprite;
         public Sprite CurrentKnifeSprite => _currentKnifeSprite;
         public float Volume => _userData.Volume;
         public bool Vibration => _userData.Vibration;
-        public int EquippedKnifeId => _userData.CurrentKnifeId;
+        public int EquippedKnifeId => _userData.EquippedKnifeId;
         public int WinCount => _winCount;
         public int AppleCount => _userData.AppleCount;
         public int CurrentScore => _currentScore;
         public int HighScore => _userData.HighScore;
         public List<int> UnlockedIds => _userData.UnlockedKniveIds;
-
-        public void SaveProgress() => SaveSystem.Save(_userData);
-        public void LoadProgress() => _userData = SaveSystem.Load();
-
-        public void SetVolumeSettings(float volume, bool vibration)
-        {
-            _userData.Volume = volume;
-            _userData.Vibration = vibration;
-            SaveSystem.Save(_userData);
-        }
-        
-        public void Unlock(int id, int cost)
-        {
-            _userData.AppleCount -= cost;
-            _userData.UnlockedKniveIds.Add(id);
-            SaveProgress();
-        }
-
-        public void Equip(KnifeShopItem item)
-        {
-            _userData.CurrentKnifeId = item.Id;
-            _currentKnifeSprite = item.KnifeSprite;
-            SaveProgress();
-        }
-        
-
+        */
         private void OnEnable()
         {
-            Events.OnAppleHit.AddListener(() =>_userData.AppleCount++);
-            Events.OnKnifeHit.AddListener(() => _currentScore++);
-            Events.OnWinGame.AddListener(() => SaveSystem.Save(_userData));
+            Events.OnAppleHit.AddListener( () =>Score.IncrementApples());
+            Events.OnKnifeHit.AddListener(() => Score.CurrentScore++);
+            Events.OnWinGame.AddListener(() =>
+            {
+                Score.IncrementWins();
+                SaveSystem.Save(_userData);
+            });
             Events.OnKnifeDrop.AddListener(OnKnifeDrop);
         }
-
         private void Awake()
         {
             Test_ClearProgress();
             _userData = SaveSystem.Load();
-            if (_userData != null) return;
-            _userData = new UserData(0, 0, 1, new List<int>(){1});
+            if (_userData == null)
+            {
+                _userData = new UserData(0, 1, new List<int>(){1});
+            }
+            Knife = new KnifeData(_userData);
+            Shop = new ShopData(_userData);
+            Sound = new SoundData(_userData);
+            Score = new ScoreData(_userData);
         }
-
         private void Start()
         {
-            foreach (var knifeItem in FindObjectOfType<Shop>(true).KnifeItems)
+            foreach (var knifeItem in FindObjectOfType<ShopManager>(true).KnifeItems)
             {
-                if (knifeItem.Id != _userData.CurrentKnifeId) continue;
-                _currentKnifeSprite = knifeItem.KnifeSprite;
+                if (knifeItem.Id != _userData.EquippedKnifeId) continue;
+                Knife.CurrentSprite = knifeItem.KnifeSprite;
             }
         }
-
         private void Test_ClearProgress()
         {
-            _userData = new UserData(100, 0, 1, new List<int>(){1});
+            _userData = new UserData(100, 1, new List<int>(){1});
             SaveSystem.Save(_userData);
         }
-
         private void OnKnifeDrop()
         {
-            Debug.Log(_currentScore);
-            if (_userData.HighScore < _currentScore)
+           // Debug.Log(Score.CurrentScore);
+            if (_userData.HighScore < Score.CurrentScore)
             {
-                _userData.HighScore = _currentScore;
+                _userData.HighScore = Score.CurrentScore;
                 Debug.Log("high score: "+ _userData.HighScore);
             }
-
-            _winCount = 0;
-            _currentScore = 0;
+            Score.ResetWinCound();
+            Score.CurrentScore = 0;
             SaveSystem.Save(_userData);
         }
     }

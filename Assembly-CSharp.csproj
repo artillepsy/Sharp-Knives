@@ -49,7 +49,6 @@
      <Compile Include="Assets\Scripts\Scriptable\Level.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeState.cs" />
      <Compile Include="Assets\Scripts\UI\AbstractCanvasManager.cs" />
-     <Compile Include="Assets\Scripts\SaveSystem\UserData.cs" />
      <Compile Include="Assets\Scripts\SaveSystem\SaveManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
@@ -57,7 +56,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
      <Compile Include="Assets\Scripts\Log\LogGraphics.cs" />
      <Compile Include="Assets\Scripts\Management\SoundManager.cs" />
-     <Compile Include="Assets\Scripts\Scriptable\LevelSettings.cs" />
+     <Compile Include="Assets\Scripts\Management\LevelManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
      <Compile Include="Assets\Scripts\UI\GameCanvasManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
@@ -84,7 +83,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
-     <Compile Include="Assets\Scripts\UI\Shop.cs" />
+     <Compile Include="Assets\Scripts\UI\ShopManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -97,6 +96,7 @@
      <Compile Include="Assets\Scripts\UI\MenuCanvasManager.cs" />
      <Compile Include="Assets\Scripts\Log\LogRotation.cs" />
      <Compile Include="Assets\Scripts\Core\Events.cs" />
+     <Compile Include="Assets\Scripts\SaveSystem\CustomData.cs" />
      <Compile Include="Assets\Scripts\UI\GameScoreDisplay.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
      <Compile Include="Assets\Scripts\UI\MenuScoreDisplay.cs" />

@@ -6,35 +6,38 @@ using UnityEngine;
 
 namespace UI
 {
-    public class Shop : MonoBehaviour
+    public class ShopManager : MonoBehaviour
     {
         [SerializeField] private Transform content;
         [SerializeField] private List<KnifeShopItem> knifeItems;
         [SerializeField] private BuyButton buyButtonPrefab;
         private List<BuyButton> _buyButtons;
-        private SaveManager _saveLoadManager;
+        private SaveManager _saveManager;
         public List<KnifeShopItem> KnifeItems => knifeItems;
 
         public void Unlock(KnifeShopItem item)
         {
-            _saveLoadManager.Unlock(item.Id, item.Cost);
+            _saveManager.Shop.Unlock(item.Id, item.Cost);
             Events.OnBuy?.Invoke(item.Cost);
         }
 
         public void Equip(KnifeShopItem item)
         {
-            _saveLoadManager.Equip(item);
+            _saveManager.Shop.Equip(item);
+            _saveManager.Knife.Equip(item);
             Events.OnEquip?.Invoke(item.Id);
         }
         
         private void Start()
         {
             _buyButtons = new List<BuyButton>();
-            _saveLoadManager = FindObjectOfType<SaveManager>();
+            _saveManager = FindObjectOfType<SaveManager>();
             foreach (var knife in knifeItems)
             {
                 var instance = Instantiate(buyButtonPrefab, content);
-                instance.SetValues(knife, IsUnlocked(knife), _saveLoadManager.AppleCount, _saveLoadManager.EquippedKnifeId);
+                instance.SetValues(knife, IsUnlocked(knife),
+                    _saveManager.Score.AppleCount,
+                    _saveManager.Knife.EquippedKnifeId);
                 _buyButtons.Add(instance);
             }
             // add items player bought
@@ -42,7 +45,7 @@ namespace UI
 
         private bool IsUnlocked(KnifeShopItem item)
         {
-            foreach (var id in _saveLoadManager.UnlockedIds)
+            foreach (var id in _saveManager.Shop.UnlockedIds)
             {
                 if (item.Id == id) return true;
             }

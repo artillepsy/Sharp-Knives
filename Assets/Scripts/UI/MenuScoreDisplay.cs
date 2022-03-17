@@ -14,9 +14,9 @@ namespace UI
         private void Start()
         {
             var manager = FindObjectOfType<SaveManager>();
-            _appleCount = manager.AppleCount;
-            appleCount.text = manager.AppleCount.ToString();
-            highScore.text = manager.HighScore.ToString();
+            _appleCount = manager.Score.AppleCount;
+            appleCount.text = manager.Score.AppleCount.ToString();
+            highScore.text = manager.Score.HighScore.ToString();
         }
         private void ChangeAppleCount(int cost)
         {

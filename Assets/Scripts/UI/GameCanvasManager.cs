@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Core;
-using SaveSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,7 +27,6 @@ namespace UI
 
         public void OnClickMainMenu()
         {
-            FindObjectOfType<SaveManager>().SaveProgress();
             Time.timeScale = 1f;
             SceneManager.LoadSceneAsync("Menu");
         }

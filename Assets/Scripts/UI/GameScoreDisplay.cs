@@ -29,9 +29,9 @@ namespace UI
         private void Start()
         {
             _manager = FindObjectOfType<SaveManager>();
-            _appleCount = _manager.AppleCount;
+            _appleCount = _manager.Score.AppleCount;
             appleScore.text = _appleCount.ToString();
-            _hitScore = _manager.CurrentScore;
+            _hitScore = _manager.Score.CurrentScore;
             hitScore.text = _hitScore.ToString();
         }
 
@@ -50,7 +50,7 @@ namespace UI
         private void DisplayFailScore()
         {
             failCanvasCurrentScore.text = currentScoreText + " " + _hitScore;
-            failCanvasHighScore.text = highScoreText + " " + _manager.HighScore;
+            failCanvasHighScore.text = highScoreText + " " + _manager.Score.HighScore;
         }
     }
 }

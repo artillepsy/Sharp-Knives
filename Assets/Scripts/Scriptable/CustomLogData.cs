@@ -16,16 +16,20 @@ namespace Scriptable
         {
             [Header("Default log")]
             public Color InsideColor = new Color(0xE5, 0xA5, 0x60);
+            public int MinWinCount = 0;
+            public int MaxWinCount = 4;
         }
         [System.Serializable]
         public class BossLog
         {
-            [Header("Boss log")]
+            [Header("Boss log")] 
+            [Range(0, 100)]
+            public int DamageAtDestroy = 20;
+            [Range(0, 1)] 
+            public float Chance = 0.3f;
             public Color ParticlesColor = Color.red;
             public AudioClip HitAudio;
             public AudioClip DestroyAudio;
         }
-        
-       
     }
 }
