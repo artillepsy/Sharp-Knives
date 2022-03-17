@@ -1,4 +1,6 @@
-﻿namespace Management
+﻿using Management;
+
+namespace UI
 {
     public interface IOnCanvasChange
     {

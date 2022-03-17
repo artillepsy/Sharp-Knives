@@ -5,37 +5,62 @@ namespace Scriptable
     [CreateAssetMenu(fileName = "Level Data")]
     public class Level : ScriptableObject
     {
-        [Header("Level settings")] 
-        [Range(0, 1)]
-        public float AppleSpawnChance = 0.25f;
-        [Range(0, 1)]
-        public float KnifeSpawnChance = 1f;
-
-
-        [Header("Item spawn settings")] 
-        public int MinItemSpawnDistance = 1;
-        [Space]
-        public int MinSpawnedAppleCount = 1;
-        public int MaxSpawnedAppleCount = 2;
-        [Space]
-        public int MinSpawnedKnifeCount = 1;
-        public int MaxSpawnedKnifeCount = 2;
-
-        [Header("Graphics settings")] 
-        public Graphics GraphicsData; 
+        public ItemsSettings Items;
+        public LogSettings Log;
+        public KnifeSettings Knife;
         
-        [Header("Log rotation settings")]
-        public float MinRotationSpeed = 100f;
-        public float MaxRotationSpeed = 400f;
-        [Space] 
-        public float MinRotationTime = 15f;
-        public float MaxRotationTime = 25f;
-        [Space] 
-        public bool AlwaysSwapDirection = false;
+        [System.Serializable]
+        public class ItemsSettings
+        {
+            [Header("Spawn chance")] 
+            [Range(0, 1)]
+            public float AppleSpawnChance = 0.25f;
+            [Range(0, 1)]
+            public float KnifeSpawnChance = 1f;
+            
+            
+            [Header("Item spawn settings")] 
+            public int MinSpawnDistance = 1;
+            [Space]
+            public int MinAppleCount = 1;
+            public int MaxAppleCount = 2;
+            [Space]
+            public int MinKnifeCount = 1;
+            public int MaxKnifeCount = 2;
+        }
 
-        
-        [Header("Throwable Knife settings")]
-        public int MinKnifeCount = 5;
-        public int MaxKnifeCount = 7;
+        [System.Serializable]
+        public class LogSettings
+        {
+            [Header("Log graphics settings")] 
+            public CustomLogData Custom;
+            
+            
+            [Header("Log rotation settings")]
+            public float MinRotationSpeed = 100f;
+            public float MaxRotationSpeed = 400f;
+            [Space] 
+            public float MinAccelerationTime = 3f;
+            public float MaxAccelerationTime = 5f;
+            [Space] 
+            public float MinRotationTime = 3f;
+            public float MaxRotationTime = 5f;
+            [Space] 
+            public float MinStoppingTime = 3f;
+            public float MaxStoppingTime = 5f;
+            [Space]
+            public float MinStoppedTime = 3f;
+            public float MaxStoppedTime = 5f;
+            [Space] 
+            public bool AlwaysSwapDirection = false;
+        }
+
+        [System.Serializable]
+        public class KnifeSettings
+        {
+            [Header("Throwable Knife settings")]
+            public int MinCount = 5;
+            public int MaxCount = 7;
+        }
     }
 }

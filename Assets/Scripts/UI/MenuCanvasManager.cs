@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using Core;
 using Management;
+using SaveSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +12,7 @@ namespace UI
         {
             _subs = FindObjectsOfType<MonoBehaviour>().OfType<IOnCanvasChange>().ToList();
             NotifyAll(CanvasType.MainMenu);
-            DontDestroyOnLoad(FindObjectOfType<SaveLoadManager>().gameObject);
+            DontDestroyOnLoad(FindObjectOfType<SaveManager>().gameObject); // also audioManager
         }
         public void OnClickStart() => SceneManager.LoadSceneAsync("Game");
         public void OnClickMainMenu() => NotifyAll(CanvasType.MainMenu);

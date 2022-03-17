@@ -8,10 +8,10 @@ namespace Log
     {
         public void OnLevelLoad(Level level)
         {
-            if (!level.GraphicsData.IsBoss) return;
+            if (!level.Log.Custom.IsBoss) return;
             var materials = GetComponent<MeshRenderer>().sharedMaterials;
-            materials[0].mainTexture = level.GraphicsData.LogTexture;
-            materials[1].color = level.GraphicsData.PartsInsideColor;
+            materials[0].mainTexture = level.Log.Custom.LogTexture;
+            materials[1].color = level.Log.Custom.Default.InsideColor;
         }
     }
 }

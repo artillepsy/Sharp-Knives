@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core;
+using SaveSystem;
 using Scriptable;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ namespace UI
         [SerializeField] private List<KnifeShopItem> knifeItems;
         [SerializeField] private BuyButton buyButtonPrefab;
         private List<BuyButton> _buyButtons;
-        private SaveLoadManager _saveLoadManager;
+        private SaveManager _saveLoadManager;
         public List<KnifeShopItem> KnifeItems => knifeItems;
 
         public void Unlock(KnifeShopItem item)
@@ -29,7 +30,7 @@ namespace UI
         private void Start()
         {
             _buyButtons = new List<BuyButton>();
-            _saveLoadManager = FindObjectOfType<SaveLoadManager>();
+            _saveLoadManager = FindObjectOfType<SaveManager>();
             foreach (var knife in knifeItems)
             {
                 var instance = Instantiate(buyButtonPrefab, content);

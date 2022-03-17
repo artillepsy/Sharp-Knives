@@ -1,4 +1,4 @@
-﻿using Core;
+﻿using SaveSystem;
 using UnityEngine;
 
 namespace Knife
@@ -7,7 +7,7 @@ namespace Knife
     {
         private void Start()
         {
-            GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SaveLoadManager>().CurrentKnifeSprite;
+            GetComponent<SpriteRenderer>().sprite = FindObjectOfType<SaveManager>().CurrentKnifeSprite;
         }
     }
 }

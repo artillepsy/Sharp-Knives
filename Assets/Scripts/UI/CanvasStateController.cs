@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Management
+namespace UI
 {
     public class CanvasStateController : MonoBehaviour, IOnCanvasChange
     {

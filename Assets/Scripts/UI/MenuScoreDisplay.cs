@@ -1,5 +1,5 @@
-﻿using System;
-using Core;
+﻿using Core;
+using SaveSystem;
 using TMPro;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ namespace UI
         private void OnEnable() => Events.OnBuy.AddListener(ChangeAppleCount);
         private void Start()
         {
-            var manager = FindObjectOfType<SaveLoadManager>();
+            var manager = FindObjectOfType<SaveManager>();
             _appleCount = manager.AppleCount;
             appleCount.text = manager.AppleCount.ToString();
             highScore.text = manager.HighScore.ToString();

@@ -1,4 +1,5 @@
 ﻿using Core;
+using SaveSystem;
 using TMPro;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace UI
         [SerializeField] private TextMeshProUGUI failCanvasCurrentScore;
         [SerializeField] private TextMeshProUGUI failCanvasHighScore;
 
-        private SaveLoadManager _manager;
+        private SaveManager _manager;
         private int _appleCount = 0;
         private int _hitScore = 0;
 
@@ -27,7 +28,7 @@ namespace UI
 
         private void Start()
         {
-            _manager = FindObjectOfType<SaveLoadManager>();
+            _manager = FindObjectOfType<SaveManager>();
             _appleCount = _manager.AppleCount;
             appleScore.text = _appleCount.ToString();
             _hitScore = _manager.CurrentScore;

@@ -14,7 +14,7 @@ namespace ItemThrow
         private List<ThrowablePart> _parts;
         public void OnLevelLoad(Level level)
         {
-            if (!level.GraphicsData.IsBoss) return;
+            if (!level.Log.Custom.IsBoss) return;
             Events.OnWinGame.RemoveListener(ThrowParts);
             Events.OnWinGame.AddListener(() => _log.SetActive(false));
             gameObject.SetActive(false);

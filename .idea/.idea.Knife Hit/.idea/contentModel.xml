@@ -12,11 +12,7 @@
           </e>
           <e p="Core" t="Include">
             <e p="Events.cs" t="Include" />
-            <e p="IOnKnifeStateChange.cs" t="Include" />
-            <e p="SaveLoadManager.cs" t="Include" />
-            <e p="SaveLoadSystem.cs" t="Include" />
             <e p="TapInput.cs" t="Include" />
-            <e p="UserData.cs" t="Include" />
           </e>
           <e p="ItemThrow" t="Include">
             <e p="AppleThrower.cs" t="Include" />
@@ -25,6 +21,7 @@
             <e p="ThrowablePart.cs" t="Include" />
           </e>
           <e p="Knife" t="Include">
+            <e p="IOnKnifeStateChange.cs" t="Include" />
             <e p="KnifeGraphics.cs" t="Include" />
             <e p="KnifeMovement.cs" t="Include" />
             <e p="KnifeState.cs" t="Include" />
@@ -39,14 +36,17 @@
             <e p="LogRotation.cs" t="Include" />
           </e>
           <e p="Management" t="Include">
-            <e p="CanvasStateController.cs" t="Include" />
-            <e p="CanvasType.cs" t="Include" />
-            <e p="GameCanvasManager.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="KnifeManager.cs" t="Include" />
+            <e p="SoundManager.cs" t="Include" />
+          </e>
+          <e p="SaveSystem" t="Include">
+            <e p="SaveManager.cs" t="Include" />
+            <e p="SaveSystem.cs" t="Include" />
+            <e p="UserData.cs" t="Include" />
           </e>
           <e p="Scriptable" t="Include">
-            <e p="Graphics.cs" t="Include" />
+            <e p="CustomLogData.cs" t="Include" />
             <e p="IOnLevelLoad.cs" t="Include" />
             <e p="KnifeShopItem.cs" t="Include" />
             <e p="Level.cs" t="Include" />
@@ -55,6 +55,9 @@
           <e p="UI" t="Include">
             <e p="AbstractCanvasManager.cs" t="Include" />
             <e p="BuyButton.cs" t="Include" />
+            <e p="CanvasStateController.cs" t="Include" />
+            <e p="CanvasType.cs" t="Include" />
+            <e p="GameCanvasManager.cs" t="Include" />
             <e p="GameScoreDisplay.cs" t="Include" />
             <e p="IOnCanvasChange.cs" t="Include" />
             <e p="KnifeDisplay.cs" t="Include" />

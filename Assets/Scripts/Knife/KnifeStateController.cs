@@ -25,7 +25,6 @@ namespace Knife
 
         private void Start()
         {
-            Vibration.Init();
             _collider = GetComponentInChildren<BoxCollider>();
             _state = KnifeState.Ready;
             _logCollider = FindObjectOfType<LogRotation>().GetComponentInChildren<CapsuleCollider>();
@@ -73,7 +72,7 @@ namespace Knife
                 _needCheck = false;
                 _state = KnifeState.Dropped;
                 NotifyAll();
-                Vibration.VibratePop();
+                
                 Events.OnKnifeDrop?.Invoke();
                 return;
             }

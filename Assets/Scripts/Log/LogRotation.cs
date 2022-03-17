@@ -1,3 +1,4 @@
+using System;
 using LevelSettings;
 using Scriptable;
 using UnityEngine;
@@ -8,69 +9,88 @@ namespace Log
     public class LogRotation : MonoBehaviour, IOnLevelLoad
     {
         [Header("Rotation")] 
+        [SerializeField] private Transform child;
         [SerializeField] private Vector3 rotationUp = Vector3.right;
-        [SerializeField] private AnimationCurve speedChangeAnimationCurve;
-
-        private Transform _child;
+        [SerializeField] private AnimationCurve accelerationAnimCurve;
+        [SerializeField] private AnimationCurve stopAnimCurve;
+        private RotationState _state = RotationState.Stopped;
+        private Action _action;
+        private Level _level;
         private int _direction;
         private float _currentTime;
-        private float _currentRotationSpeed;
-        private float _currentRotationTime;
-        private float _currentMaxRotationSpeed;
-        
-        private float _minRotationTime;
-        private float _maxRotationTime;
-        private float _minRotationSpeed;
+        private float _maxTime;
         private float _maxRotationSpeed;
-
-        private bool _alwaysSwapDirection;
-        private float RandomRotationTime => Random.Range(_minRotationTime, _maxRotationTime);
-        private float RandomRotationSpeed => Random.Range(_minRotationSpeed, _maxRotationSpeed);
-        
-        public void OnLevelLoad(Level level)
-        {
-            _minRotationTime = level.MinRotationTime;
-            _maxRotationTime = level.MaxRotationTime;
-            _minRotationSpeed = level.MinRotationSpeed;
-            _maxRotationSpeed = level.MaxRotationSpeed;
-            _alwaysSwapDirection = level.AlwaysSwapDirection;
-        }
-
+        public void OnLevelLoad(Level level) => _level = level;
         private void Start()
         {
-            _child = transform.GetChild(0);
             _direction = Random.value > 0.5f ? 1 : -1;
-            StartNewRotation();
+            _action = null;
+            ChangeState();
         }
-
         private void Update()
         {
-            UpdateRotationSpeed();
-            if (ReadyToStartNewRotation()) StartNewRotation();
+            if (NeedChangeState()) ChangeState();
+            _action?.Invoke();
         }
 
-        private void StartNewRotation()
+        private void ChangeState()
         {
-            _currentMaxRotationSpeed = RandomRotationSpeed;
-            _currentRotationTime = RandomRotationTime;
-            _currentTime = _currentRotationTime;
-            if (_alwaysSwapDirection) _direction = -_direction;
-            else _direction = Random.value > 0.5f ? 1 : -1;
-            _currentMaxRotationSpeed *= _direction;
+            if (!_level) return;
+            switch (_state)
+            {
+                case RotationState.Stopped:
+                    _maxTime = Random.Range(_level.Log.MinAccelerationTime, _level.Log.MaxAccelerationTime);
+                    _maxRotationSpeed = Random.Range(_level.Log.MinRotationSpeed, _level.Log.MaxRotationSpeed);
+                    if (_level.Log.AlwaysSwapDirection) _direction = -_direction;
+                    else _direction = Random.value > 0.5f ? 1 : -1;
+                    _maxRotationSpeed *= _direction;
+                    _action = Accelerate;
+                    _state = RotationState.Accelerating;
+                    break;
+                case RotationState.Accelerating:
+                    _maxTime = Random.Range(_level.Log.MinRotationTime, _level.Log.MaxRotationTime);
+                    _action = Rotate;
+                    _state = RotationState.Rotating;
+                    break;
+                case RotationState.Rotating:
+                    _maxTime = Random.Range(_level.Log.MinStoppingTime, _level.Log.MaxStoppingTime);
+                    _action = Stop;
+                    _state = RotationState.Stopping;
+                    break;
+                case RotationState.Stopping:
+                    _maxTime = Random.Range(_level.Log.MinStoppedTime, _level.Log.MaxStoppedTime);
+                    _action = null;
+                    _state = RotationState.Stopped;
+                    break;
+            }
+            _currentTime = 0f;
         }
-
-        private void UpdateRotationSpeed()
+        private bool NeedChangeState()
         {
-            _currentRotationSpeed = speedChangeAnimationCurve.Evaluate(_currentTime / _currentRotationTime) 
-                                    * _currentMaxRotationSpeed;
-            _child.Rotate(rotationUp, _currentRotationSpeed*Time.deltaTime);
-        }
-        
-        private bool ReadyToStartNewRotation()
-        {
-            if (_currentTime <= 0) return true;
-            _currentTime -= Time.deltaTime;
+            if (_currentTime >= _maxTime) return true;
+            _currentTime += Time.deltaTime;
             return false;
+        }
+        private void Accelerate()
+        {
+            var rotationSpeed = accelerationAnimCurve.Evaluate(_currentTime / _maxTime);
+            rotationSpeed *= _maxRotationSpeed;
+            child.Rotate(rotationUp, rotationSpeed*Time.deltaTime);
+        }
+        private void Stop()
+        {
+            var rotationSpeed = stopAnimCurve.Evaluate(_currentTime / _maxTime);
+            rotationSpeed *= _maxRotationSpeed;
+            child.Rotate(rotationUp, rotationSpeed*Time.deltaTime);
+        }
+        private void Rotate() => child.Rotate(rotationUp, _maxRotationSpeed*Time.deltaTime);
+        
+        private enum RotationState
+        {
+            Accelerating,
+            Stopping,
+            Stopped,
+            Rotating
         }
     }
 }

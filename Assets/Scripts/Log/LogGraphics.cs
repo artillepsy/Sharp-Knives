@@ -12,9 +12,9 @@ namespace Log
         public void OnLevelLoad(Level level)
         {
             var material = GetComponent<MeshRenderer>().sharedMaterial;
-            material.mainTexture = level.GraphicsData.LogTexture;
-            if (!level.GraphicsData.IsBoss) return;
-            _particleSystemColor = level.GraphicsData.BossParticlesColor;
+            material.mainTexture = level.Log.Custom.LogTexture;
+            if (!level.Log.Custom.IsBoss) return;
+            _particleSystemColor = level.Log.Custom.Boss.ParticlesColor;
             Events.OnWinGame.AddListener(SpawnParticles);
         }
 

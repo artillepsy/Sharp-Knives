@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using Core;
-using UI;
+using SaveSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Management
+namespace UI
 {
     public class GameCanvasManager : AbstractCanvasManager
     {
@@ -28,7 +28,7 @@ namespace Management
 
         public void OnClickMainMenu()
         {
-            FindObjectOfType<SaveLoadManager>().SaveProgress();
+            FindObjectOfType<SaveManager>().SaveProgress();
             Time.timeScale = 1f;
             SceneManager.LoadSceneAsync("Menu");
         }

@@ -2,9 +2,9 @@
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-namespace Core
+namespace SaveSystem
 {
-    public static class SaveLoadSystem
+    public static class SaveSystem
     {
         public static void Save(UserData data)
         {

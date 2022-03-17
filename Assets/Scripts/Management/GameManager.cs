@@ -8,7 +8,6 @@ namespace Management
     {
         [SerializeField] private string levelName = "Game";
         [SerializeField] private float newSceneLoadTIme = 3f;
-        
         private int _knifeCount;
         
         public void SetKnifeCount(int count)
@@ -31,15 +30,12 @@ namespace Management
         private void OnGameOver()
         {
            Invoke(nameof(LoadGameOverScreen), newSceneLoadTIme);
-           Vibration.Vibrate(400);
         }
         private void OnWin()
         {
             Invoke(nameof(LoadScene), newSceneLoadTIme);
             Events.OnWinGame?.Invoke();
-            Vibration.Vibrate(400);
         }
-
         private void LoadGameOverScreen() => Events.OnFailGame?.Invoke();
         private void LoadScene()
         {

@@ -41,34 +41,35 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Core\SaveLoadSystem.cs" />
+     <Compile Include="Assets\Scripts\SaveSystem\SaveSystem.cs" />
      <Compile Include="Assets\Scripts\Log\ItemPlacement.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-     <Compile Include="Assets\Scripts\Management\CanvasStateController.cs" />
+     <Compile Include="Assets\Scripts\UI\CanvasStateController.cs" />
      <Compile Include="Assets\Scripts\Scriptable\Level.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeState.cs" />
      <Compile Include="Assets\Scripts\UI\AbstractCanvasManager.cs" />
-     <Compile Include="Assets\Scripts\Core\UserData.cs" />
-     <Compile Include="Assets\Scripts\Core\SaveLoadManager.cs" />
+     <Compile Include="Assets\Scripts\SaveSystem\UserData.cs" />
+     <Compile Include="Assets\Scripts\SaveSystem\SaveManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
      <Compile Include="Assets\Scripts\Log\LogGraphics.cs" />
+     <Compile Include="Assets\Scripts\Management\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Scriptable\LevelSettings.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
-     <Compile Include="Assets\Scripts\Management\GameCanvasManager.cs" />
+     <Compile Include="Assets\Scripts\UI\GameCanvasManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
      <Compile Include="Assets\Scripts\Log\LogAnimationController.cs" />
-     <Compile Include="Assets\Scripts\Scriptable\Graphics.cs" />
+     <Compile Include="Assets\Scripts\Scriptable\CustomLogData.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\ThrowablePart.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\AppleThrower.cs" />
-     <Compile Include="Assets\Scripts\Management\CanvasType.cs" />
-     <Compile Include="Assets\Scripts\Core\IOnKnifeStateChange.cs" />
+     <Compile Include="Assets\Scripts\UI\CanvasType.cs" />
+     <Compile Include="Assets\Scripts\Knife\IOnKnifeStateChange.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\KnifeThrower.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Scriptable\KnifeShopItem.cs" />

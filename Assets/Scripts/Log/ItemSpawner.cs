@@ -12,20 +12,20 @@ namespace Log
         
         public void OnLevelLoad(Level level)
         {
-            var shouldSpawnApples = Random.value < level.AppleSpawnChance;
-            var shouldSpawnKnifes = Random.value < level.KnifeSpawnChance;
+            var shouldSpawnApples = Random.value < level.Items.AppleSpawnChance;
+            var shouldSpawnKnifes = Random.value < level.Items.KnifeSpawnChance;
 
             if (!shouldSpawnApples && !shouldSpawnKnifes) return;
             var coll = GetComponentInChildren<CapsuleCollider>();
-            var spawnPoints = InitSpawnPoints(level.MinItemSpawnDistance, coll);
+            var spawnPoints = InitSpawnPoints(level.Items.MinSpawnDistance, coll);
             if (shouldSpawnApples)
             {
-                var appleCount = Random.Range(level.MinSpawnedAppleCount, level.MaxSpawnedAppleCount + 1);
+                var appleCount = Random.Range(level.Items.MinAppleCount, level.Items.MaxAppleCount + 1);
                 SpawnItems(applePrefab, appleCount, spawnPoints, coll.transform);
             }
             if (shouldSpawnKnifes)
             {
-                var knifeCount = Random.Range(level.MinSpawnedKnifeCount, level.MaxSpawnedKnifeCount + 1);
+                var knifeCount = Random.Range(level.Items.MinKnifeCount, level.Items.MaxKnifeCount + 1);
                 SpawnItems(knifePrefab, knifeCount, spawnPoints, coll.transform);
             }
         }

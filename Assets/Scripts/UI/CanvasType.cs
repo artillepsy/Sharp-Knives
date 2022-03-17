@@ -1,4 +1,4 @@
-﻿namespace Management
+﻿namespace UI
 {
     public enum CanvasType
     {
