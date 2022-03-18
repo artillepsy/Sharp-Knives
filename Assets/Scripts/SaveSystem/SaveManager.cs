@@ -16,8 +16,6 @@ namespace SaveSystem
         private void OnEnable()
         {
             Events.OnAppleHit.AddListener( () =>Score.IncrementApples());
-            Events.OnUnlock.AddListener(Shop.Unlock);
-            Events.OnEquip.AddListener(Shop.Equip);
             Events.OnEquip.AddListener(Knife.Equip);
             Events.OnDefeatBoss.AddListener(Shop.UnlockBossKnife);
         }

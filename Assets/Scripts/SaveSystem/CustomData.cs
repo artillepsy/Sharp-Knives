@@ -64,6 +64,7 @@ namespace SaveSystem
     {
         public List<KnifeShopItem> Knives;
         public List<int> UnlockedIds => _userData.UnlockedKniveIds;
+        public int EquippedId => _userData.EquippedKnifeId;
         public ShopData(UserData userData) : base(userData)
         {
         }
@@ -72,6 +73,7 @@ namespace SaveSystem
         {
             if(!item.IsBossDrop) _userData.AppleCount -= item.Cost;
             _userData.UnlockedKniveIds.Add(item.Id);
+            Events.OnUnlock?.Invoke(item);
             SaveSystem.Save(_userData);
         }
 
