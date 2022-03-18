@@ -1,4 +1,5 @@
-﻿using UnityEngine.Events;
+﻿using Scriptable;
+using UnityEngine.Events;
 
 namespace Core
 {
@@ -10,7 +11,8 @@ namespace Core
         public static readonly UnityEvent OnAppleHit = new UnityEvent();
         public static readonly UnityEvent OnWinGame = new UnityEvent();
         public static readonly UnityEvent OnFailGame = new UnityEvent();
-        public static readonly UnityEvent<int> OnBuy = new UnityEvent<int>();
-        public static readonly UnityEvent<int> OnEquip = new UnityEvent<int>();
+        public static readonly UnityEvent OnDefeatBoss = new UnityEvent();
+        public static readonly UnityEvent<KnifeShopItem> OnUnlock = new UnityEvent<KnifeShopItem>();
+        public static readonly UnityEvent<KnifeShopItem> OnEquip = new UnityEvent<KnifeShopItem>();
     }
 }

@@ -9,19 +9,14 @@ namespace UI
     {
         [SerializeField] private TextMeshProUGUI appleCount;
         [SerializeField] private TextMeshProUGUI highScore;
-        private int _appleCount = 0;
-        private void OnEnable() => Events.OnBuy.AddListener(ChangeAppleCount);
+        private SaveManager _saveManager;
+        private void OnEnable() => Events.OnUnlock.AddListener((item) => ChangeAppleCount());
         private void Start()
         {
-            var manager = FindObjectOfType<SaveManager>();
-            _appleCount = manager.Score.AppleCount;
-            appleCount.text = manager.Score.AppleCount.ToString();
-            highScore.text = manager.Score.HighScore.ToString();
+            _saveManager = FindObjectOfType<SaveManager>();
+            appleCount.text = _saveManager.Score.AppleCount.ToString();
+            highScore.text = _saveManager.Score.HighScore.ToString();
         }
-        private void ChangeAppleCount(int cost)
-        {
-            _appleCount -= cost;
-            appleCount.text = _appleCount.ToString();
-        }
+        private void ChangeAppleCount() => appleCount.text = _saveManager.Score.AppleCount.ToString();
     }
 }

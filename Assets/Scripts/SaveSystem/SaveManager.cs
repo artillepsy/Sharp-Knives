@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core;
-using UI;
+using Management;
 using UnityEngine;
 
 namespace SaveSystem
@@ -12,28 +12,14 @@ namespace SaveSystem
         public ShopData Shop;
         public SoundData Sound;
         public ScoreData Score;
-        /*
-        private Sprite _currentKnifeSprite;
-        public Sprite CurrentKnifeSprite => _currentKnifeSprite;
-        public float Volume => _userData.Volume;
-        public bool Vibration => _userData.Vibration;
-        public int EquippedKnifeId => _userData.EquippedKnifeId;
-        public int WinCount => _winCount;
-        public int AppleCount => _userData.AppleCount;
-        public int CurrentScore => _currentScore;
-        public int HighScore => _userData.HighScore;
-        public List<int> UnlockedIds => _userData.UnlockedKniveIds;
-        */
+        public void Save() => SaveSystem.Save(_userData);
         private void OnEnable()
         {
             Events.OnAppleHit.AddListener( () =>Score.IncrementApples());
-            Events.OnKnifeHit.AddListener(() => Score.CurrentScore++);
-            Events.OnWinGame.AddListener(() =>
-            {
-                Score.IncrementWins();
-                SaveSystem.Save(_userData);
-            });
-            Events.OnKnifeDrop.AddListener(OnKnifeDrop);
+            Events.OnUnlock.AddListener(Shop.Unlock);
+            Events.OnEquip.AddListener(Shop.Equip);
+            Events.OnEquip.AddListener(Knife.Equip);
+            Events.OnDefeatBoss.AddListener(Shop.UnlockBossKnife);
         }
         private void Awake()
         {
@@ -50,7 +36,9 @@ namespace SaveSystem
         }
         private void Start()
         {
-            foreach (var knifeItem in FindObjectOfType<ShopManager>(true).KnifeItems)
+            var shopManager = FindObjectOfType<ShopManager>(true);
+            Shop.Knives = shopManager.KnifeItems;
+            foreach (var knifeItem in shopManager.KnifeItems)
             {
                 if (knifeItem.Id != _userData.EquippedKnifeId) continue;
                 Knife.CurrentSprite = knifeItem.KnifeSprite;
@@ -59,18 +47,6 @@ namespace SaveSystem
         private void Test_ClearProgress()
         {
             _userData = new UserData(100, 1, new List<int>(){1});
-            SaveSystem.Save(_userData);
-        }
-        private void OnKnifeDrop()
-        {
-           // Debug.Log(Score.CurrentScore);
-            if (_userData.HighScore < Score.CurrentScore)
-            {
-                _userData.HighScore = Score.CurrentScore;
-                Debug.Log("high score: "+ _userData.HighScore);
-            }
-            Score.ResetWinCound();
-            Score.CurrentScore = 0;
             SaveSystem.Save(_userData);
         }
     }

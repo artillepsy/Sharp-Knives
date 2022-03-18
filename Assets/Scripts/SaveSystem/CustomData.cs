@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Core;
 using Scriptable;
 using UnityEngine;
 
@@ -61,15 +62,31 @@ namespace SaveSystem
     }
     public class ShopData : AbstractData
     {
+        public List<KnifeShopItem> Knives;
         public List<int> UnlockedIds => _userData.UnlockedKniveIds;
         public ShopData(UserData userData) : base(userData)
         {
         }
         
-        public void Unlock(int id, int cost)
+        public void Unlock(KnifeShopItem item)
         {
-            _userData.AppleCount -= cost;
-            _userData.UnlockedKniveIds.Add(id);
+            if(!item.IsBossDrop) _userData.AppleCount -= item.Cost;
+            _userData.UnlockedKniveIds.Add(item.Id);
+            SaveSystem.Save(_userData);
+        }
+
+        public void UnlockBossKnife()
+        {
+            var lockedBossKnives = new List<KnifeShopItem>();
+            foreach (var knife in Knives)
+            {
+                if (_userData.UnlockedKniveIds.Contains(knife.Id)) continue;
+                if (!knife.IsBossDrop) continue;
+                lockedBossKnives.Add(knife);
+            }
+            var item = lockedBossKnives[Random.Range(0, lockedBossKnives.Count)];
+            _userData.UnlockedKniveIds.Add(item.Id);
+            Events.OnUnlock?.Invoke(item);
             SaveSystem.Save(_userData);
         }
 
@@ -77,13 +94,25 @@ namespace SaveSystem
         {
             _userData.EquippedKnifeId = item.Id;
             SaveSystem.Save(_userData);
+            Events.OnEquip?.Invoke(item);
         }
     }
     public class ScoreData: AbstractData
     {
         public int WinCount => _userData.WinCount;
         public int AppleCount => _userData.AppleCount;
-        public int HighScore => _userData.HighScore;
+        public int HighScore
+        {
+            get
+            {
+                return _userData.HighScore;
+            }
+            set
+            {
+                _userData.HighScore = value;
+            }
+        }
+
         public int CurrentScore;
 
         public ScoreData(UserData userData) : base(userData)
@@ -91,13 +120,14 @@ namespace SaveSystem
         }
 
         public void IncrementApples() => _userData.AppleCount++;
-        public void ResetWinCound() => _userData.WinCount = 0;
+        public void ResetWinCount() => _userData.WinCount = 0;
         public void IncrementWins() => _userData.WinCount++;
 
         public void DamageBoss(int damage)
         {
             if (_userData.BossHP <= damage)
             {
+                Events.OnDefeatBoss?.Invoke();
                 Debug.Log("boss defeated");
                 Debug.Log("Unlock Random Knife");
                 _userData.BossHP = 100;
