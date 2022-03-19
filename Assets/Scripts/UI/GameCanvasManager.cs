@@ -9,7 +9,7 @@ namespace UI
     {
         public void OnClickPause()
         {
-            Time.timeScale = 0f;
+           // Time.timeScale = 0f;
             NotifyAll(CanvasType.Pause);
         }
 
@@ -21,14 +21,15 @@ namespace UI
 
         public void OnClickResume()
         {
-            Time.timeScale = 1f;
+           // Time.timeScale = 1f;
             NotifyAll(CanvasType.Game);
         }
 
         public void OnClickMainMenu()
         {
-            Time.timeScale = 1f;
-            SceneManager.LoadSceneAsync("Menu");
+           // Time.timeScale = 1f;
+           // SceneManager.LoadSceneAsync("Menu");
+           Invoke(nameof(LoadMenuLevel), changeDelayInSeconds);
         }
         
         private void OnEnable()
@@ -37,5 +38,6 @@ namespace UI
             Events.OnFailGame.AddListener( () => NotifyAll(CanvasType.Fail));
         }
         private void Start() => NotifyAll(CanvasType.Game);
+        private void LoadMenuLevel() => SceneManager.LoadSceneAsync("Menu");
     }
 }

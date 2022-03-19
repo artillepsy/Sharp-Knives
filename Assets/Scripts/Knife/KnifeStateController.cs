@@ -20,7 +20,7 @@ namespace Knife
         private void OnEnable()
         {
             Events.OnWinGame?.AddListener(() => GetComponentInChildren<Collider>().enabled = false);
-            Events.OnTap.AddListener(OnTap);
+            Events.OnThrow.AddListener(OnTap);
         }
 
         private void Start()

@@ -44,7 +44,7 @@ namespace SaveSystem
         }
         private void Test_ClearProgress()
         {
-            _userData = new UserData(100, 1, new List<int>(){1});
+            _userData = new UserData(30, 1, new List<int>(){1});
             SaveSystem.Save(_userData);
         }
     }

@@ -1,9 +1,7 @@
-﻿using Management;
-
-namespace UI
+﻿namespace UI
 {
     public interface IOnCanvasChange
     {
-        public void OnCanvasChange(CanvasType newType);
+        public void OnCanvasChange(CanvasType newType, float timeInSeconds = 0f);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Management;
 using SaveSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,8 +13,13 @@ namespace UI
             NotifyAll(CanvasType.MainMenu);
             DontDestroyOnLoad(FindObjectOfType<SaveManager>().gameObject); // also audioManager
         }
-        public void OnClickStart() => SceneManager.LoadSceneAsync("Game");
+        public void OnClickStart()
+        {
+            Invoke(nameof(LoadGameLevel), changeDelayInSeconds);
+            NotifyAll(CanvasType.Game);
+        }
         public void OnClickMainMenu() => NotifyAll(CanvasType.MainMenu);
         public void OnClickShop() => NotifyAll(CanvasType.Shop);
+        private void LoadGameLevel() => SceneManager.LoadSceneAsync("Game");
     }
 }

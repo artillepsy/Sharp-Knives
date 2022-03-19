@@ -12,7 +12,7 @@ namespace Core
         private bool _inputEnabled = true;
         private Camera _camera;
         public float ReloadTimeInSeconds => reloadTimeInSeconds;
-        public void OnCanvasChange(CanvasType newType)
+        public void OnCanvasChange(CanvasType newType, float time)
         {
             _inputEnabled = newType == CanvasType.Game;
         }
@@ -22,6 +22,7 @@ namespace Core
             _camera = Camera.main;
             _currentTime = reloadTimeInSeconds;
             Events.OnKnifeDrop.AddListener(() => _inputEnabled = false);
+            Events.OnWinGame.AddListener(() => _inputEnabled = false);
         }
         private void Update()
         {
@@ -35,7 +36,7 @@ namespace Core
         }
         private void Throw()
         {
-            Events.OnTap?.Invoke();
+            Events.OnThrow?.Invoke();
             _currentTime = reloadTimeInSeconds;
         }
         private bool ReadyToThrow()

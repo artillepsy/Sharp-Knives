@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Scriptable
 {
@@ -28,8 +29,8 @@ namespace Scriptable
             [Range(0, 1)] 
             public float Chance = 0.3f;
             public Color ParticlesColor = Color.red;
-            public AudioClip HitAudio;
-            public AudioClip DestroyAudio;
+            public List<AudioClip> HitClips;
+            public List<AudioClip> DestroyClips;
         }
     }
 }
