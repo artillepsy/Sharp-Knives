@@ -20,20 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23757215-a1a0-4088-aa38-fefc001038b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/InteractiveButton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/InteractiveButton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/KnifeShopPreview.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/KnifeShopPreview.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Events.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Events.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Knife/Knife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Knife/Knife.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Management/ShopManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Management/ShopManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/CustomData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/CustomData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/AbstractCanvasManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AbstractCanvasManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CanvasStateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CanvasStateController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MenuCanvasManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuCanvasManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MenuScoreDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuScoreDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIAnimationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,11 +46,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/SaveLoadSystem/SaveLoadSystem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SaveLoadSystem/UserData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SaveLoadSystem/SaveLoadManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SaveLoadSystem/SaveManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SaveLoadSystem/SaveSystem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/CanvasType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ItemThrow/LogPartThrower.cs" />
@@ -61,7 +53,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/Graphics.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogGraphics.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogPartGraphics.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Management/KnifeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Log/LogRotation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/BaseData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/KnifeData.cs" />
@@ -81,8 +72,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/BuyButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/CustomLogData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Core/TapInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UiElementAnimationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/IOnCanvasChange.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/uttnoAnimationController.cs" />
@@ -91,15 +80,23 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIAnimationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/InterractButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Management/ShopManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/CanvasStateController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/AbstractCanvasManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuCanvasManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/InteractiveButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/CustomData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Core/Events.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/KnifeShopButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuScoreDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/KnifeShopImage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/KnifeShopPeview.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Management/ShopManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuCanvasManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/MenuBackgroundAppearance.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Management/KnifeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Core/TapInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/KnifeShopPreview.cs" />
       </list>
     </option>
   </component>
@@ -173,7 +170,7 @@
       <workItem from="1647619388028" duration="3420000" />
       <workItem from="1647638745472" duration="2979000" />
       <workItem from="1647674884225" duration="2612000" />
-      <workItem from="1647681255561" duration="15580000" />
+      <workItem from="1647681255561" duration="23670000" />
     </task>
     <servers />
   </component>

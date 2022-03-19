@@ -63,6 +63,7 @@
             <e p="IOnCanvasChange.cs" t="Include" />
             <e p="KnifeDisplay.cs" t="Include" />
             <e p="KnifeShopButton.cs" t="Include" />
+            <e p="KnifeShopPreview.cs" t="Include" />
             <e p="MenuCanvasManager.cs" t="Include" />
             <e p="MenuScoreDisplay.cs" t="Include" />
             <e p="UIAnimationController.cs" t="Include" />

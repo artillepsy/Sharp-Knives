@@ -48,19 +48,19 @@ namespace Management
             _audioSource = GetComponent<AudioSource>();
             Events.OnKnifeDrop.AddListener(()=>
             {
-                if(_vibration) Vibration.Vibrate(400);
                 PlayClip(knifeDropClips);
+                if(_vibration) Vibration.Vibrate(400);
             });
             Events.OnAppleHit.AddListener(()=>PlayClip(appleHitClips));
             Events.OnKnifeHit.AddListener(()=>
             {
-                if(_vibration) Vibration.VibratePop();
                 PlayClip(logHitClips);
+                if(_vibration) Vibration.VibratePop();
             });
             Events.OnWinGame.AddListener(()=>
             {
-                if(_vibration) Vibration.Vibrate(400);
                 PlayClip(logDestroyClips);
+                if(_vibration) Vibration.Vibrate(400);
             });
             Events.OnThrow.AddListener(()=> PlayClip(OnThrowClips));
         }

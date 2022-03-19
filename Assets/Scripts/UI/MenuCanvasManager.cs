@@ -9,6 +9,7 @@ namespace UI
     {
         private void Start()
         {
+            Application.targetFrameRate = Screen.currentResolution.refreshRate;
             _subs = FindObjectsOfType<MonoBehaviour>().OfType<IOnCanvasChange>().ToList();
             NotifyAll(CanvasType.MainMenu, false);
             DontDestroyOnLoad(FindObjectOfType<SaveManager>().gameObject); // also audioManager

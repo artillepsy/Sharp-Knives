@@ -81,8 +81,6 @@ namespace Knife
                 _needCheck = false;
                 transform.SetParent(other.transform);
                 Events.OnKnifeHit?.Invoke();
-                Vibration.VibratePop();
-                return;
             }
         }
     }
