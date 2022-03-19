@@ -73,7 +73,7 @@ namespace SaveSystem
         {
             if(!item.IsBossDrop) _userData.AppleCount -= item.Cost;
             _userData.UnlockedKniveIds.Add(item.Id);
-            Events.OnUnlock?.Invoke(item);
+            Events.OnUnlock?.Invoke();
             SaveSystem.Save(_userData);
         }
 
@@ -88,7 +88,7 @@ namespace SaveSystem
             }
             var item = lockedBossKnives[Random.Range(0, lockedBossKnives.Count)];
             _userData.UnlockedKniveIds.Add(item.Id);
-            Events.OnUnlock?.Invoke(item);
+            Events.OnUnlock?.Invoke();
             SaveSystem.Save(_userData);
         }
 

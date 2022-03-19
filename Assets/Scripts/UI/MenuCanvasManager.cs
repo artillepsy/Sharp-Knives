@@ -10,7 +10,7 @@ namespace UI
         private void Start()
         {
             _subs = FindObjectsOfType<MonoBehaviour>().OfType<IOnCanvasChange>().ToList();
-            NotifyAll(CanvasType.MainMenu);
+            NotifyAll(CanvasType.MainMenu, false);
             DontDestroyOnLoad(FindObjectOfType<SaveManager>().gameObject); // also audioManager
         }
         public void OnClickStart()

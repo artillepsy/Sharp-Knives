@@ -55,13 +55,14 @@
           </e>
           <e p="UI" t="Include">
             <e p="AbstractCanvasManager.cs" t="Include" />
-            <e p="BuyButton.cs" t="Include" />
             <e p="CanvasStateController.cs" t="Include" />
             <e p="CanvasType.cs" t="Include" />
             <e p="GameCanvasManager.cs" t="Include" />
             <e p="GameScoreDisplay.cs" t="Include" />
+            <e p="InteractiveButton.cs" t="Include" />
             <e p="IOnCanvasChange.cs" t="Include" />
             <e p="KnifeDisplay.cs" t="Include" />
+            <e p="KnifeShopButton.cs" t="Include" />
             <e p="MenuCanvasManager.cs" t="Include" />
             <e p="MenuScoreDisplay.cs" t="Include" />
             <e p="UIAnimationController.cs" t="Include" />

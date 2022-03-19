@@ -14,14 +14,19 @@ namespace UI
         {
             _canvas = GetComponent<Canvas>();
             _subs = GetComponentsInChildren<UIAnimationController>().ToList();
+            Debug.Log(_subs.Count);
         }
 
         public void OnCanvasChange(CanvasType newType, float delay)
         {
             _status = newType == type;
-            _subs.ForEach(sub => sub.PlayAnimation(_status));
+            if (!_status) _subs.ForEach(sub => sub.PlayAnimation(_status));
             Invoke(nameof(ChangeEnableStatus), delay);
         }
-        public void ChangeEnableStatus() => _canvas.enabled = _status;
+        public void ChangeEnableStatus()
+        {
+            _canvas.enabled = _status;
+            if (_status) _subs.ForEach(sub => sub.PlayAnimation(_status));
+        }
     }
 }
