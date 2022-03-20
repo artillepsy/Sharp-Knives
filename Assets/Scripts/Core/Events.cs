@@ -6,6 +6,7 @@ namespace Core
     public static class Events
     {
         public static readonly UnityEvent OnThrow = new UnityEvent();
+        public static readonly UnityEvent OnClikButton = new UnityEvent();
         public static readonly UnityEvent OnKnifeDrop = new UnityEvent();
         public static readonly UnityEvent OnKnifeHit = new UnityEvent();
         public static readonly UnityEvent OnAppleHit = new UnityEvent();

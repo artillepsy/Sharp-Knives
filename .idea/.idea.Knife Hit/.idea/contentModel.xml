@@ -66,6 +66,7 @@
           </e>
           <e p="UI" t="Include">
             <e p="AbstractCanvasManager.cs" t="Include" />
+            <e p="ButtonAudioClick.cs" t="Include" />
             <e p="CanvasStateController.cs" t="Include" />
             <e p="CanvasType.cs" t="Include" />
             <e p="GameCanvasManager.cs" t="Include" />
