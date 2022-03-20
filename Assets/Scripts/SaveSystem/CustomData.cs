@@ -38,7 +38,6 @@ namespace SaveSystem
     public class KnifeData : AbstractData
     {
         public Sprite CurrentSprite;
-        public int EquippedKnifeId => _userData.EquippedKnifeId;
         public KnifeData(UserData userData) : base(userData)
         {
         }
@@ -86,8 +85,9 @@ namespace SaveSystem
                 if (!knife.IsBossDrop) continue;
                 lockedBossKnives.Add(knife);
             }
-
+            Debug.Log("locked count: "+lockedBossKnives.Count);
             if (lockedBossKnives.Count == 0) return;
+            Debug.Log("unlocked");
             var item = lockedBossKnives[Random.Range(0, lockedBossKnives.Count)];
             _userData.UnlockedKniveIds.Add(item.Id);
             Events.OnUnlock?.Invoke();
@@ -125,7 +125,8 @@ namespace SaveSystem
         {
         }
 
-        public void IncrementApples() => _userData.AppleCount++;
+        public void IncrementApples() => _userData.AppleCount += 2;
+
         public void ResetWinCount() => _userData.WinCount = 0;
         public void IncrementWins() => _userData.WinCount++;
 
@@ -134,8 +135,6 @@ namespace SaveSystem
             if (_userData.BossHP <= damage)
             {
                 Events.OnDefeatBoss?.Invoke();
-                Debug.Log("boss defeated");
-                Debug.Log("Unlock Random Knife");
                 _userData.BossHP = 100;
                 return;
             }

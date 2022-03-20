@@ -46,6 +46,7 @@ namespace Shop
         {
             _selectedItem = item;
             _button.onClick.RemoveAllListeners();
+            _button.onClick.AddListener(()=> Events.OnClikButton?.Invoke());
             if (_saveManager.Shop.UnlockedIds.Contains(item.Id))
             {
                 var equipped = _saveManager.Shop.EquippedId == item.Id;

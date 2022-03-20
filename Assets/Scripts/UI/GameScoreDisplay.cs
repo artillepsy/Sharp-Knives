@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class GameScoreDisplay : MonoBehaviour
+    public class GameScoreDisplay : MonoBehaviour, IOnCanvasChange
     {
         [SerializeField] private string currentScoreText = "Score:";
         [SerializeField] private string highScoreText = "High:";
@@ -23,11 +23,24 @@ namespace UI
         private int _appleCount = 0;
         private int _hitScore = 0;
 
+        public void OnCanvasChange(CanvasType newType, float timeInSeconds = 0)
+        {
+            switch (newType)
+            {
+                case CanvasType.Fail:
+                    DisplayFailScore();
+                    break;
+                case CanvasType.Pause:
+                    DisplayPauseScore();
+                    break;
+            }
+        }
+        
         private void OnEnable()
         {
             Events.OnAppleHit.AddListener(IncrementApples);
             Events.OnKnifeHit.AddListener(IncrementScore);
-            Events.OnKnifeDrop.AddListener(DisplayScore);
+            Events.OnKnifeDrop.AddListener(DisplayFailScore);
         }
 
         private void Start()
@@ -41,7 +54,7 @@ namespace UI
 
         private void IncrementApples()
         {
-            _appleCount++;
+            _appleCount+=2;
             appleScore.text = _appleCount.ToString();
         }
 
@@ -49,14 +62,19 @@ namespace UI
         {
             _hitScore++;
             hitScore.text = _hitScore.ToString();
-            pauseCanvasCurrentScore.text = currentScoreText + " " + _hitScore;
-            pauseCanvasHighScore.text = highScoreText + " " + _manager.Score.HighScore;
+            
         }
 
-        private void DisplayScore()
+        private void DisplayFailScore()
         {
             failCanvasCurrentScore.text = currentScoreText + " " + _hitScore;
             failCanvasHighScore.text = highScoreText + " " + _manager.Score.HighScore;
         }
+        private void DisplayPauseScore()
+        {
+            pauseCanvasCurrentScore.text = currentScoreText + " " + _hitScore;
+            pauseCanvasHighScore.text = highScoreText + " " + _manager.Score.HighScore;
+        }
+        
     }
 }

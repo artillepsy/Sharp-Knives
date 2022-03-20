@@ -20,6 +20,7 @@ namespace Log
         {
             _totalTime = duration;
             _material = GetComponentInChildren<MeshRenderer>().sharedMaterial;
+            _material.SetFloat(_amount, 0);
             _animation = GetComponent<Animation>();
         }
 

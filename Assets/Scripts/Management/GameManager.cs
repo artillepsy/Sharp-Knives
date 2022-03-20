@@ -53,7 +53,6 @@ namespace Management
         {
             var delay = _bossLevel ? afterBossWinLoadTime : newSceneLoadTime;
             Invoke(nameof(LoadNewLevel), delay);
-            Debug.Log(delay);
             if (_bossLevel)
             {
                 _saveManager.Score.DamageBoss(_level.Log.Custom.Boss.DamageAtDestroy);

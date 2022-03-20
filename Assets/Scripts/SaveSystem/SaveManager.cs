@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Core;
 using Management;
 using UnityEngine;
@@ -13,14 +15,19 @@ namespace SaveSystem
         public SoundData Sound;
         public ScoreData Score;
         public void Save() => SaveSystem.Save(_userData);
-        private void OnEnable()
-        {
-            Events.OnAppleHit.AddListener( () =>Score.IncrementApples());
-            Events.OnEquip.AddListener(Knife.Equip);
-            Events.OnDefeatBoss.AddListener(Shop.UnlockBossKnife);
-        }
         private void Awake()
         {
+            var instances = FindObjectsOfType<SaveManager>().ToList();
+            if(instances.Count > 1)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+                DontDestroyOnLoad(gameObject);
+            }
+            
             Test_ClearProgress();
             _userData = SaveSystem.Load();
             if (_userData == null)
@@ -31,6 +38,12 @@ namespace SaveSystem
             Shop = new ShopData(_userData);
             Sound = new SoundData(_userData);
             Score = new ScoreData(_userData);
+        }
+        private void OnEnable()
+        {
+            Debug.Log("enabled");
+            Events.OnEquip.AddListener(Knife.Equip);
+            Events.OnDefeatBoss.AddListener(Shop.UnlockBossKnife);
         }
         private void Start()
         {
