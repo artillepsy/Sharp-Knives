@@ -18,10 +18,10 @@ namespace UI
 
             if (_isBoss)
             {
-                NotifyAll(CanvasType.BossLevelStart);
+                NotifyAll(CanvasType.BossLevelStart, false);
                 Invoke(nameof(HideStartBossCanvas), bossStartCanvasShowTime);
             }
-            else NotifyAll(CanvasType.Game);
+            else NotifyAll(CanvasType.Game, false);
         }
 
         public void OnClickPause()

@@ -7,13 +7,17 @@ namespace UI
 {
     public class GameScoreDisplay : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI appleScore;
-        [SerializeField] private TextMeshProUGUI hitScore;
-        [Space] 
         [SerializeField] private string currentScoreText = "Score:";
         [SerializeField] private string highScoreText = "High:";
+        [Header("Game Canvas")]
+        [SerializeField] private TextMeshProUGUI appleScore;
+        [SerializeField] private TextMeshProUGUI hitScore;
+        [Header("Fail Canvas")]
         [SerializeField] private TextMeshProUGUI failCanvasCurrentScore;
         [SerializeField] private TextMeshProUGUI failCanvasHighScore;
+        [Header("Pause Canvas")]
+        [SerializeField] private TextMeshProUGUI pauseCanvasCurrentScore;
+        [SerializeField] private TextMeshProUGUI pauseCanvasHighScore;
 
         private SaveManager _manager;
         private int _appleCount = 0;
@@ -23,7 +27,7 @@ namespace UI
         {
             Events.OnAppleHit.AddListener(IncrementApples);
             Events.OnKnifeHit.AddListener(IncrementScore);
-            Events.OnKnifeDrop.AddListener(DisplayFailScore);
+            Events.OnKnifeDrop.AddListener(DisplayScore);
         }
 
         private void Start()
@@ -45,9 +49,11 @@ namespace UI
         {
             _hitScore++;
             hitScore.text = _hitScore.ToString();
+            pauseCanvasCurrentScore.text = currentScoreText + " " + _hitScore;
+            pauseCanvasHighScore.text = highScoreText + " " + _manager.Score.HighScore;
         }
 
-        private void DisplayFailScore()
+        private void DisplayScore()
         {
             failCanvasCurrentScore.text = currentScoreText + " " + _hitScore;
             failCanvasHighScore.text = highScoreText + " " + _manager.Score.HighScore;
