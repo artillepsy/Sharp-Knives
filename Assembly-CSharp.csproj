@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\ItemThrow\ThrowablePart.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+     <Compile Include="Assets\Scripts\Shop\KnifeShopPreview.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\AppleThrower.cs" />
      <Compile Include="Assets\Scripts\UI\CanvasType.cs" />
      <Compile Include="Assets\Scripts\Knife\IOnKnifeStateChange.cs" />
@@ -79,7 +80,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-     <Compile Include="Assets\Scripts\UI\KnifeShopButton.cs" />
+     <Compile Include="Assets\Scripts\Shop\KnifeShopButton.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
@@ -90,7 +91,9 @@
      <Compile Include="Assets\Scripts\Log\ItemSpawner.cs" />
      <Compile Include="Assets\Scripts\Management\KnifeManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-     <Compile Include="Assets\Scripts\UI\KnifeDisplay.cs" />
+     <Compile Include="Assets\Scripts\Shop\InteractiveButton.cs" />
+     <Compile Include="Assets\Scripts\Shop\KnifeDisplay.cs" />
+     <Compile Include="Assets\Scripts\UI\UIAnimationController.cs" />
      <Compile Include="Assets\Scripts\UI\IOnCanvasChange.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Scripts\UI\MenuCanvasManager.cs" />
@@ -101,6 +104,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
      <Compile Include="Assets\Scripts\UI\MenuScoreDisplay.cs" />
      <Compile Include="Assets\Scripts\Log\LogPartGraphics.cs" />
+     <Compile Include="Assets\Scripts\Game\StagesDisplay.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeMovement.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
@@ -117,9 +121,6 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeGraphics.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\Scripts\UI\UIAnimationController.cs" />
-     <Compile Include="Assets\Scripts\UI\InteractiveButton.cs" />
-     <Compile Include="Assets\Scripts\UI\KnifeShopPreview.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

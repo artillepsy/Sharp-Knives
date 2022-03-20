@@ -2,6 +2,7 @@
 using Core;
 using SaveSystem;
 using Scriptable;
+using Shop;
 using UI;
 using UnityEngine;
 

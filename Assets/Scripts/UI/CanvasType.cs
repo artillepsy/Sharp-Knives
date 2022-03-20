@@ -7,6 +7,6 @@
         Fail,
         MainMenu,
         Shop,
-        BuyAcceptMsgBox,
+        DefeatBoss,
     }
 }

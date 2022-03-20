@@ -10,13 +10,15 @@ namespace Management
     public class LevelManager : MonoBehaviour
     {
         [SerializeField] private List<Level> levels;
-        [SerializeField] private int stagesToBoss = 5;
+        [SerializeField] private int stagesInCycle = 5;
+        public int CurrentStage => (_saveManager.Score.WinCount + 1) % stagesInCycle;
+        public int StagesInCycle => stagesInCycle;
+        public int WinCount => _saveManager.Score.WinCount;
         private SaveManager _saveManager;
-        
         private void Start()
         {
             _saveManager = FindObjectOfType<SaveManager>();
-            var isBoss = (_saveManager.Score.WinCount % stagesToBoss == 0 && _saveManager.Score.WinCount > 0);
+            var isBoss = (CurrentStage == 0);
             var level = isBoss ? GetBossLevel() : GetUsualLevel();
             var subscribers = FindObjectsOfType<MonoBehaviour>().OfType<IOnLevelLoad>();
             foreach (var subscriber in subscribers)

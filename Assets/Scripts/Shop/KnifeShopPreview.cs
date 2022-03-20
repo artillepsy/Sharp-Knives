@@ -4,7 +4,7 @@ using Scriptable;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace Shop
 {
     public class KnifeShopPreview : MonoBehaviour
     {
