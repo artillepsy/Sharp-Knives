@@ -24,6 +24,7 @@ namespace Scriptable
         public class BossLog
         {
             [Header("Boss log")] 
+            public string Name = "Tomato";
             [Range(0, 100)]
             public int DamageAtDestroy = 20;
             [Range(0, 1)] 

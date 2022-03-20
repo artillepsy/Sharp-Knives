@@ -13,8 +13,7 @@ namespace UI
         private void Awake()
         {
             _canvas = GetComponent<Canvas>();
-            _subs = GetComponentsInChildren<UIAnimationController>().ToList();
-            Debug.Log(_subs.Count);
+            _subs = GetComponentsInChildren<UIAnimationController>(true).ToList();
         }
 
         public void OnCanvasChange(CanvasType newType, float delay)

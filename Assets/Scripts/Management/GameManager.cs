@@ -10,7 +10,8 @@ namespace Management
     public class GameManager : MonoBehaviour, IOnLevelLoad
     {
         [SerializeField] private string levelName = "Game";
-        [SerializeField] private float newSceneLoadTIme = 3f;
+        [SerializeField] private float newSceneLoadTime = 3f;
+        [SerializeField] private float afterBossWinLoadTime = 6f;
         private SaveManager _saveManager;
         private int _knifeCount;
         private Level _level;
@@ -21,7 +22,7 @@ namespace Management
             _level = level;
             _bossLevel = level.Log.Custom.IsBoss;
         }
-
+        public void LoadNewLevel() => SceneManager.LoadSceneAsync(levelName);
         private void OnEnable()
         {
             Events.OnKnifeDrop.AddListener(OnKnifeDrop);
@@ -39,11 +40,10 @@ namespace Management
 
         private void OnKnifeDrop()
         {
-           Invoke(nameof(LoadGameOverScreen), newSceneLoadTIme);
+           Invoke(nameof(LoadGameOverScreen), newSceneLoadTime);
            if (_saveManager.Score.HighScore < _saveManager.Score.CurrentScore)
            {
                _saveManager.Score.HighScore = _saveManager.Score.CurrentScore;
-               Debug.Log("high score: "+ _saveManager.Score.HighScore);
            }
            _saveManager.Score.ResetWinCount();
            _saveManager.Score.CurrentScore = 0;
@@ -51,13 +51,19 @@ namespace Management
         }
         private void OnWin()
         {
-            Invoke(nameof(LoadScene), newSceneLoadTIme);
-            if (_bossLevel) _saveManager.Score.DamageBoss(_level.Log.Custom.Boss.DamageAtDestroy);
+            var delay = _bossLevel ? afterBossWinLoadTime : newSceneLoadTime;
+            Invoke(nameof(LoadNewLevel), delay);
+            Debug.Log(delay);
+            if (_bossLevel)
+            {
+                _saveManager.Score.DamageBoss(_level.Log.Custom.Boss.DamageAtDestroy);
+            }
+            
             _saveManager.Score.IncrementWins();
             _saveManager.Save();
             Events.OnWinGame?.Invoke();
         }
         private void LoadGameOverScreen() => Events.OnFailGame?.Invoke();
-        private void LoadScene() => SceneManager.LoadSceneAsync(levelName);
+        
     }
 }

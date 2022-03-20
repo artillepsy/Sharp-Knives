@@ -86,6 +86,8 @@ namespace SaveSystem
                 if (!knife.IsBossDrop) continue;
                 lockedBossKnives.Add(knife);
             }
+
+            if (lockedBossKnives.Count == 0) return;
             var item = lockedBossKnives[Random.Range(0, lockedBossKnives.Count)];
             _userData.UnlockedKniveIds.Add(item.Id);
             Events.OnUnlock?.Invoke();
@@ -114,6 +116,8 @@ namespace SaveSystem
                 _userData.HighScore = value;
             }
         }
+
+        public int BossHP => _userData.BossHP;
 
         public int CurrentScore;
 

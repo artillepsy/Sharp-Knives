@@ -1,12 +1,29 @@
 ﻿using System.Linq;
 using Core;
+using LevelSettings;
+using Scriptable;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace UI
 {
-    public class GameCanvasManager : AbstractCanvasManager
+    public class GameCanvasManager : AbstractCanvasManager, IOnLevelLoad
     {
+        [SerializeField] private float bossStartCanvasShowTime = 3f;
+        
+        private bool _isBoss = false;
+        public void OnLevelLoad(Level level)
+        {
+            _isBoss = level.Log.Custom.IsBoss;
+
+            if (_isBoss)
+            {
+                NotifyAll(CanvasType.BossLevelStart);
+                Invoke(nameof(HideStartBossCanvas), bossStartCanvasShowTime);
+            }
+            else NotifyAll(CanvasType.Game);
+        }
+
         public void OnClickPause()
         {
            // Time.timeScale = 0f;
@@ -31,13 +48,18 @@ namespace UI
            // SceneManager.LoadSceneAsync("Menu");
            Invoke(nameof(LoadMenuLevel), changeDelayInSeconds);
         }
-        
+
         private void OnEnable()
         {
             _subs = FindObjectsOfType<MonoBehaviour>().OfType<IOnCanvasChange>().ToList();
-            Events.OnFailGame.AddListener( () => NotifyAll(CanvasType.Fail));
+            Events.OnFailGame.AddListener(() => NotifyAll(CanvasType.Fail));
+            Events.OnWinGame.AddListener(() =>
+            {
+                if (_isBoss) NotifyAll(CanvasType.BossLevelEnd);
+            });
         }
-        private void Start() => NotifyAll(CanvasType.Game);
+        private void HideStartBossCanvas() => NotifyAll(CanvasType.Game);
         private void LoadMenuLevel() => SceneManager.LoadSceneAsync("Menu");
+        
     }
 }

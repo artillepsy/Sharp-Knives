@@ -15,6 +15,8 @@
             <e p="TapInput.cs" t="Include" />
           </e>
           <e p="Game" t="Include">
+            <e p="BossEndCanvas.cs" t="Include" />
+            <e p="BossStartCanvas.cs" t="Include" />
             <e p="StagesDisplay.cs" t="Include" />
           </e>
           <e p="ItemThrow" t="Include">

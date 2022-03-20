@@ -10,10 +10,9 @@ namespace UI
         private readonly string _disappearAnimClip = "Disappear";
 
         private void Awake() => _animation = GetComponent<Animation>();
-        //private void OnEnable() => _animation.Play(_appearAnimClip);
         public void PlayAnimation(bool canvasEnabled)
         {
-            Debug.Log("anim");
+           // if (!gameObject.activeSelf) return;
             _animation.Play(canvasEnabled ? _appearAnimClip : _disappearAnimClip);
         }
     }
