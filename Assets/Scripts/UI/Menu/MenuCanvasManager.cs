@@ -8,7 +8,7 @@ namespace UI.Menu
     {
         private void Start()
         {
-            _subs = FindObjectsOfType<MonoBehaviour>().OfType<IOnCanvasChange>().ToList();
+            _subs = FindObjectsOfType<MonoBehaviour>(true).OfType<IOnCanvasChange>().ToList();
             NotifyAll(CanvasType.MainMenu, false);
         }
         public void OnClickStart()

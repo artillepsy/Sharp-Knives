@@ -12,10 +12,11 @@ namespace UI.Shop
         [SerializeField] private GameObject shadowImage;
         [SerializeField] private float changeSpriteDelayInSeconds = 0.3f;
         [SerializeField] private float deactivateShadowDelay = 0.2f;
+        [Header("Animation clips")]
+        [SerializeField] private AnimationClip appearAnimClip;
+        [SerializeField] private AnimationClip disappearAnimClip;
+        [SerializeField] private AnimationClip unlockAnimClip;
         private Animation _animation;
-        private readonly string _appearAnimClip = "Appear";
-        private readonly string _disappearAnimClip = "Disappear";
-        private readonly string _unlockAnimClip = "Unlock";
         private KnifeShopItem _item;
         private void OnEnable()
         {
@@ -25,13 +26,13 @@ namespace UI.Shop
                 if (_item == item) return;
                 _animation.Rewind();
                 _item = item;
-                _animation.Play(_disappearAnimClip);
+                _animation.Play(disappearAnimClip.name);
                 Invoke(nameof(ChangeSprite), changeSpriteDelayInSeconds);
             });
             Events.OnUnlock.AddListener(() =>
             {
                 _animation.Rewind();
-                _animation.Play(_unlockAnimClip);
+                _animation.Play(unlockAnimClip.name);
                 Invoke(nameof(DeactivateShadow), deactivateShadowDelay);
             });
         }
@@ -41,7 +42,7 @@ namespace UI.Shop
             knifeSprite.sprite = _item.KnifeSprite;
             var shouldEnableShadow = !SaveManager.Inst.Shop.UnlockedIds.Contains(_item.Id);
             shadowImage.SetActive(shouldEnableShadow);
-            _animation.Play(_appearAnimClip);
+            _animation.Play(appearAnimClip.name);
         }
         private void DeactivateShadow() => shadowImage.SetActive(false);
     }
