@@ -14,6 +14,7 @@ namespace Core
         public static readonly UnityEvent OnFailGame = new UnityEvent();
         public static readonly UnityEvent OnDefeatBoss = new UnityEvent();
         public static readonly UnityEvent OnUnlock = new UnityEvent();
+        public static readonly UnityEvent OnSettingsChange = new UnityEvent();
         public static readonly UnityEvent<KnifeShopItem> OnClickShowInfo = new UnityEvent<KnifeShopItem>();
         public static readonly UnityEvent<KnifeShopItem> OnEquip = new UnityEvent<KnifeShopItem>();
     }

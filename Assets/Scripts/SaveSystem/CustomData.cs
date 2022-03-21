@@ -57,6 +57,7 @@ namespace SaveSystem
             _userData.Volume = volume;
             _userData.Vibration = vibration;
             SaveSystem.Save(_userData);
+            Events.OnSettingsChange?.Invoke();
         }
     }
     public class ShopData : AbstractData

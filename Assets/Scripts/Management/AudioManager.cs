@@ -64,7 +64,11 @@ namespace Management
             });
             Events.OnThrow.AddListener(()=> PlayClip(OnThrowClips));
             Events.OnClikButton.AddListener(()=>_audioSource.PlayOneShot(buttonClick));
-            
+            Events.OnSettingsChange.AddListener(() =>
+            {
+                _audioSource.volume =  SaveManager.Inst.Sound.Volume;
+                _vibration =  SaveManager.Inst.Sound.Vibration;
+            });
         }
 
         private void Start()
