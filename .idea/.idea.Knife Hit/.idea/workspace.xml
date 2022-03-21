@@ -21,10 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="23757215-a1a0-4088-aa38-fefc001038b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Events.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Events.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/CustomData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/CustomData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,10 +83,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/CanvasType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Menu/MenuSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Menu/MenuCanvasManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Core/Events.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/CustomData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" />
       </list>
     </option>
   </component>
@@ -174,7 +170,7 @@
       <workItem from="1647857881972" duration="1241000" />
       <workItem from="1647877268682" duration="103000" />
       <workItem from="1647878019635" duration="1953000" />
-      <workItem from="1647881430233" duration="846000" />
+      <workItem from="1647881430233" duration="1687000" />
     </task>
     <servers />
   </component>
