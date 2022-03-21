@@ -14,6 +14,7 @@ namespace UI
         {
             _canvas = GetComponent<Canvas>();
             _subs = GetComponentsInChildren<UIAnimationController>(true).ToList();
+            _subs.AddRange(GetComponents<UIAnimationController>().ToList());
         }
 
         public void OnCanvasChange(CanvasType newType, float delay)

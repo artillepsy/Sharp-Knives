@@ -1,5 +1,4 @@
 ﻿using Core;
-using LevelSettings;
 using SaveSystem;
 using Scriptable;
 using UnityEngine;
@@ -19,7 +18,7 @@ namespace Management
         public void OnLevelLoad(Level level)
         {
             _level = level;
-            _bossLevel = level.Log.Custom.IsBoss;
+            _bossLevel = level.Log.Settings.IsBoss;
         }
         public void LoadNewLevel() => SceneManager.LoadSceneAsync(levelName);
         private void OnEnable()
@@ -52,7 +51,7 @@ namespace Management
             Invoke(nameof(LoadNewLevel), delay);
             if (_bossLevel)
             {
-                SaveManager.Inst.Score.DamageBoss(_level.Log.Custom.Boss.DamageAtDestroy);
+                SaveManager.Inst.Score.DamageBoss(_level.Log.Settings.Boss.DamageAtDestroy);
             }
             SaveManager.Inst.Score.IncrementWins();
             SaveManager.Inst.Save();

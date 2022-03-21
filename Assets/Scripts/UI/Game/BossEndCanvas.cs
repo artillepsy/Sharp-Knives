@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core;
-using LevelSettings;
 using SaveSystem;
 using Scriptable;
 using TMPro;
-using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game
+namespace UI.Game
 {
     public class BossEndCanvas : MonoBehaviour, IOnLevelLoad, IOnCanvasChange
     {
@@ -25,11 +23,11 @@ namespace Game
         
         public void OnLevelLoad(Level level)
         {
-            if(!level.Log.Custom.IsBoss) return;
+            if(!level.Log.Settings.IsBoss) return;
             unlockedKnifeText.enabled = false;
             _subs = GetComponentsInChildren<UIAnimationController>().ToList();
             _startSliderAmount = SaveManager.Inst.Score.BossHP / 100f;
-            _endSliderAmount = _startSliderAmount - level.Log.Custom.Boss.DamageAtDestroy / 100f;
+            _endSliderAmount = _startSliderAmount - level.Log.Settings.Boss.DamageAtDestroy / 100f;
             sliderImage.fillAmount = _startSliderAmount;
         }
         public void OnCanvasChange(CanvasType newType, float timeInSeconds = 0)

@@ -33,7 +33,7 @@ namespace Scriptable
         public class LogSettings
         {
             [Header("Log graphics settings")] 
-            public CustomLogData Custom;
+            public CustomLogSettings Settings;
             
             
             [Header("Log rotation settings")]

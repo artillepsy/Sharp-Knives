@@ -49,7 +49,7 @@
             <e p="SaveSystem.cs" t="Include" />
           </e>
           <e p="Scriptable" t="Include">
-            <e p="CustomLogData.cs" t="Include" />
+            <e p="CustomLogSettings.cs" t="Include" />
             <e p="IOnLevelLoad.cs" t="Include" />
             <e p="KnifeShopItem.cs" t="Include" />
             <e p="Level.cs" t="Include" />

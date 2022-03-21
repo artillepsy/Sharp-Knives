@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Scriptable
 {
     [CreateAssetMenu(fileName = "Log Graphics")]
-    public class CustomLogData : ScriptableObject
+    public class CustomLogSettings : ScriptableObject
     {
         public bool IsBoss = false;
         public Texture2D LogTexture;

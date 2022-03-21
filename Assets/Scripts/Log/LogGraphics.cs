@@ -1,5 +1,4 @@
 ﻿using Core;
-using LevelSettings;
 using Scriptable;
 using UnityEngine;
 
@@ -12,9 +11,9 @@ namespace Log
         public void OnLevelLoad(Level level)
         {
             var material = GetComponent<MeshRenderer>().sharedMaterial;
-            material.mainTexture = level.Log.Custom.LogTexture;
-            if (!level.Log.Custom.IsBoss) return;
-            _particleSystemColor = level.Log.Custom.Boss.ParticlesColor;
+            material.mainTexture = level.Log.Settings.LogTexture;
+            if (!level.Log.Settings.IsBoss) return;
+            _particleSystemColor = level.Log.Settings.Boss.ParticlesColor;
             Events.OnWinGame.AddListener(SpawnParticles);
         }
 

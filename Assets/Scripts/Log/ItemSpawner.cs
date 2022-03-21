@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using LevelSettings;
 using Scriptable;
 using UnityEngine;
 

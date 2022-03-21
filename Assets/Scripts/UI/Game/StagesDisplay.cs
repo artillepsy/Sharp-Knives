@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using LevelSettings;
 using Management;
 using Scriptable;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game
+namespace UI.Game
 {
     public class StagesDisplay : MonoBehaviour, IOnLevelLoad
     {

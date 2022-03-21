@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Core;
-using LevelSettings;
 using SaveSystem;
 using Scriptable;
 using UnityEngine;
@@ -36,18 +35,18 @@ namespace Management
         }
         public void OnLevelLoad(Level level)
         {
-            if (level.Log.Custom.IsBoss) PlayClip(bossFightClip);
-            if (level.Log.Custom.Boss.HitClips.Count != 0)
+            if (level.Log.Settings.IsBoss) PlayClip(bossFightClip);
+            if (level.Log.Settings.Boss.HitClips.Count != 0)
             {
-                _logHitClips = level.Log.Custom.Boss.HitClips;
+                _logHitClips = level.Log.Settings.Boss.HitClips;
             }
             else
             {
                 _logHitClips = logHitClips;
             }
-            if (level.Log.Custom.Boss.DestroyClips.Count != 0)
+            if (level.Log.Settings.Boss.DestroyClips.Count != 0)
             {
-                _logDestroyClips = level.Log.Custom.Boss.DestroyClips;
+                _logDestroyClips = level.Log.Settings.Boss.DestroyClips;
             }
             else
             {

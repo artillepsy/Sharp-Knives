@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core;
-using LevelSettings;
 using Log;
 using Scriptable;
 using UnityEngine;
@@ -14,7 +13,7 @@ namespace ItemThrow
         private List<ThrowablePart> _parts;
         public void OnLevelLoad(Level level)
         {
-            if (!level.Log.Custom.IsBoss) return;
+            if (!level.Log.Settings.IsBoss) return;
             Events.OnWinGame.RemoveListener(ThrowParts);
             Events.OnWinGame.AddListener(() => _log.SetActive(false));
             gameObject.SetActive(false);

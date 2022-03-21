@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Core;
-using LevelSettings;
 using Scriptable;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,7 +13,7 @@ namespace UI.Game
         private bool _isBoss = false;
         public void OnLevelLoad(Level level)
         {
-            _isBoss = level.Log.Custom.IsBoss;
+            _isBoss = level.Log.Settings.IsBoss;
 
             if (_isBoss)
             {
