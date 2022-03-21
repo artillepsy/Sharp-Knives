@@ -85,9 +85,7 @@ namespace SaveSystem
                 if (!knife.IsBossDrop) continue;
                 lockedBossKnives.Add(knife);
             }
-            Debug.Log("locked count: "+lockedBossKnives.Count);
             if (lockedBossKnives.Count == 0) return;
-            Debug.Log("unlocked");
             var item = lockedBossKnives[Random.Range(0, lockedBossKnives.Count)];
             _userData.UnlockedKniveIds.Add(item.Id);
             Events.OnUnlock?.Invoke();

@@ -12,6 +12,7 @@ namespace UI.Game
     public class BossEndCanvas : MonoBehaviour, IOnLevelLoad, IOnCanvasChange
     {
         [SerializeField] private TextMeshProUGUI unlockedKnifeText;
+        [SerializeField] private TextMeshProUGUI bossDefeatText;
         [SerializeField] private Image sliderImage;
         [SerializeField] private float delayDisappearAnims = 2f;
         [SerializeField] private float reduceHpTime = 1f;
@@ -25,6 +26,7 @@ namespace UI.Game
         {
             if(!level.Log.Settings.IsBoss) return;
             unlockedKnifeText.enabled = false;
+            bossDefeatText.enabled = false;
             _subs = GetComponentsInChildren<UIAnimationController>().ToList();
             _startSliderAmount = SaveManager.Inst.Score.BossHP / 100f;
             _endSliderAmount = _startSliderAmount - level.Log.Settings.Boss.DamageAtDestroy / 100f;
@@ -36,7 +38,13 @@ namespace UI.Game
             Invoke(nameof(StartReduceHP), delayReduceTime);
             Invoke(nameof(NotifySubs), delayDisappearAnims);
         }
-        private void OnEnable() => Events.OnUnlock.AddListener(() => unlockedKnifeText.enabled = true);
+        private void OnEnable()
+        {
+            Events.OnUnlock.AddListener(() => unlockedKnifeText.enabled = true);
+            Events.OnDefeatBoss.AddListener(() => bossDefeatText.enabled = true);
+            
+        }
+
         private void Update()
         {
             if (_shouldReduce) ReduceHP();
