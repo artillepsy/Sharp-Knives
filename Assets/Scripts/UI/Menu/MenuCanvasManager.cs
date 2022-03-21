@@ -18,6 +18,8 @@ namespace UI.Menu
         }
         public void OnClickMainMenu() => NotifyAll(CanvasType.MainMenu);
         public void OnClickShop() => NotifyAll(CanvasType.Shop);
+        public void OnClickSettings() => NotifyAll(CanvasType.Settings);
+        public void OnClickExit() => Application.Quit();
         private void LoadGameLevel() => SceneManager.LoadSceneAsync("Game");
     }
 }

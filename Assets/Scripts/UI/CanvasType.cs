@@ -7,6 +7,7 @@
         Fail,
         MainMenu,
         Shop,
+        Settings,
         BossLevelEnd,
         BossLevelStart
     }

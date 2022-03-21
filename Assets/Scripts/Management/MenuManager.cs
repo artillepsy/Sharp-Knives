@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SaveSystem;
+using UnityEngine;
 
 namespace Management
 {
@@ -7,6 +8,7 @@ namespace Management
         private void Start()
         {
             Application.targetFrameRate = Screen.currentResolution.refreshRate;
+            SaveManager.Inst.Score.CurrentScore = 0;
         }
     }
 }

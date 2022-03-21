@@ -22,17 +22,6 @@ namespace Management
         private bool _vibration;
         private List<AudioClip> _logHitClips;
         private List<AudioClip> _logDestroyClips;
-        public void ChangeAudioVolume(float volume)
-        {
-            _audioSource.volume = volume;
-            SaveManager.Inst.Sound.SetVolumeSettings(_audioSource.volume, _vibration);
-        }
-
-        public void ChangeVibration(bool vibrate)
-        {
-            _vibration = vibrate;
-            SaveManager.Inst.Sound.SetVolumeSettings(_audioSource.volume, _vibration);
-        }
         public void OnLevelLoad(Level level)
         {
             if (level.Log.Settings.IsBoss) PlayClip(bossFightClip);

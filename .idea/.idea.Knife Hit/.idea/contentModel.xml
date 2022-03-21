@@ -70,6 +70,7 @@
             <e p="Menu" t="Include">
               <e p="MenuCanvasManager.cs" t="Include" />
               <e p="MenuScoreDisplay.cs" t="Include" />
+              <e p="MenuSettings.cs" t="Include" />
             </e>
             <e p="Shop" t="Include">
               <e p="InteractiveButton.cs" t="Include" />
