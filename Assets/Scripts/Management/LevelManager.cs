@@ -11,13 +11,11 @@ namespace Management
     {
         [SerializeField] private List<Level> levels;
         [SerializeField] private int stagesInCycle = 5;
-        public int CurrentStage => (_saveManager.Score.WinCount + 1) % stagesInCycle;
+        public int CurrentStage => (SaveManager.Inst.Score.WinCount + 1) % stagesInCycle;
         public int StagesInCycle => stagesInCycle;
-        public int WinCount => _saveManager.Score.WinCount;
-        private SaveManager _saveManager;
+        public int WinCount => SaveManager.Inst.Score.WinCount;
         private void Start()
         {
-            _saveManager = FindObjectOfType<SaveManager>();
             var isBoss = (CurrentStage == 0);
             var level = isBoss ? GetBossLevel() : GetUsualLevel();
             var subscribers = FindObjectsOfType<MonoBehaviour>().OfType<IOnLevelLoad>();
@@ -29,7 +27,7 @@ namespace Management
         private Level GetUsualLevel()
         {
             var usualLevels = new List<Level>();
-            var winCount = _saveManager.Score.WinCount;
+            var winCount = SaveManager.Inst.Score.WinCount;
             foreach (var level in levels)
             {
                 if(level.Log.Custom.IsBoss) continue;

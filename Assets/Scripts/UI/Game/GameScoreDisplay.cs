@@ -3,7 +3,7 @@ using SaveSystem;
 using TMPro;
 using UnityEngine;
 
-namespace UI
+namespace UI.Game
 {
     public class GameScoreDisplay : MonoBehaviour, IOnCanvasChange
     {

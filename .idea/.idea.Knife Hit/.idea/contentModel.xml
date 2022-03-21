@@ -14,11 +14,6 @@
             <e p="Events.cs" t="Include" />
             <e p="TapInput.cs" t="Include" />
           </e>
-          <e p="Game" t="Include">
-            <e p="BossEndCanvas.cs" t="Include" />
-            <e p="BossStartCanvas.cs" t="Include" />
-            <e p="StagesDisplay.cs" t="Include" />
-          </e>
           <e p="ItemThrow" t="Include">
             <e p="AppleThrower.cs" t="Include" />
             <e p="KnifeThrower.cs" t="Include" />
@@ -59,22 +54,29 @@
             <e p="KnifeShopItem.cs" t="Include" />
             <e p="Level.cs" t="Include" />
           </e>
-          <e p="Shop" t="Include">
-            <e p="InteractiveButton.cs" t="Include" />
-            <e p="KnifeDisplay.cs" t="Include" />
-            <e p="KnifeShopButton.cs" t="Include" />
-            <e p="KnifeShopPreview.cs" t="Include" />
-          </e>
           <e p="UI" t="Include">
             <e p="AbstractCanvasManager.cs" t="Include" />
             <e p="ButtonAudioClick.cs" t="Include" />
             <e p="CanvasStateController.cs" t="Include" />
             <e p="CanvasType.cs" t="Include" />
-            <e p="GameCanvasManager.cs" t="Include" />
-            <e p="GameScoreDisplay.cs" t="Include" />
+            <e p="Game" t="Include">
+              <e p="BossEndCanvas.cs" t="Include" />
+              <e p="BossStartCanvas.cs" t="Include" />
+              <e p="GameCanvasManager.cs" t="Include" />
+              <e p="GameScoreDisplay.cs" t="Include" />
+              <e p="StagesDisplay.cs" t="Include" />
+            </e>
             <e p="IOnCanvasChange.cs" t="Include" />
-            <e p="MenuCanvasManager.cs" t="Include" />
-            <e p="MenuScoreDisplay.cs" t="Include" />
+            <e p="Menu" t="Include">
+              <e p="MenuCanvasManager.cs" t="Include" />
+              <e p="MenuScoreDisplay.cs" t="Include" />
+            </e>
+            <e p="Shop" t="Include">
+              <e p="InteractiveButton.cs" t="Include" />
+              <e p="KnifeDisplay.cs" t="Include" />
+              <e p="KnifeShopButton.cs" t="Include" />
+              <e p="KnifeShopPreview.cs" t="Include" />
+            </e>
             <e p="UIAnimationController.cs" t="Include" />
           </e>
         </e>

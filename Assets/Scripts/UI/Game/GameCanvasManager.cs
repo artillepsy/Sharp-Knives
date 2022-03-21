@@ -5,7 +5,7 @@ using Scriptable;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UI
+namespace UI.Game
 {
     public class GameCanvasManager : AbstractCanvasManager, IOnLevelLoad
     {

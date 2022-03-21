@@ -20,20 +20,19 @@ namespace Management
         [SerializeField] private List<AudioClip> logHitClips;
         [SerializeField] private List<AudioClip> logDestroyClips;
         private AudioSource _audioSource;
-        private SaveManager _saveManager;
         private bool _vibration;
         private List<AudioClip> _logHitClips;
         private List<AudioClip> _logDestroyClips;
         public void ChangeAudioVolume(float volume)
         {
             _audioSource.volume = volume;
-            _saveManager.Sound.SetVolumeSettings(_audioSource.volume, _vibration);
+            SaveManager.Inst.Sound.SetVolumeSettings(_audioSource.volume, _vibration);
         }
 
         public void ChangeVibration(bool vibrate)
         {
             _vibration = vibrate;
-            _saveManager.Sound.SetVolumeSettings(_audioSource.volume, _vibration);
+            SaveManager.Inst.Sound.SetVolumeSettings(_audioSource.volume, _vibration);
         }
         public void OnLevelLoad(Level level)
         {
@@ -82,9 +81,8 @@ namespace Management
 
         private void Start()
         {
-            _saveManager = FindObjectOfType<SaveManager>();
-            _audioSource.volume = _saveManager.Sound.Volume;
-            _vibration = _saveManager.Sound.Vibration;
+            _audioSource.volume =  SaveManager.Inst.Sound.Volume;
+            _vibration =  SaveManager.Inst.Sound.Vibration;
         }
 
         private void PlayClip(List<AudioClip> clips)

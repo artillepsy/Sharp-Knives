@@ -43,6 +43,17 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\SaveSystem\SaveSystem.cs" />
      <Compile Include="Assets\Scripts\Log\ItemPlacement.cs" />
+     <Compile Include="Assets\Scripts\UI\Game\BossEndCanvas.cs" />
+     <Compile Include="Assets\Scripts\UI\Game\BossStartCanvas.cs" />
+     <Compile Include="Assets\Scripts\UI\Game\GameCanvasManager.cs" />
+     <Compile Include="Assets\Scripts\UI\Game\GameScoreDisplay.cs" />
+     <Compile Include="Assets\Scripts\UI\Game\StagesDisplay.cs" />
+     <Compile Include="Assets\Scripts\UI\Menu\MenuCanvasManager.cs" />
+     <Compile Include="Assets\Scripts\UI\Menu\MenuScoreDisplay.cs" />
+     <Compile Include="Assets\Scripts\UI\Shop\InteractiveButton.cs" />
+     <Compile Include="Assets\Scripts\UI\Shop\KnifeDisplay.cs" />
+     <Compile Include="Assets\Scripts\UI\Shop\KnifeShopButton.cs" />
+     <Compile Include="Assets\Scripts\UI\Shop\KnifeShopPreview.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
      <Compile Include="Assets\Scripts\UI\CanvasStateController.cs" />
@@ -58,7 +69,6 @@
      <Compile Include="Assets\Scripts\Management\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Management\LevelManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
-     <Compile Include="Assets\Scripts\UI\GameCanvasManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
      <Compile Include="Assets\Scripts\Log\LogAnimationController.cs" />
      <Compile Include="Assets\Scripts\Scriptable\CustomLogData.cs" />
@@ -66,7 +76,6 @@
      <Compile Include="Assets\Scripts\ItemThrow\ThrowablePart.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-     <Compile Include="Assets\Scripts\Shop\KnifeShopPreview.cs" />
      <Compile Include="Assets\Scripts\ItemThrow\AppleThrower.cs" />
      <Compile Include="Assets\Scripts\UI\CanvasType.cs" />
      <Compile Include="Assets\Scripts\Knife\IOnKnifeStateChange.cs" />
@@ -80,33 +89,24 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-     <Compile Include="Assets\Scripts\Shop\KnifeShopButton.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
      <Compile Include="Assets\Scripts\Management\ShopManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
-     <Compile Include="Assets\Scripts\Game\BossStartCanvas.cs" />
-     <Compile Include="Assets\Scripts\Game\BossEndCanvas.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
      <Compile Include="Assets\Scripts\Log\ItemSpawner.cs" />
      <Compile Include="Assets\Scripts\Management\KnifeManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-     <Compile Include="Assets\Scripts\Shop\InteractiveButton.cs" />
-     <Compile Include="Assets\Scripts\Shop\KnifeDisplay.cs" />
      <Compile Include="Assets\Scripts\UI\UIAnimationController.cs" />
      <Compile Include="Assets\Scripts\UI\IOnCanvasChange.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-     <Compile Include="Assets\Scripts\UI\MenuCanvasManager.cs" />
      <Compile Include="Assets\Scripts\Log\LogRotation.cs" />
      <Compile Include="Assets\Scripts\Core\Events.cs" />
      <Compile Include="Assets\Scripts\SaveSystem\CustomData.cs" />
-     <Compile Include="Assets\Scripts\UI\GameScoreDisplay.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
-     <Compile Include="Assets\Scripts\UI\MenuScoreDisplay.cs" />
      <Compile Include="Assets\Scripts\Log\LogPartGraphics.cs" />
-     <Compile Include="Assets\Scripts\Game\StagesDisplay.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeMovement.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
@@ -918,8 +918,6 @@
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>C:/Users/Dell/Desktop/Unity/projects/Knife Hit/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
      </Reference>
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

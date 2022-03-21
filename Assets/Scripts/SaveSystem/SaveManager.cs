@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Core;
 using Management;
 using UnityEngine;
@@ -14,20 +12,11 @@ namespace SaveSystem
         public ShopData Shop;
         public SoundData Sound;
         public ScoreData Score;
+        public static SaveManager Inst;
         public void Save() => SaveSystem.Save(_userData);
         private void Awake()
         {
-            var instances = FindObjectsOfType<SaveManager>().ToList();
-            if(instances.Count > 1)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            else
-            {
-                DontDestroyOnLoad(gameObject);
-            }
-            
+            CheckForDublicates();
             Test_ClearProgress();
             _userData = SaveSystem.Load();
             if (_userData == null)
@@ -53,6 +42,16 @@ namespace SaveSystem
             {
                 if (knifeItem.Id != _userData.EquippedKnifeId) continue;
                 Knife.CurrentSprite = knifeItem.KnifeSprite;
+            }
+        }
+
+        private void CheckForDublicates()
+        {
+            if (Inst != null) Destroy(gameObject);
+            else
+            {
+                Inst = this;
+                DontDestroyOnLoad(gameObject);
             }
         }
         private void Test_ClearProgress()

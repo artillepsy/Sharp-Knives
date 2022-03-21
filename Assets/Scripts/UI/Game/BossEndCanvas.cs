@@ -28,7 +28,7 @@ namespace Game
             if(!level.Log.Custom.IsBoss) return;
             unlockedKnifeText.enabled = false;
             _subs = GetComponentsInChildren<UIAnimationController>().ToList();
-            _startSliderAmount = FindObjectOfType<SaveManager>().Score.BossHP / 100f;
+            _startSliderAmount = SaveManager.Inst.Score.BossHP / 100f;
             _endSliderAmount = _startSliderAmount - level.Log.Custom.Boss.DamageAtDestroy / 100f;
             sliderImage.fillAmount = _startSliderAmount;
         }

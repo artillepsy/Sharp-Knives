@@ -12,7 +12,6 @@ namespace Management
         [SerializeField] private string levelName = "Game";
         [SerializeField] private float newSceneLoadTime = 3f;
         [SerializeField] private float afterBossWinLoadTime = 6f;
-        private SaveManager _saveManager;
         private int _knifeCount;
         private Level _level;
         private bool _bossLevel = false;
@@ -27,27 +26,25 @@ namespace Management
         {
             Events.OnKnifeDrop.AddListener(OnKnifeDrop);
             Events.OnKnifeHit.AddListener(OnKnifeHit);
-            Events.OnAppleHit.AddListener( () =>_saveManager.Score.IncrementApples());
+            Events.OnAppleHit.AddListener( () => SaveManager.Inst.Score.IncrementApples());
         }
-
-        private void Start() => _saveManager = FindObjectOfType<SaveManager>();
         private void OnKnifeHit()
         {
             _knifeCount--;
-            _saveManager.Score.CurrentScore++;
+            SaveManager.Inst.Score.CurrentScore++;
             if(_knifeCount == 0) OnWin();
         }
 
         private void OnKnifeDrop()
         {
            Invoke(nameof(LoadGameOverScreen), newSceneLoadTime);
-           if (_saveManager.Score.HighScore < _saveManager.Score.CurrentScore)
+           if (SaveManager.Inst.Score.HighScore < SaveManager.Inst.Score.CurrentScore)
            {
-               _saveManager.Score.HighScore = _saveManager.Score.CurrentScore;
+               SaveManager.Inst.Score.HighScore = SaveManager.Inst.Score.CurrentScore;
            }
-           _saveManager.Score.ResetWinCount();
-           _saveManager.Score.CurrentScore = 0;
-           _saveManager.Save();
+           SaveManager.Inst.Score.ResetWinCount();
+           SaveManager.Inst.Score.CurrentScore = 0;
+           SaveManager.Inst.Save();
         }
         private void OnWin()
         {
@@ -55,11 +52,10 @@ namespace Management
             Invoke(nameof(LoadNewLevel), delay);
             if (_bossLevel)
             {
-                _saveManager.Score.DamageBoss(_level.Log.Custom.Boss.DamageAtDestroy);
+                SaveManager.Inst.Score.DamageBoss(_level.Log.Custom.Boss.DamageAtDestroy);
             }
-            
-            _saveManager.Score.IncrementWins();
-            _saveManager.Save();
+            SaveManager.Inst.Score.IncrementWins();
+            SaveManager.Inst.Save();
             Events.OnWinGame?.Invoke();
         }
         private void LoadGameOverScreen() => Events.OnFailGame?.Invoke();

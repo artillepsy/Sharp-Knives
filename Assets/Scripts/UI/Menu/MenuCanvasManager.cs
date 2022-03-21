@@ -1,9 +1,8 @@
 ﻿using System.Linq;
-using SaveSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UI
+namespace UI.Menu
 {
     public class MenuCanvasManager : AbstractCanvasManager
     {

@@ -2,8 +2,8 @@
 using Core;
 using SaveSystem;
 using Scriptable;
-using Shop;
 using UI;
+using UI.Shop;
 using UnityEngine;
 
 namespace Management
@@ -14,13 +14,11 @@ namespace Management
         [SerializeField] private List<KnifeShopItem> knifeItems;
         [SerializeField] private KnifeShopButton knifeShopButtonPrefab;
         private List<KnifeShopButton> _buyButtons;
-        private SaveManager _saveManager;
         public List<KnifeShopItem> KnifeItems => knifeItems;
 
         private void Start()
         {
             _buyButtons = new List<KnifeShopButton>();
-            _saveManager = FindObjectOfType<SaveManager>();
             List<KnifeShopItem> bossKnifeItems = new List<KnifeShopItem>();
             foreach (var knife in knifeItems)
             {
