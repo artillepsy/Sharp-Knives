@@ -17,7 +17,7 @@ namespace SaveSystem
         private void Awake()
         {
             CheckForDublicates();
-           // Test_ClearProgress();
+            Test_ClearProgress();
             _userData = SaveSystem.Load();
             if (_userData == null)
             {

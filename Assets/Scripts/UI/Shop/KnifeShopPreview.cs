@@ -6,8 +6,11 @@ using UnityEngine.UI;
 
 namespace UI.Shop
 {
-    public class KnifeShopPreview : MonoBehaviour
+    public class KnifeShopPreview : MonoBehaviour, IOnCanvasChange
     {
+        [SerializeField] private GameObject unlockParticleSystemPrefab;
+        [SerializeField] private GameObject previewParticleSystem;
+        [Space]
         [SerializeField] private Image knifeSprite;
         [SerializeField] private GameObject shadowImage;
         [SerializeField] private float changeSpriteDelayInSeconds = 0.3f;
@@ -18,6 +21,11 @@ namespace UI.Shop
         [SerializeField] private AnimationClip unlockAnimClip;
         private Animation _animation;
         private KnifeShopItem _item;
+        public void OnCanvasChange(CanvasType newType, float timeInSeconds = 0)
+        {
+            if(newType != CanvasType.Shop) previewParticleSystem.SetActive(false);
+            else previewParticleSystem.SetActive(true);
+        }
         private void OnEnable()
         {
             _animation = GetComponent<Animation>();
@@ -33,6 +41,7 @@ namespace UI.Shop
             {
                 _animation.Rewind();
                 _animation.Play(unlockAnimClip.name);
+                Instantiate(unlockParticleSystemPrefab, transform.position, Quaternion.identity);
                 Invoke(nameof(DeactivateShadow), deactivateShadowDelay);
             });
         }
@@ -45,5 +54,6 @@ namespace UI.Shop
             _animation.Play(appearAnimClip.name);
         }
         private void DeactivateShadow() => shadowImage.SetActive(false);
+        
     }
 }

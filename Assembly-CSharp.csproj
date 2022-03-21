@@ -55,6 +55,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
      <Compile Include="Assets\Scripts\Log\LogGraphics.cs" />
+     <Compile Include="Assets\Scripts\Management\NotificationsManager.cs" />
      <Compile Include="Assets\Scripts\Management\AudioManager.cs" />
      <Compile Include="Assets\Scripts\Management\LevelManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -96,6 +97,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
      <Compile Include="Assets\Scripts\UI\Shop\InteractiveButton.cs" />
      <Compile Include="Assets\Scripts\UI\Shop\KnifeDisplay.cs" />
+     <Compile Include="Assets\Scripts\UI\Menu\MenuSettings.cs" />
      <Compile Include="Assets\Scripts\UI\UIAnimationController.cs" />
      <Compile Include="Assets\Scripts\UI\IOnCanvasChange.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
@@ -125,7 +127,6 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeGraphics.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\Scripts\UI\Menu\MenuSettings.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
