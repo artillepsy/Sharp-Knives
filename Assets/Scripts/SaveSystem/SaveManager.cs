@@ -7,6 +7,8 @@ namespace SaveSystem
 {
     public class SaveManager : MonoBehaviour
     {
+        [SerializeField] private float unlockForBossDelay = 1f;
+        
         private UserData _userData;
         public KnifeData Knife;
         public ShopData Shop;
@@ -32,7 +34,7 @@ namespace SaveSystem
         {
             Debug.Log("enabled");
             Events.OnEquip.AddListener(Knife.Equip);
-            Events.OnDefeatBoss.AddListener(Shop.UnlockBossKnife);
+            Events.OnDefeatBoss.AddListener(()=>Invoke(nameof(UnlockForBoss), unlockForBossDelay));
         }
         private void Start()
         {
@@ -54,6 +56,7 @@ namespace SaveSystem
                 DontDestroyOnLoad(gameObject);
             }
         }
+        private void UnlockForBoss() => Shop.UnlockBossKnife();
         private void Test_ClearProgress()
         {
             _userData = new UserData(30, 1, new List<int>(){1});

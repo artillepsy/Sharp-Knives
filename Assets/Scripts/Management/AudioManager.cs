@@ -8,13 +8,16 @@ namespace Management
 {
     public class AudioManager : MonoBehaviour, IOnLevelLoad
     {
-        [SerializeField] private List<AudioClip> knifeDropClips;
-        [SerializeField] private List<AudioClip> OnThrowClips;
-        [SerializeField] private List<AudioClip> appleHitClips;
-        [SerializeField] private AudioClip bossFightClip;
         [SerializeField] private AudioClip buttonClick;
+        [SerializeField] private AudioClip bossFightClip;
+        [SerializeField] private AudioClip startLevelClip;
+        [SerializeField] private AudioClip unlockKnifeClip;
+        [SerializeField] private AudioClip equipKnifeClip;
         
-        
+        [SerializeField] private List<AudioClip> knifeDropClips;
+        [SerializeField] private List<AudioClip> onThrowClips;
+        [SerializeField] private List<AudioClip> appleHitClips;
+
         [Header("Runtime changeable")]
         [SerializeField] private List<AudioClip> logHitClips;
         [SerializeField] private List<AudioClip> logDestroyClips;
@@ -22,9 +25,11 @@ namespace Management
         private bool _vibration;
         private List<AudioClip> _logHitClips;
         private List<AudioClip> _logDestroyClips;
+
         public void OnLevelLoad(Level level)
         {
             if (level.Log.Settings.IsBoss) PlayClip(bossFightClip);
+            else PlayClip(startLevelClip);
             if (level.Log.Settings.Boss.HitClips.Count != 0)
             {
                 _logHitClips = level.Log.Settings.Boss.HitClips;
@@ -51,7 +56,6 @@ namespace Management
                 PlayClip(knifeDropClips);
                 if(_vibration) Vibration.Vibrate(400);
             });
-            Events.OnAppleHit.AddListener(()=>PlayClip(appleHitClips));
             Events.OnKnifeHit.AddListener(()=>
             {
                 PlayClip(_logHitClips);
@@ -62,13 +66,16 @@ namespace Management
                 PlayClip(_logDestroyClips);
                 if(_vibration) Vibration.Vibrate(400);
             });
-            Events.OnThrow.AddListener(()=> PlayClip(OnThrowClips));
-            Events.OnClikButton.AddListener(()=>_audioSource.PlayOneShot(buttonClick));
             Events.OnSettingsChange.AddListener(() =>
             {
                 _audioSource.volume =  SaveManager.Inst.Sound.Volume;
                 _vibration =  SaveManager.Inst.Sound.Vibration;
             });
+            Events.OnAppleHit.AddListener(()=>PlayClip(appleHitClips));
+            Events.OnThrow.AddListener(()=> PlayClip(onThrowClips));
+            Events.OnClikButton.AddListener(()=> PlayClip(buttonClick));
+            Events.OnUnlock.AddListener(()=> PlayClip(unlockKnifeClip));
+            Events.OnEquip.AddListener((item)=>PlayClip(equipKnifeClip));
         }
 
         private void Start()
@@ -76,15 +83,7 @@ namespace Management
             _audioSource.volume =  SaveManager.Inst.Sound.Volume;
             _vibration =  SaveManager.Inst.Sound.Vibration;
         }
-
-        private void PlayClip(List<AudioClip> clips)
-        {
-            _audioSource.PlayOneShot(clips[Random.Range(0, clips.Count)]);
-        }
-
-        private void PlayClip(AudioClip clip)
-        {
-            _audioSource.PlayOneShot(clip);
-        }
+        private void PlayClip(List<AudioClip> clips) => _audioSource.PlayOneShot(clips[Random.Range(0, clips.Count)]);
+        private void PlayClip(AudioClip clip) => _audioSource.PlayOneShot(clip);
     }
 }

@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23757215-a1a0-4088-aa38-fefc001038b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Management/NotificationsManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Management/NotificationsManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Shop/KnifeShopPreview.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Shop/KnifeShopPreview.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" afterDir="false" />
     </list>
@@ -90,11 +87,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Menu/MenuSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Menu/MenuCanvasManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Core/Events.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/CustomData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/KnifeShopPreview.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/NotificationsManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/CustomData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" />
       </list>
     </option>
   </component>
@@ -180,6 +177,9 @@
       <workItem from="1647878019635" duration="1953000" />
       <workItem from="1647881430233" duration="1687000" />
       <workItem from="1647892554964" duration="4957000" />
+      <workItem from="1647937993229" duration="1174000" />
+      <workItem from="1647940285657" duration="1130000" />
+      <workItem from="1647941600936" duration="724000" />
     </task>
     <servers />
   </component>
