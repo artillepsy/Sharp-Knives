@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
@@ -21,7 +22,16 @@ namespace SaveSystem
         public static UserData Load()
         {
             var path = Application.persistentDataPath + "UserData.class";
-            var fileStream = new FileStream(path, FileMode.Open);
+            FileStream fileStream;
+            try
+            {
+                fileStream = new FileStream(path, FileMode.Open);
+            }
+            catch (FileNotFoundException e)
+            {
+                Debug.Log("file doesn't exist");
+                return null;
+            }
             if (File.Exists(path) && fileStream.Length > 0)
             {
                 var binaryFormatter = new BinaryFormatter();

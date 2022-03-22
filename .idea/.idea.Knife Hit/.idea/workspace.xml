@@ -21,14 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="23757215-a1a0-4088-aa38-fefc001038b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/New/MenuAppear.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/New/MenuAppear.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/New/MenuDisappear.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/New/MenuDisappear.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Magistros SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Magistros SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +59,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/AudioManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/KnifeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/MenuManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Management/NotificationsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/ShopManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/CustomData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveSystem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/IOnLevelLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/KnifeShopItem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Game/BossEndCanvas.cs" />
@@ -95,6 +90,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/LevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/Level.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Management/NotificationsManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveSystem.cs" />
       </list>
     </option>
   </component>
@@ -185,6 +182,9 @@
       <workItem from="1647941600936" duration="10786000" />
       <workItem from="1647954685664" duration="2272000" />
       <workItem from="1647969063680" duration="2937000" />
+      <workItem from="1647973927499" duration="53000" />
+      <workItem from="1647974103980" duration="94000" />
+      <workItem from="1647980442192" duration="861000" />
     </task>
     <servers />
   </component>
