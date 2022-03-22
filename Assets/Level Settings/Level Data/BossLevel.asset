@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e789d14d0ddb4a6891a7d327b889eb91, type: 3}
+  m_Name: BossLevel
+  m_EditorClassIdentifier: 
+  Items:
+    AppleSpawnChance: 1
+    KnifeSpawnChance: 1
+    MinSpawnDistance: 1
+    MinAppleCount: 1
+    MaxAppleCount: 2
+    MinKnifeCount: 1
+    MaxKnifeCount: 2
+  Log:
+    Settings: {fileID: 11400000, guid: 9533f89a3efe6734f8ca573ae74d6101, type: 2}
+    MinRotationSpeed: 100
+    MaxRotationSpeed: 100
+    MinAccelerationTime: 1
+    MaxAccelerationTime: 1
+    MinRotationTime: 5
+    MaxRotationTime: 5
+    MinStoppingTime: 1
+    MaxStoppingTime: 1
+    MinStoppedTime: 0
+    MaxStoppedTime: 1
+    AlwaysSwapDirection: 0
+  Knife:
+    MinCount: 5
+    MaxCount: 7
