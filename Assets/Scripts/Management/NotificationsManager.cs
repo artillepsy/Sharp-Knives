@@ -10,12 +10,12 @@ namespace Management
     {
         [SerializeField] private string title;
         [SerializeField] private string text;
-        [SerializeField] private int sheduleHours;
+        [SerializeField] private int sheduleHours = 8;
         [SerializeField] private int sheduleMinutes ;
-        [SerializeField] private int sheduleSeconds = 15;
+        [SerializeField] private int sheduleSeconds;
         private float _checkTimeInSeconds = 10f;
-        private float MinToSec => sheduleMinutes / 60f;
-        private float HourToSec => sheduleHours / 3600f;
+        private float MinToSec => sheduleMinutes * 60f;
+        private float HourToSec => sheduleHours * 3600f;
 
         /// <summary>
         /// Метод ставит на повтор откладывание уведомления, пока приложение запущено
