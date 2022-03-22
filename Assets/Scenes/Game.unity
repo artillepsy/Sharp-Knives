@@ -5512,8 +5512,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 11400000, guid: 84e9ac3afe4bd38449f21bde403b3a97, type: 2}
+  - {fileID: 11400000, guid: c57b918fc25ef9245b41f3758543a01e, type: 2}
+  - {fileID: 11400000, guid: 2ba5fe97ffbfc3a498e517e7e0bbe048, type: 2}
   - {fileID: 11400000, guid: 2da23d0b12d2e4345b9db7dc854d4417, type: 2}
-  stagesInCycle: 5
+  - {fileID: 11400000, guid: 176874c0c2616e94f856e91ce3e147ea, type: 2}
+  stagesInCycle: 3
 --- !u!114 &1535537972
 MonoBehaviour:
   m_ObjectHideFlags: 0

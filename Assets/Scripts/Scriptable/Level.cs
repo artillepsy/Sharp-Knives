@@ -8,10 +8,13 @@ namespace Scriptable
     [CreateAssetMenu(fileName = "Level Data")]
     public class Level : ScriptableObject
     {
+        [Header("Appearance settings")]
+        public int MinWinCount = 0;
+        public int MaxWinCount = 4;
         public ItemsSettings Items;
         public LogSettings Log;
         public KnifeSettings Knife;
-        
+
         /// <summary>
         /// Класс настройки шанса выпадения и количества объектов
         /// </summary>

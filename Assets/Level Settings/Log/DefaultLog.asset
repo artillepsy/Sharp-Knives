@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsBoss: 0
   LogTexture: {fileID: 2800000, guid: 99682700cca0c5c4e9651ef0a49cc999, type: 3}
-  HitParticleColor: {r: 0.7735849, g: 0.5640137, b: 0.3386258, a: 1}
+  HitParticleColor: {r: 0.9622642, g: 0.8401303, b: 0.039943, a: 1}
   Default:
     InsideColor: {r: 0.754717, g: 0.53996575, b: 0.30900678, a: 1}
     MinWinCount: 0
     MaxWinCount: 100
   Boss:
+    Name: Tomato
     DamageAtDestroy: 20
     Chance: 0.3
     ParticlesColor: {r: 1, g: 0.611077, b: 0, a: 1}
-    HitAudio: {fileID: 0}
-    DestroyAudio: {fileID: 0}
+    HitClips: []
+    DestroyClips: []

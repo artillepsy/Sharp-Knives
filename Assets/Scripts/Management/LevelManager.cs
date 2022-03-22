@@ -38,8 +38,8 @@ namespace Management
             foreach (var level in levels)
             {
                 if(level.Log.Settings.IsBoss) continue;
-                if (winCount > level.Log.Settings.Default.MaxWinCount ||
-                    winCount < level.Log.Settings.Default.MinWinCount) continue;
+                if (winCount > level.MaxWinCount ||
+                    winCount < level.MinWinCount) continue;
                 
                 usualLevels.Add(level);
             }

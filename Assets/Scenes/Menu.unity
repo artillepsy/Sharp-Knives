@@ -324,8 +324,10 @@ MonoBehaviour:
   knifeItems:
   - {fileID: 11400000, guid: 5cbb70fb69e300a4192f46ccfc16b98e, type: 2}
   - {fileID: 11400000, guid: 14f59b1cb09ae594c8364154ff68126c, type: 2}
-  - {fileID: 11400000, guid: cc17611288a5d854d9c059f35ed3e69a, type: 2}
   - {fileID: 11400000, guid: 22f79776f5609ab4da59973d1dad816f, type: 2}
+  - {fileID: 11400000, guid: cc17611288a5d854d9c059f35ed3e69a, type: 2}
+  - {fileID: 11400000, guid: c4941bfcb5b362d47962b9fdf9382c16, type: 2}
+  - {fileID: 11400000, guid: 430cdeb1cf496b2499273e89bae6fe9c, type: 2}
   knifeShopButtonPrefab: {fileID: 2397155844134489838, guid: 3247c220521b2cb4cac7d409291c03c1, type: 3}
 --- !u!114 &117609499
 MonoBehaviour:
@@ -464,7 +466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 34.576, y: 0.0009765625}
+  m_AnchoredPosition: {x: 34.576, y: -0.000061035156}
   m_SizeDelta: {x: -52.401, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &199486337
@@ -4479,7 +4481,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 133682315}
   m_HandleRect: {fileID: 133682314}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5032,9 +5034,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Come back!
   text: 'It''s time for you to update your records '
-  sheduleHours: 0
+  sheduleHours: 8
   sheduleMinutes: 0
-  sheduleSeconds: 15
+  sheduleSeconds: 0
 --- !u!1 &1809391146
 GameObject:
   m_ObjectHideFlags: 0

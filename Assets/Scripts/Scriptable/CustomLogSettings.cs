@@ -23,8 +23,6 @@ namespace Scriptable
         {
             [Header("Default log")]
             public Color InsideColor = new Color(0xE5, 0xA5, 0x60);
-            public int MinWinCount = 0;
-            public int MaxWinCount = 4;
         }
         /// <summary>
         /// класс, хранящий информацию на уровне с боссом
