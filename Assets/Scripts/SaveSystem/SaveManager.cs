@@ -5,10 +5,12 @@ using UnityEngine;
 
 namespace SaveSystem
 {
+    /// <summary>
+    /// Класс, хранящий в себе изменяемые данные игрока
+    /// </summary>
     public class SaveManager : MonoBehaviour
     {
         [SerializeField] private float unlockForBossDelay = 1f;
-        
         private UserData _userData;
         public KnifeData Knife;
         public ShopData Shop;
@@ -16,10 +18,14 @@ namespace SaveSystem
         public ScoreData Score;
         public static SaveManager Inst;
         public void Save() => SaveSystem.Save(_userData);
+        /// <summary>
+        /// Метод инииализации вспомогательных классов. Здесь проводится проверка на
+        /// компоненты-дубликаты и на существование файла сохранения
+        /// </summary>
         private void Awake()
         {
-            CheckForDublicates();
-            Test_ClearProgress();
+            if(!CheckForDublicates()) return;
+            Test_ClearProgress(); // remove
             _userData = SaveSystem.Load();
             if (_userData == null)
             {
@@ -32,7 +38,6 @@ namespace SaveSystem
         }
         private void OnEnable()
         {
-            Debug.Log("enabled");
             Events.OnEquip.AddListener(Knife.Equip);
             Events.OnDefeatBoss.AddListener(()=>Invoke(nameof(UnlockForBoss), unlockForBossDelay));
         }
@@ -46,16 +51,27 @@ namespace SaveSystem
                 Knife.CurrentSprite = knifeItem.KnifeSprite;
             }
         }
-
-        private void CheckForDublicates()
+        /// <summary>
+        /// Проверка на аналогичный компонент на сцене. Если он уже существует,
+        /// то данный игровой объект уничтожается
+        /// </summary>
+        private bool CheckForDublicates()
         {
-            if (Inst != null) Destroy(gameObject);
+            if (Inst != null)
+            {
+                Destroy(gameObject);
+                return false;
+            }
             else
             {
                 Inst = this;
                 DontDestroyOnLoad(gameObject);
+                return true;
             }
         }
+        /// <summary>
+        /// метод задержки события открытия ножа на уровне с боссом
+        /// </summary>
         private void UnlockForBoss() => Shop.UnlockBossKnife();
         private void Test_ClearProgress()
         {

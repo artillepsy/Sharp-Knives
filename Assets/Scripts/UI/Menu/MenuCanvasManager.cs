@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 namespace UI.Menu
 {
+    /// <summary>
+    /// Менеджер окон для главного меню
+    /// </summary>
     public class MenuCanvasManager : AbstractCanvasManager
     {
         private void Start()

@@ -2,6 +2,9 @@
 
 namespace UI
 {
+    /// <summary>
+    /// Класс, контролирующий анимации у UI элементов
+    /// </summary>
     public class UIAnimationController : MonoBehaviour
     {
         [SerializeField] private AnimationClip appearAnimClip;

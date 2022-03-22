@@ -2,6 +2,9 @@
 
 namespace Scriptable
 {
+    /// <summary>
+    /// Класс, хранящий в себе всю информацию об уровне
+    /// </summary>
     [CreateAssetMenu(fileName = "Level Data")]
     public class Level : ScriptableObject
     {
@@ -9,6 +12,9 @@ namespace Scriptable
         public LogSettings Log;
         public KnifeSettings Knife;
         
+        /// <summary>
+        /// Класс настройки шанса выпадения и количества объектов
+        /// </summary>
         [System.Serializable]
         public class ItemsSettings
         {
@@ -28,7 +34,9 @@ namespace Scriptable
             public int MinKnifeCount = 1;
             public int MaxKnifeCount = 2;
         }
-
+        /// <summary>
+        /// Класс настройки графики и аудио бревна, а также его вращения
+        /// </summary>
         [System.Serializable]
         public class LogSettings
         {
@@ -54,7 +62,9 @@ namespace Scriptable
             [Space] 
             public bool AlwaysSwapDirection = false;
         }
-
+        /// <summary>
+        /// Класс настройки количества запускаемых ножей на уровне
+        /// </summary>
         [System.Serializable]
         public class KnifeSettings
         {

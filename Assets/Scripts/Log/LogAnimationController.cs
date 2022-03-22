@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Log
 {
+    /// <summary>
+    /// Класс, отвечающий за контроль анимаций бревна
+    /// </summary>
     public class LogAnimationController : MonoBehaviour
     {
         [Header("Material settings")] 
@@ -23,7 +26,10 @@ namespace Log
             _material.SetFloat(_amount, 0);
             _animation = GetComponent<Animation>();
         }
-
+        /// <summary>
+        /// ПОдписка на событие втыкание ножа в бревно: Проигрывание анимации "подброса"
+        /// и установка таймера в начало
+        /// </summary>
         private void OnEnable()
         {
             Events.OnKnifeHit.AddListener(() =>
@@ -35,15 +41,22 @@ namespace Log
 
         private void Update()
         {
-            if(ShouldShake()) ChangeColor();
+            if(ShouldChangeColor()) ChangeColor();
         }
+        /// <summary>
+        /// Метод, изменяющий цвет материала бревна при помощи
+        /// анимационной кривой
+        /// </summary>
         private void ChangeColor()
         {
             var value = animationCurve.Evaluate(_totalTime / duration);
             value *= maxIntensity;
             _material.SetFloat(_amount, value);
         }
-        private bool ShouldShake()
+        /// <summary>
+        /// Проверка на то, должен ли меняться цвет бревна
+        /// </summary>
+        private bool ShouldChangeColor()
         {
             if (_totalTime >= duration) return false;
             _totalTime += Time.deltaTime;

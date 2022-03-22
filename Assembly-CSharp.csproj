@@ -42,10 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\SaveSystem\SaveSystem.cs" />
-     <Compile Include="Assets\Scripts\Log\ItemPlacement.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-     <Compile Include="Assets\Scripts\UI\CanvasStateController.cs" />
+     <Compile Include="Assets\Scripts\UI\CanvasStateListener.cs" />
      <Compile Include="Assets\Scripts\Scriptable\Level.cs" />
      <Compile Include="Assets\Scripts\Knife\KnifeState.cs" />
      <Compile Include="Assets\Scripts\UI\AbstractCanvasManager.cs" />
@@ -75,7 +74,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Scriptable\KnifeShopItem.cs" />
      <Compile Include="Assets\Scripts\Scriptable\IOnLevelLoad.cs" />
-     <Compile Include="Assets\Scripts\UI\ButtonAudioClick.cs" />
+     <Compile Include="Assets\Scripts\UI\ButtonOnClickInvoker.cs" />
      <Compile Include="Assets\Scripts\Core\TapInput.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
      <Compile Include="Assets\Scripts\CameraScriptable\CameraStartAnim.cs" />
@@ -96,7 +95,7 @@
      <Compile Include="Assets\Scripts\Management\KnifeManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
      <Compile Include="Assets\Scripts\UI\Shop\InteractiveButton.cs" />
-     <Compile Include="Assets\Scripts\UI\Shop\KnifeDisplay.cs" />
+     <Compile Include="Assets\Scripts\UI\Game\KnifeDisplay.cs" />
      <Compile Include="Assets\Scripts\UI\Menu\MenuSettings.cs" />
      <Compile Include="Assets\Scripts\UI\UIAnimationController.cs" />
      <Compile Include="Assets\Scripts\UI\IOnCanvasChange.cs" />

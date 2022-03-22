@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Management
 {
+    /// <summary>
+    /// Менеджер уведомлений
+    /// </summary>
     public class NotificationsManager : MonoBehaviour
     {
         [SerializeField] private string title;
@@ -14,7 +17,13 @@ namespace Management
         private float MinToSec => sheduleMinutes / 60f;
         private float HourToSec => sheduleHours / 3600f;
 
+        /// <summary>
+        /// Метод ставит на повтор откладывание уведомления, пока приложение запущено
+        /// </summary>
         private void Start() => InvokeRepeating(nameof(SheduleNotifications),0, _checkTimeInSeconds);
+        /// <summary>
+        /// Метод формирования уведомления. Заголовок, текст и время настраиваются в инспекторе
+        /// </summary>
         private void SheduleNotifications()
         {
             AndroidNotificationChannel channel = new AndroidNotificationChannel()

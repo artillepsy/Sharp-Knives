@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace Scriptable
 {
-    [CreateAssetMenu(fileName = "Log Graphics")]
+    /// <summary>
+    /// Класс, хранщий графические и аудио настройки бревна
+    /// </summary>
+    [CreateAssetMenu(fileName = "Log Settings")]
     public class CustomLogSettings : ScriptableObject
     {
         public bool IsBoss = false;
@@ -12,6 +15,9 @@ namespace Scriptable
         public DefaultLog Default;
         public BossLog Boss;
 
+        /// <summary>
+        /// Класс, хранящий информацию о бревне на обычном уровне
+        /// </summary>
         [System.Serializable]
         public class DefaultLog
         {
@@ -20,6 +26,9 @@ namespace Scriptable
             public int MinWinCount = 0;
             public int MaxWinCount = 4;
         }
+        /// <summary>
+        /// класс, хранящий информацию на уровне с боссом
+        /// </summary>
         [System.Serializable]
         public class BossLog
         {

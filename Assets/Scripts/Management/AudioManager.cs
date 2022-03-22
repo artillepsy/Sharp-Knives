@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Management
 {
+    /// <summary>
+    /// Класс, отвечающий за звуковое сопровождение в игре
+    /// </summary>
     public class AudioManager : MonoBehaviour, IOnLevelLoad
     {
         [SerializeField] private AudioClip buttonClick;
@@ -26,6 +29,10 @@ namespace Management
         private List<AudioClip> _logHitClips;
         private List<AudioClip> _logDestroyClips;
 
+        /// <summary>
+        /// Замена обычных звуков на звуки для босса (втыкание ножа в бревно и звук разбиения)
+        /// </summary>
+        /// <param name="level"></param>
         public void OnLevelLoad(Level level)
         {
             if (level.Log.Settings.IsBoss) PlayClip(bossFightClip);
@@ -47,6 +54,9 @@ namespace Management
                 _logDestroyClips = logDestroyClips;
             }
         }
+        /// <summary>
+        /// Инициализация звуков и вибрации на нужные игровые события
+        /// </summary>
         private void OnEnable()
         {
             Vibration.Init();
@@ -73,7 +83,7 @@ namespace Management
             });
             Events.OnAppleHit.AddListener(()=>PlayClip(appleHitClips));
             Events.OnThrow.AddListener(()=> PlayClip(onThrowClips));
-            Events.OnClikButton.AddListener(()=> PlayClip(buttonClick));
+            Events.OnClickButton.AddListener(()=> PlayClip(buttonClick));
             Events.OnUnlock.AddListener(()=> PlayClip(unlockKnifeClip));
             Events.OnEquip.AddListener((item)=>PlayClip(equipKnifeClip));
         }
@@ -83,7 +93,15 @@ namespace Management
             _audioSource.volume =  SaveManager.Inst.Sound.Volume;
             _vibration =  SaveManager.Inst.Sound.Vibration;
         }
+        /// <summary>
+        /// Проигрывание случайного клипа из списка
+        /// </summary>
+        /// <param name="clips"></param>
         private void PlayClip(List<AudioClip> clips) => _audioSource.PlayOneShot(clips[Random.Range(0, clips.Count)]);
+        /// <summary>
+        /// проигрывание клипа
+        /// </summary>
+        /// <param name="clip"></param>
         private void PlayClip(AudioClip clip) => _audioSource.PlayOneShot(clip);
     }
 }

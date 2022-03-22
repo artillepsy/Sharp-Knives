@@ -3,10 +3,13 @@ using UnityEngine.Events;
 
 namespace Core
 {
+    /// <summary>
+    /// Класс со всеми игровыми ивентами
+    /// </summary>
     public static class Events
     {
         public static readonly UnityEvent OnThrow = new UnityEvent();
-        public static readonly UnityEvent OnClikButton = new UnityEvent();
+        public static readonly UnityEvent OnClickButton = new UnityEvent();
         public static readonly UnityEvent OnKnifeDrop = new UnityEvent();
         public static readonly UnityEvent OnKnifeHit = new UnityEvent();
         public static readonly UnityEvent OnAppleHit = new UnityEvent();

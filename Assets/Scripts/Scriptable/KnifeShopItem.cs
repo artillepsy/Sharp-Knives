@@ -2,6 +2,9 @@
 
 namespace Scriptable
 {
+    /// <summary>
+    /// Класс, хранящий информацию о ноже для окна магазина
+    /// </summary>
     [CreateAssetMenu(fileName = "Knife item")]
     public class KnifeShopItem : ScriptableObject
     {

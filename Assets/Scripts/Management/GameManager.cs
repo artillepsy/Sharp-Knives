@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using System;
+using Core;
 using SaveSystem;
 using Scriptable;
 using UnityEngine;
@@ -6,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 namespace Management
 {
+    /// <summary>
+    /// Класс, отвечающий за условия победы и поражения во время игры
+    /// </summary>
     public class GameManager : MonoBehaviour, IOnLevelLoad
     {
         [SerializeField] private string levelName = "Game";
@@ -25,15 +29,32 @@ namespace Management
         {
             Events.OnKnifeDrop.AddListener(OnKnifeDrop);
             Events.OnKnifeHit.AddListener(OnKnifeHit);
-            Events.OnAppleHit.AddListener( () => SaveManager.Inst.Score.IncrementApples());
+            Events.OnAppleHit.AddListener(IncrementApples);
         }
+        private void OnDisable()
+        {
+            Events.OnKnifeDrop.RemoveListener(OnKnifeDrop);
+            Events.OnKnifeHit.RemoveListener(OnKnifeHit);
+            Events.OnAppleHit.RemoveListener(IncrementApples);
+        }
+
+        private void IncrementApples() => SaveManager.Inst.Score.IncrementApples();
+
+        /// <summary>
+        /// метод, срабатывающий при втыкании ножа в бревно и инкрементирующий
+        /// значение очков. Проверяет основное условие для победы - равно ли количество
+        /// оставшихся ножей нулю
+        /// </summary>
         private void OnKnifeHit()
         {
             _knifeCount--;
             SaveManager.Inst.Score.CurrentScore++;
             if(_knifeCount == 0) OnWin();
         }
-
+        /// <summary>
+        /// Метод, вызываемый при поражении. Он сбрасывает сохраняеые значения и
+        /// устанавливает новый рекорд, если старый был побит
+        /// </summary>
         private void OnKnifeDrop()
         {
            Invoke(nameof(LoadGameOverScreen), newSceneLoadTime);
@@ -45,6 +66,9 @@ namespace Management
            SaveManager.Inst.Score.CurrentScore = 0;
            SaveManager.Inst.Save();
         }
+        /// <summary>
+        /// Метод, вызываемый при победе. Он инкрементирует счетчик побед и вызывает событие победы
+        /// </summary>
         private void OnWin()
         {
             var delay = _bossLevel ? afterBossWinLoadTime : newSceneLoadTime;
@@ -57,6 +81,9 @@ namespace Management
             SaveManager.Inst.Save();
             Events.OnWinGame?.Invoke();
         }
+        /// <summary>
+        /// Метод, вызываемый с задержкой, оповещающий о поражении
+        /// </summary>
         private void LoadGameOverScreen() => Events.OnFailGame?.Invoke();
         
     }

@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace Management
 {
+    /// <summary>
+    /// Класс, отвечающий за инициализацию кнопок в окне магазина
+    /// </summary>
     public class ShopManager : MonoBehaviour
     {
         [SerializeField] private Transform content;
@@ -16,6 +19,10 @@ namespace Management
         private List<KnifeShopButton> _buyButtons;
         public List<KnifeShopItem> KnifeItems => knifeItems;
 
+        /// <summary>
+        /// Инициализация кликабельных иконок ножей. Ножи, выдаваемые за
+        /// победу над боссами, располагаются в конце
+        /// </summary>
         private void Start()
         {
             _buyButtons = new List<KnifeShopButton>();

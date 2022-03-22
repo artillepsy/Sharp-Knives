@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Management
 {
+    /// <summary>
+    /// Класс, инициализирующий параметры при старте
+    /// </summary>
     public class MenuManager : MonoBehaviour
     {
         private void Start()

@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace SaveSystem
 {
+    /// <summary>
+    /// Класс, содержащий сохраняемые значения
+    /// </summary>
     [System.Serializable]
     public class UserData
     {
@@ -18,6 +21,10 @@ namespace SaveSystem
         public int WinCount;
         public int BossHP;
 
+        /// <summary>
+        /// конструктор, в котором можно задать начальное количество яблок,
+        /// открытых ножей, а также нож, который будет экипирован
+        /// </summary>
         public UserData(int appleCount, int equippedKnifeId, List<int> unlockedKnives)
         {
             AppleCount = appleCount;
@@ -30,20 +37,32 @@ namespace SaveSystem
             BossHP = 100;
         }
     }
+    /// <summary>
+    /// Базовый класс для тех, которые предоставляют ограниченный доступ к данным,
+    /// хранящимся в файле
+    /// </summary>
     public class AbstractData
     {
         protected UserData _userData;
         public AbstractData(UserData userData) => _userData = userData;
     }
+    /// <summary>
+    /// Класс, хранящий данные ножа
+    /// </summary>
     public class KnifeData : AbstractData
     {
         public Sprite CurrentSprite;
         public KnifeData(UserData userData) : base(userData)
         {
         }
-        
+        /// <summary>
+        /// Метод, сохраняющий спрайт экипированного ножа
+        /// </summary>
         public void Equip(KnifeShopItem item) => CurrentSprite = item.KnifeSprite;
     }
+    /// <summary>
+    /// Класс, предоставляющий доступ к настройкам аудио
+    /// </summary>
     public class SoundData : AbstractData
     {
         public float Volume => _userData.Volume;
@@ -51,7 +70,10 @@ namespace SaveSystem
         public SoundData(UserData userData) : base(userData)
         {
         }
-        
+        /// <summary>
+        /// Метод, сохраняемый значения аудио и вибрации в файл. Вызывает
+        /// события изменения настроек
+        /// </summary>
         public void SetVolumeSettings(float volume, bool vibration)
         {
             _userData.Volume = volume;
@@ -60,6 +82,10 @@ namespace SaveSystem
             Events.OnSettingsChange?.Invoke();
         }
     }
+    /// <summary>
+    /// Класс, предоставляющий доступ к данным о ножах в файле и
+    /// к данным о ножах из магазина
+    /// </summary>
     public class ShopData : AbstractData
     {
         public List<KnifeShopItem> Knives;
@@ -68,7 +94,10 @@ namespace SaveSystem
         public ShopData(UserData userData) : base(userData)
         {
         }
-        
+        /// <summary>
+        /// Метод открытия ножика. Добавляет его в список разблокированных, сохраняет
+        /// информацию и вызывает соответствующее событие
+        /// </summary>
         public void Unlock(KnifeShopItem item)
         {
             if(!item.IsBossDrop) _userData.AppleCount -= item.Cost;
@@ -76,7 +105,10 @@ namespace SaveSystem
             Events.OnUnlock?.Invoke();
             SaveSystem.Save(_userData);
         }
-
+        /// <summary>
+        /// Метод, открывающий ножик за победу над боссом. Вызывает события при открытии
+        /// и сохраняет данные в файл
+        /// </summary>
         public void UnlockBossKnife()
         {
             var lockedBossKnives = new List<KnifeShopItem>();
@@ -92,7 +124,10 @@ namespace SaveSystem
             Events.OnUnlock?.Invoke();
             SaveSystem.Save(_userData);
         }
-
+        /// <summary>
+        /// Метод, меняющий идентификатор экипированного ножа в файле и
+        /// вызывающий соответствующее событие
+        /// </summary>
         public void Equip(KnifeShopItem item)
         {
             _userData.EquippedKnifeId = item.Id;
@@ -100,6 +135,9 @@ namespace SaveSystem
             Events.OnEquip?.Invoke(item);
         }
     }
+    /// <summary>
+    /// Класс, предоставляющий доступ к игровму счету
+    /// </summary>
     public class ScoreData: AbstractData
     {
         public int WinCount => _userData.WinCount;
@@ -117,18 +155,20 @@ namespace SaveSystem
         }
 
         public int BossHP => _userData.BossHP;
-
         public int CurrentScore;
 
         public ScoreData(UserData userData) : base(userData)
         {
         }
-
+        
         public void IncrementApples() => _userData.AppleCount += 2;
 
         public void ResetWinCount() => _userData.WinCount = 0;
         public void IncrementWins() => _userData.WinCount++;
-
+        /// <summary>
+        /// Метод нанесения боссу урона. Если босс побежден, вызывается
+        /// соответствующее событие здоровье босса восстанавливается
+        /// </summary>
         public void DamageBoss(int damage)
         {
             if (_userData.BossHP <= damage)

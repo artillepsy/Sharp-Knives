@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Management
 {
+    /// <summary>
+    /// Менеджер уровней. Определяет, какой уровень из списка будет текущим
+    /// </summary>
     public class LevelManager : MonoBehaviour
     {
         [SerializeField] private List<Level> levels;
@@ -23,6 +26,11 @@ namespace Management
                 subscriber.OnLevelLoad(level);
             }
         }
+        /// <summary>
+        /// Метод, который возвращает обычный случайный уровень из списка. В учёт
+        /// также идёт текущая стадия игрока и минимальное/максимальное
+        /// значение стадий для уровней
+        /// </summary>
         private Level GetUsualLevel()
         {
             var usualLevels = new List<Level>();
@@ -43,7 +51,10 @@ namespace Management
             }
             return usualLevels[Random.Range(0, usualLevels.Count)];
         }
-
+        /// <summary>
+        /// Метод, который возвращает уровень с боссом из списка доступных
+        /// Учитывается шанс выпадения босса
+        /// </summary>
         private Level GetBossLevel()
         {
             var bossLevels = new List<Level>();

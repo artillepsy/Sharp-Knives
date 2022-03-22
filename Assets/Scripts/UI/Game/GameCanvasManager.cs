@@ -6,11 +6,19 @@ using UnityEngine.SceneManagement;
 
 namespace UI.Game
 {
+    /// <summary>
+    /// Класс, регулирующий отображение окон во время игры
+    /// </summary>
     public class GameCanvasManager : AbstractCanvasManager, IOnLevelLoad
     {
         [SerializeField] private float bossStartCanvasShowTime = 3f;
         
         private bool _isBoss = false;
+        /// <summary>
+        /// Метод проверяет, является ли уровень битвой с боссом. Если да,
+        /// то вызывается стартовое окно битвы с боссом и открадывается его
+        /// исчезновение
+        /// </summary>
         public void OnLevelLoad(Level level)
         {
             _isBoss = level.Log.Settings.IsBoss;
@@ -18,36 +26,14 @@ namespace UI.Game
             if (_isBoss)
             {
                 NotifyAll(CanvasType.BossLevelStart, false);
-                Invoke(nameof(HideStartBossCanvas), bossStartCanvasShowTime);
+                Invoke(nameof(ShowGameCanvas), bossStartCanvasShowTime);
             }
             else NotifyAll(CanvasType.Game, false);
         }
-
-        public void OnClickPause()
-        {
-           // Time.timeScale = 0f;
-            NotifyAll(CanvasType.Pause);
-        }
-
-        public void OnClickRestart()
-        {
-            //NotifyAll(CanvasType.Game);
-            SceneManager.LoadSceneAsync("Game");
-        }
-
-        public void OnClickResume()
-        {
-           // Time.timeScale = 1f;
-            NotifyAll(CanvasType.Game);
-        }
-
-        public void OnClickMainMenu()
-        {
-           // Time.timeScale = 1f;
-           // SceneManager.LoadSceneAsync("Menu");
-           Invoke(nameof(LoadMenuLevel), changeDelayInSeconds);
-        }
-
+        public void OnClickPause() => NotifyAll(CanvasType.Pause);
+        public void OnClickRestart() =>  SceneManager.LoadSceneAsync("Game");
+        public void OnClickResume() => NotifyAll(CanvasType.Game); 
+        public void OnClickMainMenu() => Invoke(nameof(LoadMenuLevel), changeDelayInSeconds);
         private void OnEnable()
         {
             _subs = FindObjectsOfType<MonoBehaviour>().OfType<IOnCanvasChange>().ToList();
@@ -57,7 +43,10 @@ namespace UI.Game
                 if (_isBoss) NotifyAll(CanvasType.BossLevelEnd);
             });
         }
-        private void HideStartBossCanvas() => NotifyAll(CanvasType.Game);
+        /// <summary>
+        /// Метод, возвращающий окно уровня. Вызывается с задержкой
+        /// </summary>
+        private void ShowGameCanvas() => NotifyAll(CanvasType.Game);
         private void LoadMenuLevel() => SceneManager.LoadSceneAsync("Menu");
         
     }

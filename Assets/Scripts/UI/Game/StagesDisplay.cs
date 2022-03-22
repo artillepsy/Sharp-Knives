@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 namespace UI.Game
 {
+    /// <summary>
+    /// Класс, отображающий текущую стадию во время игры
+    /// </summary>
     public class StagesDisplay : MonoBehaviour, IOnLevelLoad
     {
         [SerializeField] private Transform content;
@@ -14,6 +17,10 @@ namespace UI.Game
         [SerializeField] private Image imagePrefab;
         [SerializeField] private Image bossImagePrefab;
         [SerializeField] private Color selectedColor;
+        /// <summary>
+        /// Метод спавнит иконки стадий в окне игры и закрашивает их в цвета
+        /// в зависимости от того, какая сейчас стадия
+        /// </summary>
         public void OnLevelLoad(Level level)
         {
             var levelManager = FindObjectOfType<LevelManager>();

@@ -5,6 +5,9 @@ using Random = UnityEngine.Random;
 
 namespace Log
 {
+    /// <summary>
+    /// Класс, отвечающий за вращение бревна
+    /// </summary>
     public class LogRotation : MonoBehaviour, IOnLevelLoad
     {
         [Header("Rotation")] 
@@ -19,19 +22,39 @@ namespace Log
         private float _currentTime;
         private float _maxTime;
         private float _maxRotationSpeed;
+        /// <summary>
+        /// Перечисление состояний вращения
+        /// </summary>
+        private enum RotationState
+        {
+            Accelerating, // ускорение
+            Stopping, // замедление
+            Stopped, // остановка
+            Rotating // вращение
+        }
         public void OnLevelLoad(Level level) => _level = level;
+        /// <summary>
+        /// Текущий метод инициализирует начальное направление бревна и состояние вращения
+        /// </summary>
         private void Start()
         {
             _direction = Random.value > 0.5f ? 1 : -1;
             _action = null;
             ChangeState();
         }
+        /// <summary>
+        /// Текущий метод проверяет, нужно ли изменять состояние вращеня,
+        /// и вызывает характерный для текущего состояния метод
+        /// </summary>
         private void Update()
         {
             if (NeedChangeState()) ChangeState();
             _action?.Invoke();
         }
-
+        /// <summary>
+        /// Метод изменения сосояния вращения бревна. Здесь устанавливается длительность состояния,
+        /// скорость вращения, направление вращения и само состояние
+        /// </summary>
         private void ChangeState()
         {
             if (!_level) return;
@@ -64,32 +87,36 @@ namespace Log
             }
             _currentTime = 0f;
         }
+        /// <summary>
+        /// Проверка на то, закончилось ли время текущего состояния
+        /// </summary>
         private bool NeedChangeState()
         {
             if (_currentTime >= _maxTime) return true;
             _currentTime += Time.deltaTime;
             return false;
         }
+        /// <summary>
+        /// Метод, вызываемый в Update при ускорении
+        /// </summary>
         private void Accelerate()
         {
             var rotationSpeed = accelerationAnimCurve.Evaluate(_currentTime / _maxTime);
             rotationSpeed *= _maxRotationSpeed;
             child.Rotate(rotationUp, rotationSpeed*Time.deltaTime);
         }
+        /// <summary>
+        /// Метод, вызываемый в Update при замедлении
+        /// </summary>
         private void Stop()
         {
             var rotationSpeed = stopAnimCurve.Evaluate(_currentTime / _maxTime);
             rotationSpeed *= _maxRotationSpeed;
             child.Rotate(rotationUp, rotationSpeed*Time.deltaTime);
         }
+        /// <summary>
+        /// Метод, вызываемый в Update при вращении
+        /// </summary>
         private void Rotate() => child.Rotate(rotationUp, _maxRotationSpeed*Time.deltaTime);
-        
-        private enum RotationState
-        {
-            Accelerating,
-            Stopping,
-            Stopped,
-            Rotating
-        }
     }
 }

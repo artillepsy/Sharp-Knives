@@ -7,10 +7,17 @@ using UnityEngine;
 
 namespace ItemThrow
 {
+    /// <summary>
+    /// Класс, отвечающий за бросок частей бревна в случае победы
+    /// </summary>
     public class LogPartThrower : MonoBehaviour, IOnLevelLoad
     {
         private GameObject _log;
         private List<ThrowablePart> _parts;
+        /// <summary>
+        /// Здесь идёт проверка на то, что загруженный уровень не является битвой с боссом. Если оно так,
+        /// то в скрипте не идёт подписка на события в случае победы
+        /// </summary>
         public void OnLevelLoad(Level level)
         {
             if (!level.Log.Settings.IsBoss) return;
@@ -26,6 +33,9 @@ namespace ItemThrow
             _log = FindObjectOfType<LogRotation>().gameObject;
             Events.OnWinGame.AddListener(ThrowParts);
         }
+        /// <summary>
+        /// В данном методе идёт активизация частей бревна и придача им имбульса
+        /// </summary>
         private void ThrowParts()
         {
             transform.rotation = _log.transform.rotation;

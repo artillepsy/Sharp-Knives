@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace SaveSystem
 {
+    /// <summary>
+    /// Класс, хранящий методы для работы с файлом сохранения
+    /// </summary>
     public static class SaveSystem
     {
         public static void Save(UserData data)

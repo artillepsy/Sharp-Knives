@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace UI.Game
 {
+    /// <summary>
+    /// КЛасс, отвечающий за отображение счета во время игры
+    /// </summary>
     public class GameScoreDisplay : MonoBehaviour, IOnCanvasChange
     {
         [SerializeField] private string currentScoreText = "Score:";
@@ -23,15 +26,18 @@ namespace UI.Game
         private int _appleCount = 0;
         private int _hitScore = 0;
 
+        /// <summary>
+        /// При изменении окна обновляются соответствующие UI элементы
+        /// </summary>
         public void OnCanvasChange(CanvasType newType, float timeInSeconds = 0)
         {
             switch (newType)
             {
                 case CanvasType.Fail:
-                    DisplayFailScore();
+                    UpdateFailScore();
                     break;
                 case CanvasType.Pause:
-                    DisplayPauseScore();
+                    UpdatePauseScore();
                     break;
             }
         }
@@ -40,9 +46,9 @@ namespace UI.Game
         {
             Events.OnAppleHit.AddListener(IncrementApples);
             Events.OnKnifeHit.AddListener(IncrementScore);
-            Events.OnKnifeDrop.AddListener(DisplayFailScore);
+            Events.OnKnifeDrop.AddListener(UpdateFailScore);
         }
-
+        
         private void Start()
         {
             _manager = FindObjectOfType<SaveManager>();
@@ -62,15 +68,19 @@ namespace UI.Game
         {
             _hitScore++;
             hitScore.text = _hitScore.ToString();
-            
         }
-
-        private void DisplayFailScore()
+        /// <summary>
+        /// Обновление счета на экране поражения
+        /// </summary>
+        private void UpdateFailScore()
         {
             failCanvasCurrentScore.text = currentScoreText + " " + _hitScore;
             failCanvasHighScore.text = highScoreText + " " + _manager.Score.HighScore;
         }
-        private void DisplayPauseScore()
+        /// <summary>
+        /// Обновление счета на экране паузы
+        /// </summary>
+        private void UpdatePauseScore()
         {
             pauseCanvasCurrentScore.text = currentScoreText + " " + _hitScore;
             pauseCanvasHighScore.text = highScoreText + " " + _manager.Score.HighScore;

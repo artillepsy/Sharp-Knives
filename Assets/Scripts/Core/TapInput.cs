@@ -1,9 +1,11 @@
-﻿using Management;
-using UI;
+﻿using UI;
 using UnityEngine;
 
 namespace Core
 {
+    /// <summary>
+    /// Класс, отвечающий за отслеживание нажатий во время игры
+    /// </summary>
     public class TapInput : MonoBehaviour, IOnCanvasChange
     {
         [SerializeField] private float reloadTimeInSeconds = 1f;
@@ -12,10 +14,16 @@ namespace Core
         private bool _inputEnabled = true;
         private Camera _camera;
         public float ReloadTimeInSeconds => reloadTimeInSeconds;
+        /// <summary>
+        /// Если игровой канвас скрыт, то отслеживание нажатий отключено
+        /// </summary>
         public void OnCanvasChange(CanvasType newType, float time)
         {
             _inputEnabled = newType == CanvasType.Game;
         }
+        /// <summary>
+        /// Данный метод включает в себя подписку на игровые моменты, после которых отслеживание нажатий прекращается
+        /// </summary>
         private void OnEnable()
         {
             _tapZoneCollider = GetComponentInChildren<Collider>();
@@ -24,6 +32,9 @@ namespace Core
             Events.OnKnifeDrop.AddListener(() => _inputEnabled = false);
             Events.OnWinGame.AddListener(() => _inputEnabled = false);
         }
+        /// <summary>
+        /// Отслеживание нажатий. Если все условия соблюдены, то вызывается метод бросания ножа
+        /// </summary>
         private void Update()
         {
             if (!_inputEnabled) return;
@@ -34,11 +45,17 @@ namespace Core
             if (!Physics.Raycast(ray, out var hit)) return;
             if(hit.collider  == _tapZoneCollider) Throw();            
         }
+        /// <summary>
+        /// Срабатывание ивента бросания ножа и обновление таймера задержки нового отслеживания
+        /// </summary>
         private void Throw()
         {
             Events.OnThrow?.Invoke();
             _currentTime = reloadTimeInSeconds;
         }
+        /// <summary>
+        /// проверка то, сколько прошло времени с момента предыдущего броска, и возвращение результата о готовности нового
+        /// </summary>
         private bool ReadyToThrow()
         {
             if (_currentTime <= 0) return true;
