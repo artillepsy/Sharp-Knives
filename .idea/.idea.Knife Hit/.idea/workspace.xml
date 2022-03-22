@@ -20,44 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23757215-a1a0-4088-aa38-fefc001038b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Knife Hit/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс плоть.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс плоть/я1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс плоть/я1.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс плоть/я2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс плоть/я2.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс плоть/я3.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс плоть/я3.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс плоть/я4.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс плоть/я4.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс плоть/я5.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс плоть/я5.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс пузырь.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс пузырь/мп1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс пузырь/мп1.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс пузырь/мп2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс пузырь/мп2.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс пузырь/мп3.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс пузырь/мп3.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс пузырь/мп4.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс пузырь/мп4.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс пузырь/мп5.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/Босс пузырь/мп5.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level Settings/Level Data/BossLevel.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Settings/Level Data/BossLevel.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level Settings/Log/BossLog.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level Settings/Log/BossLog.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level Settings/Log/DefaultLog.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Settings/Log/DefaultLog.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Shader Graphs_LogFlash.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Shader Graphs_LogFlash.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/UIBtn3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UIBtn3.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Particles/KnifeHitParticleSystem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Particles/KnifeHitParticleSystem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/New/MenuAppear.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/New/MenuAppear.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/New/MenuDisappear.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/New/MenuDisappear.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/Magistros SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/Magistros SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Management/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Management/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptable/CustomLogSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/CustomLogSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scriptable/Level.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scriptable/Level.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Log-Default-Skin.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Log-Default-Skin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/k-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/k-3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,12 +89,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/CanvasType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/IOnCanvasChange.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIAnimationController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Knife/KnifeStateController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/CustomLogSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Management/LevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Scriptable/Level.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SaveSystem/SaveManager.cs" />
       </list>
     </option>
   </component>
@@ -213,7 +184,7 @@
       <workItem from="1647940285657" duration="1130000" />
       <workItem from="1647941600936" duration="10786000" />
       <workItem from="1647954685664" duration="2272000" />
-      <workItem from="1647969063680" duration="770000" />
+      <workItem from="1647969063680" duration="2937000" />
     </task>
     <servers />
   </component>

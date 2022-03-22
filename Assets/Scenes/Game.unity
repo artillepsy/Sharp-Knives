@@ -1258,7 +1258,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503546330}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 963194227}
@@ -1733,8 +1733,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 143.7
-  m_fontSizeBase: 143.7
+  m_fontSize: 140.72
+  m_fontSizeBase: 140.72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2748,8 +2748,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000016451, y: 250}
-  m_SizeDelta: {x: 718.957, y: 137.761}
+  m_AnchoredPosition: {x: 0.00052452, y: 250}
+  m_SizeDelta: {x: 800, y: 137.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783472874
 MonoBehaviour:
@@ -2771,7 +2771,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tomato
+  m_text: waterlemon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6f36498df1241e142b517cdf24dea673, type: 2}
   m_sharedMaterial: {fileID: -9151852319987783539, guid: 6f36498df1241e142b517cdf24dea673, type: 2}
@@ -2798,8 +2798,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 111.5
-  m_fontSizeBase: 111.5
+  m_fontSize: 93.5
+  m_fontSizeBase: 93.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4254,7 +4254,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-561718
+  m_Name: pb_Mesh-92356
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4813,7 +4813,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-561700
+  m_Name: pb_Mesh-92338
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5813,7 +5813,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-561736
+  m_Name: pb_Mesh-92374
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

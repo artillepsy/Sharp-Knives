@@ -25,7 +25,6 @@ namespace SaveSystem
         private void Awake()
         {
             if(!CheckForDublicates()) return;
-            Test_ClearProgress(); // remove
             _userData = SaveSystem.Load();
             if (_userData == null)
             {
@@ -73,10 +72,5 @@ namespace SaveSystem
         /// метод задержки события открытия ножа на уровне с боссом
         /// </summary>
         private void UnlockForBoss() => Shop.UnlockBossKnife();
-        private void Test_ClearProgress()
-        {
-            _userData = new UserData(30, 1, new List<int>(){1});
-            SaveSystem.Save(_userData);
-        }
     }
 }
