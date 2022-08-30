@@ -28,4 +28,4 @@ And created these features:
 
 ### Summary
 
-This is a personal project which avaliable on [Play Market](https://play.google.com/store/apps/details?id=com.Artillepsy.SharpKnives). This game was made for 2 weeks.
+This is a personal project which available on [Play Market](https://play.google.com/store/apps/details?id=com.Artillepsy.SharpKnives). This game was made for 2 weeks.
